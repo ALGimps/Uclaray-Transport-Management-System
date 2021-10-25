@@ -15,6 +15,7 @@ namespace Uclaray_Transport_Management_System.Employee_management
     public partial class frmAddEmployee : Form
     {
         private readonly frmEmployeeManagement frm1;
+        readonly Employee employee = new Employee();
         public frmAddEmployee(frmEmployeeManagement frm)
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace Uclaray_Transport_Management_System.Employee_management
         {
             if (!Regex.Match(ctrl.Text, regex).Success)
             {
-                MessageBox.Show(msg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ctrl.Focus();
                 return false;
             }
@@ -35,10 +36,10 @@ namespace Uclaray_Transport_Management_System.Employee_management
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            if (!isRegexValidated(txtfirst, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Invalid first name")) return;
-            if (!isRegexValidated(txtlast, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Invalid last name")) return;
-            if (!isRegexValidated(cbdesignation, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Invalid designation")) return;
-            if (!isRegexValidated(txtcontact, @"^(09|\+639|639)\d{9}$", "Invalid contact number")) return;
+            if (!isRegexValidated(txtfirst, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid first name")) return;
+            if (!isRegexValidated(txtlast, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid last name")) return;
+            if (!isRegexValidated(cbdesignation, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please select a designation")) return;
+            if (!isRegexValidated(txtcontact, @"^(09|\+639|639)\d{9}$", "Please enter a valid contact number")) return;
 
 
             //if (!Regex.Match(txtcontact.Text, @"^(09|\+639|639)\d{9}$").Success)
@@ -48,11 +49,14 @@ namespace Uclaray_Transport_Management_System.Employee_management
             //    return;
             //}
 
-            Employee Employee = new Employee();
-            Employee.AddEmployee(txtfirst.Text, txtlast.Text, cbdesignation.Text, txtcontact.Text);
-            MessageBox.Show("success");
+
+            employee.AddEmployee(txtfirst.Text, txtlast.Text, cbdesignation.Text, txtcontact.Text);
             frm1.loadData();
-            this.Close();
+        }
+
+        private void checkForExistingRecord(string first, string last, string contact)
+        {
+            
         }
     }
 }

@@ -130,12 +130,13 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(71)))), ((int)(((byte)(112)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(294, 265);
+            this.btnAdd.Location = new System.Drawing.Point(271, 263);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(80, 30);
+            this.btnAdd.Size = new System.Drawing.Size(85, 30);
             this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -143,9 +144,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(199, 265);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(176, 263);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 30);
+            this.button2.Size = new System.Drawing.Size(85, 30);
             this.button2.TabIndex = 12;
             this.button2.Text = "Reset";
             this.button2.UseVisualStyleBackColor = true;
@@ -156,7 +158,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(407, 319);
+            this.ClientSize = new System.Drawing.Size(384, 321);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cbdesignation);
@@ -169,6 +171,8 @@
             this.Controls.Add(this.txtlast);
             this.Controls.Add(this.txtfirst);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximumSize = new System.Drawing.Size(450, 410);
+            this.MinimumSize = new System.Drawing.Size(400, 360);
             this.Name = "frmAddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEmployee";
