@@ -59,34 +59,36 @@ namespace Uclaray_Transport_Management_System.Employee_management
 
         private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (dgvEmployees.Columns[e.ColumnIndex].Name == "update")
             {
                 var columnID = dgvEmployees.SelectedCells[0].Value;
-                if (MessageBox.Show("Update " + columnID, "Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
-                {
-                    MessageBox.Show("updated " + columnID);
-                }
+                frmUpdateEmployee frm = new frmUpdateEmployee(this, (int)columnID);
+                frm.ShowDialog();
             }
             if (dgvEmployees.Columns[e.ColumnIndex].Name == "setInactive")
             {
+                var name = dgvEmployees.SelectedCells[1].Value.ToString() + " " + dgvEmployees.SelectedCells[2].Value.ToString();
                 var columnID = dgvEmployees.SelectedCells[0].Value;
                  if (Convert.ToBoolean(dgvEmployees.SelectedCells[4].Tag)){
-                    if (MessageBox.Show("Do you want to set the status of employee no. " + columnID + " to inactive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Do you want to set the status of " + name + " to inactive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        employee.ChangeStatus(Convert.ToInt32(columnID),0);
+                        employee.changeStatus(Convert.ToInt32(columnID),0);
                     }
                 }
                 else
                 {
-                    if (MessageBox.Show("Do you want to set the status of employee no. " + columnID + " to active?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Do you want to set the status of " + name + " to active?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        employee.ChangeStatus(Convert.ToInt32(columnID),1);
+                        employee.changeStatus(Convert.ToInt32(columnID),1);
                     }
                 }
 
                 loadData();
             }
 
+
         }
+
     }
 }

@@ -12,14 +12,17 @@ using System.Text.RegularExpressions;
 
 namespace Uclaray_Transport_Management_System.Employee_management
 {
-    public partial class frmAddEmployee : Form
+    public partial class frmUpdateEmployee : Form
     {
         private readonly frmEmployeeManagement frm1;
         readonly Employee employee = new Employee();
-        public frmAddEmployee(frmEmployeeManagement frm)
+        Employee myEmployee;
+        public frmUpdateEmployee(frmEmployeeManagement frm, int id)
         {
             InitializeComponent();
             frm1 = frm;
+            //fetch employee details from database
+            myEmployee = employee.getEmployee(id);
         }
 
         private bool isRegexValidated(Control ctrl, String regex, String msg)
@@ -33,18 +36,42 @@ namespace Uclaray_Transport_Management_System.Employee_management
             return true;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
 
             if (!isRegexValidated(txtfirst, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid first name")) return;
             if (!isRegexValidated(txtlast, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid last name")) return;
             if (!isRegexValidated(cbdesignation, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please select a designation")) return;
             if (!isRegexValidated(txtcontact, @"^(09|\+639|639)\d{9}$", "Please enter a valid contact number")) return;
+            
+            if (MessageBox.Show("Save changes?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                employee.updateEmployee(myEmployee.id, txtfirst.Text, txtlast.Text, cbdesignation.Text, txtcontact.Text);
+                MessageBox.Show("Sucessfully updated", "Sucess", MessageBoxButtons.OK);
+                frm1.loadData();
+                this.Close();
+            }
 
-            employee.addEmployee(txtfirst.Text, txtlast.Text, cbdesignation.Text, txtcontact.Text);
-            MessageBox.Show("Sucessfully added", "Sucess", MessageBoxButtons.OK);
-            frm1.loadData();
         }
 
+        //Populate form with data from database
+        private void LoadData()
+        {
+            txtfirst.Text = myEmployee.firstName;
+            txtlast.Text = myEmployee.lastName;
+            cbdesignation.SelectedIndex = cbdesignation.FindStringExact(myEmployee.designation);
+            txtcontact.Text = myEmployee.contact;
+        }
+
+        private void frmUpdateEmployee_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+
+        private void frmReset_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

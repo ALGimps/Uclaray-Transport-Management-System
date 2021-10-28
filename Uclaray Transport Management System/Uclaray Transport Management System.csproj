@@ -52,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Employee.cs" />
+    <Compile Include="Employee management\frmUpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee management\frmUpdateEmployee.Designer.cs">
+      <DependentUpon>frmUpdateEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee management\frmAddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Employee management\frmUpdateEmployee.resx">
+      <DependentUpon>frmUpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employee management\frmAddEmployee.resx">
       <DependentUpon>frmAddEmployee.cs</DependentUpon>
     </EmbeddedResource>
