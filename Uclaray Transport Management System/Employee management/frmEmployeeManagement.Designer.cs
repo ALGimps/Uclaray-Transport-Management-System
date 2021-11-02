@@ -36,7 +36,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.txtfirst = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,15 +96,15 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Employees";
             // 
-            // txtfirst
+            // txtSearch
             // 
-            this.txtfirst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtfirst.Location = new System.Drawing.Point(12, 76);
-            this.txtfirst.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtfirst.Multiline = true;
-            this.txtfirst.Name = "txtfirst";
-            this.txtfirst.Size = new System.Drawing.Size(145, 25);
-            this.txtfirst.TabIndex = 6;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Location = new System.Drawing.Point(12, 76);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Multiline = true;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(145, 25);
+            this.txtSearch.TabIndex = 6;
             // 
             // dgvEmployees
             // 
@@ -168,6 +168,7 @@
             this.columnID.Name = "columnID";
             this.columnID.ReadOnly = true;
             this.columnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnID.Visible = false;
             this.columnID.Width = 60;
             // 
             // columnFirst
@@ -257,6 +258,7 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // button1
             // 
@@ -308,6 +310,7 @@
             // 
             // frmEmployeeManagement
             // 
+            this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -318,7 +321,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtfirst);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
             this.DoubleBuffered = true;
@@ -338,7 +341,7 @@
         #endregion
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtfirst;
+        private System.Windows.Forms.TextBox txtSearch;
         internal System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSearch;

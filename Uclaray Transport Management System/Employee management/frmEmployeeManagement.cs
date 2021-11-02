@@ -18,15 +18,20 @@ namespace Uclaray_Transport_Management_System.Employee_management
         {
             InitializeComponent();
             loadData();
-            lblRecords.Text = "Records: " + dgvEmployees.RowCount.ToString();
         }
 
         public void loadData()
         {
-            List<Employee> employeeList = employee.getAllEmployees();
+            populateDataGrid(employee.getAllEmployees());
+            //List<Employee> employeeList = employee.getAllEmployees();
             //dgvEmployees.DataSource = employeeList;
+
+        }
+
+        private void populateDataGrid(List<Employee> employeeList)
+        {
             dgvEmployees.Rows.Clear();
-            foreach(var emp in employeeList)
+            foreach (var emp in employeeList)
             {
                 var rowIndex = dgvEmployees.Rows.Add(new object[]
                 {
@@ -38,12 +43,13 @@ namespace Uclaray_Transport_Management_System.Employee_management
                     emp.contact,
                     imageList1.Images[2],
                     emp.active ? imageList1.Images[3] : imageList1.Images[4]
-                }) ;
+                });
                 dgvEmployees.Rows[rowIndex].Cells[4].Tag = emp.active;
                 dgvEmployees.Rows[rowIndex].Cells[6].ToolTipText = "Update employee details";
                 var tooltip = emp.active ? "Set employee as inactive" : "Set employee as active";
                 dgvEmployees.Rows[rowIndex].Cells[7].ToolTipText = tooltip;
             }
+            lblRecords.Text = "Records: " + dgvEmployees.RowCount.ToString();
         }
 
         private void frmEmployeeManagement_Load(object sender, EventArgs e)
@@ -90,5 +96,16 @@ namespace Uclaray_Transport_Management_System.Employee_management
 
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtSearch.Text))
+            {
+                loadData();
+            }
+            else
+            {
+                populateDataGrid(employee.searchEmployees(txtSearch.Text.Trim()));
+            }
+        }
     }
 }

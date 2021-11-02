@@ -24,11 +24,19 @@ namespace Uclaray_Transport_Management_System.Class
 
 
         //Define connection string
-        static string SERVER = "localhost";
-        static string USERID = "root";
-        static string PASSWORD = "1234";
+
+        //static string SERVER = "localhost";
+        //static string USERID = "root";
+        //static string PASSWORD = "1234";
+        //static string PORT = "3306";
+        //static string DATABASE = "uclaray_product_tracking_management_system";
+
+        static string SERVER = "db4free.net";
+        static string USERID = "capstone_test";
+        static string PASSWORD = "capstone_test";
         static string PORT = "3306";
-        static string DATABASE = "uclaray_product_tracking_management_system";
+        static string DATABASE = "capstone_test";
+
         static string connstring = $"SERVER= {SERVER}; USER ID= {USERID}; PASSWORD= {PASSWORD}; PORT= {PORT}; DATABASE= {DATABASE};";
 
         //Checks if record already exist in database
@@ -50,7 +58,7 @@ namespace Uclaray_Transport_Management_System.Class
             conn.Close();
             conn.Dispose();
 
-            if (recordExist>0)
+            if (recordExist > 0)
             {
                 return true;
             }
@@ -65,7 +73,7 @@ namespace Uclaray_Transport_Management_System.Class
         public void addEmployee(string firstName, string lastName, string designation, string contact)
         {
             //Check if record exist
-            if (recordExists(firstName,lastName,contact))
+            if (recordExists(firstName, lastName, contact))
             {
                 System.Windows.Forms.MessageBox.Show("Record already exist", "Failed", System.Windows.Forms.MessageBoxButtons.OK);
                 return;
@@ -77,7 +85,7 @@ namespace Uclaray_Transport_Management_System.Class
             string query = "INSERT INTO employees(emp_first, emp_last, emp_designation, emp_contact) VALUES(?firstname, ?lastname, ?designation, ?contact)";
 
             //Initialize Command
-            MySqlCommand comm = new MySqlCommand(query,conn);
+            MySqlCommand comm = new MySqlCommand(query, conn);
             comm.Parameters.AddWithValue("?firstname", firstName);
             comm.Parameters.AddWithValue("?lastname", lastName);
             comm.Parameters.AddWithValue("?designation", designation);
@@ -110,7 +118,7 @@ namespace Uclaray_Transport_Management_System.Class
         //Fetch all record in employees table
         public List<Employee> getAllEmployees()
         {
-            List < Employee > employeeList = new List<Employee>();
+            List<Employee> employeeList = new List<Employee>();
 
             MySqlConnection conn = new MySqlConnection(connstring);
             conn.Open();
@@ -188,6 +196,87 @@ namespace Uclaray_Transport_Management_System.Class
             }
 
             return employee;
+        }
+
+        public List<Employee> searchEmployees(string searchText)
+        {
+
+            List<Employee> employeeList = new List<Employee>();
+
+            // Initialize and open connection
+            MySqlConnection conn = new MySqlConnection(connstring);
+            conn.Open();
+
+            string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees WHERE (emp_first LIKE ?searchText OR emp_last LIKE ?searchText)";
+
+            //Initialize command
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.Parameters.AddWithValue("?searchText", "%"+searchText+"%");
+
+            //Execute Data reader
+            MySqlDataReader dr = comm.ExecuteReader();
+
+            //Populate List with data
+            while (dr.Read())
+            {
+                Employee employee = new Employee();
+                employee.id = (int)dr["emp_id"];
+                employee.firstName = dr["emp_first"].ToString();
+                employee.lastName = dr["emp_last"].ToString();
+                employee.designation = dr["emp_designation"].ToString();
+                employee.contact = dr["emp_contact"].ToString();
+                employee.active = Convert.ToBoolean(dr["active"]);
+                employeeList.Add(employee);
+            }
+            conn.Close();
+            conn.Dispose();
+
+            return employeeList;
+        }
+
+        public List<Employee> filterEmployees(string searchText, int filter)
+        {
+            string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees WHERE active = ?filter AND (emp_first LIKE %?searchText% OR emp_last LIKE %?searchText%)";
+            if (searchText == "" )
+            {
+                query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees WHERE active = ?filter";
+            }
+            if (true)
+            {
+                query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees WHERE emp_first LIKE %?filter%";
+            }
+
+            List<Employee> employeeList = new List<Employee>();
+
+
+
+            // Initialize and open connection
+            MySqlConnection conn = new MySqlConnection(connstring);
+            conn.Open();
+
+
+            //Initialize command
+            MySqlCommand comm = new MySqlCommand(query, conn);
+
+            //Execute Data reader
+            MySqlDataReader dr = comm.ExecuteReader();
+
+            //Populate List with data
+            while (dr.Read())
+            {
+                Employee employee = new Employee();
+                employee.id = (int)dr["emp_id"];
+                employee.firstName = dr["emp_first"].ToString();
+                employee.lastName = dr["emp_last"].ToString();
+                employee.designation = dr["emp_designation"].ToString();
+                employee.contact = dr["emp_contact"].ToString();
+                employee.active = Convert.ToBoolean(dr["active"]);
+                employeeList.Add(employee);
+            }
+            conn.Close();
+            conn.Dispose();
+
+            return employeeList;
         }
 
     }

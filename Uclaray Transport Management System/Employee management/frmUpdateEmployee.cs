@@ -55,7 +55,7 @@ namespace Uclaray_Transport_Management_System.Employee_management
         }
 
         //Populate form with data from database
-        private void LoadData()
+        private void loadData()
         {
             txtfirst.Text = myEmployee.firstName;
             txtlast.Text = myEmployee.lastName;
@@ -65,13 +65,12 @@ namespace Uclaray_Transport_Management_System.Employee_management
 
         private void frmUpdateEmployee_Load(object sender, EventArgs e)
         {
-            LoadData();
+            loadData();
         }
-
 
         private void frmReset_Click(object sender, EventArgs e)
         {
-            LoadData();
+            loadData();
         }
     }
 }
