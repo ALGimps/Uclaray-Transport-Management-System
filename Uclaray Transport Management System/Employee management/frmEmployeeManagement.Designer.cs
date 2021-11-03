@@ -52,6 +52,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lblRecords = new System.Windows.Forms.Label();
+            this.cboShowAll = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -308,6 +309,17 @@
             this.lblRecords.TabIndex = 115;
             this.lblRecords.Text = "Records: 0";
             // 
+            // cboShowAll
+            // 
+            this.cboShowAll.AutoSize = true;
+            this.cboShowAll.Location = new System.Drawing.Point(257, 77);
+            this.cboShowAll.Name = "cboShowAll";
+            this.cboShowAll.Size = new System.Drawing.Size(105, 21);
+            this.cboShowAll.TabIndex = 116;
+            this.cboShowAll.Text = "Show Inactive";
+            this.cboShowAll.UseVisualStyleBackColor = true;
+            this.cboShowAll.Visible = false;
+            // 
             // frmEmployeeManagement
             // 
             this.AcceptButton = this.btnSearch;
@@ -315,6 +327,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(804, 491);
+            this.Controls.Add(this.cboShowAll);
             this.Controls.Add(this.lblRecords);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -358,5 +371,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnContact;
         private System.Windows.Forms.DataGridViewImageColumn update;
         private System.Windows.Forms.DataGridViewImageColumn setInactive;
+        private System.Windows.Forms.CheckBox cboShowAll;
     }
 }

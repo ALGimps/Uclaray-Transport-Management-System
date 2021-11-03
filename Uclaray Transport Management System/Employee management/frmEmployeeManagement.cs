@@ -23,9 +23,6 @@ namespace Uclaray_Transport_Management_System.Employee_management
         public void loadData()
         {
             populateDataGrid(employee.getAllEmployees());
-            //List<Employee> employeeList = employee.getAllEmployees();
-            //dgvEmployees.DataSource = employeeList;
-
         }
 
         private void populateDataGrid(List<Employee> employeeList)

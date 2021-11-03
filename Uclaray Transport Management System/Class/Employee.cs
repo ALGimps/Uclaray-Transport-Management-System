@@ -25,17 +25,17 @@ namespace Uclaray_Transport_Management_System.Class
 
         //Define connection string
 
-        //static string SERVER = "localhost";
-        //static string USERID = "root";
-        //static string PASSWORD = "1234";
-        //static string PORT = "3306";
-        //static string DATABASE = "uclaray_product_tracking_management_system";
-
-        static string SERVER = "db4free.net";
-        static string USERID = "capstone_test";
-        static string PASSWORD = "capstone_test";
+        static string SERVER = "localhost";
+        static string USERID = "root";
+        static string PASSWORD = "1234";
         static string PORT = "3306";
-        static string DATABASE = "capstone_test";
+        static string DATABASE = "uclaray_product_tracking_management_system";
+
+        //static string SERVER = "db4free.net";
+        //static string USERID = "capstone_test";
+        //static string PASSWORD = "capstone_test";
+        //static string PORT = "3306";
+        //static string DATABASE = "capstone_test";
 
         static string connstring = $"SERVER= {SERVER}; USER ID= {USERID}; PASSWORD= {PASSWORD}; PORT= {PORT}; DATABASE= {DATABASE};";
 
@@ -123,7 +123,7 @@ namespace Uclaray_Transport_Management_System.Class
             MySqlConnection conn = new MySqlConnection(connstring);
             conn.Open();
 
-            string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees";
+            string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees ORDER by active DESC";
 
             //Initialize command
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -145,6 +145,7 @@ namespace Uclaray_Transport_Management_System.Class
             }
             conn.Close();
             conn.Dispose();
+
             return employeeList;
         }
 
@@ -207,7 +208,7 @@ namespace Uclaray_Transport_Management_System.Class
             MySqlConnection conn = new MySqlConnection(connstring);
             conn.Open();
 
-            string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees WHERE (emp_first LIKE ?searchText OR emp_last LIKE ?searchText)";
+            string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees WHERE (emp_first LIKE ?searchText OR emp_last LIKE ?searchText) ORDER by active DESC";
 
             //Initialize command
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -278,6 +279,7 @@ namespace Uclaray_Transport_Management_System.Class
 
             return employeeList;
         }
+
 
     }
 
