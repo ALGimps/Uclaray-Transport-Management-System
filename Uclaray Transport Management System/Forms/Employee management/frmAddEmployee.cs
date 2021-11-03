@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Uclaray_Transport_Management_System.Class;
+using Uclaray_Transport_Management_System.Classes;
 using System.Text.RegularExpressions;
 
 namespace Uclaray_Transport_Management_System.Employee_management
@@ -43,7 +43,7 @@ namespace Uclaray_Transport_Management_System.Employee_management
 
             employee.addEmployee(txtfirst.Text, txtlast.Text, cbdesignation.Text, txtcontact.Text);
             MessageBox.Show("Sucessfully added", "Sucess", MessageBoxButtons.OK);
-            frm1.loadData();
+            frm1.LoadData();
         }
 
     }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Uclaray_Transport_Management_System.Employee_management;
 
 namespace Uclaray_Transport_Management_System
 {
@@ -17,7 +16,7 @@ namespace Uclaray_Transport_Management_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmEmployeeManagement());
+            Application.Run(new Employee_management.frmEmployeeManagement());
         }
     }
 }

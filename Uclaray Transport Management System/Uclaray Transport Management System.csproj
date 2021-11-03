@@ -51,23 +51,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Employee.cs" />
-    <Compile Include="Employee management\frmUpdateEmployee.cs">
+    <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\LogisticsCompany.cs" />
+    <Compile Include="Forms\Employee management\frmUpdateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee management\frmUpdateEmployee.Designer.cs">
+    <Compile Include="Forms\Employee management\frmUpdateEmployee.Designer.cs">
       <DependentUpon>frmUpdateEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee management\frmAddEmployee.cs">
+    <Compile Include="Forms\Employee management\frmAddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee management\frmAddEmployee.Designer.cs">
+    <Compile Include="Forms\Employee management\frmAddEmployee.Designer.cs">
       <DependentUpon>frmAddEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee management\frmEmployeeManagement.cs">
+    <Compile Include="Forms\Employee management\frmEmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee management\frmEmployeeManagement.Designer.cs">
+    <Compile Include="Forms\Employee management\frmEmployeeManagement.Designer.cs">
       <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -78,13 +79,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Employee management\frmUpdateEmployee.resx">
+    <EmbeddedResource Include="Forms\Employee management\frmUpdateEmployee.resx">
       <DependentUpon>frmUpdateEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee management\frmAddEmployee.resx">
+    <EmbeddedResource Include="Forms\Employee management\frmAddEmployee.resx">
       <DependentUpon>frmAddEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee management\frmEmployeeManagement.resx">
+    <EmbeddedResource Include="Forms\Employee management\frmEmployeeManagement.resx">
       <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -109,6 +110,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Account management\" />
+    <Folder Include="Forms\Logistics partner management\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

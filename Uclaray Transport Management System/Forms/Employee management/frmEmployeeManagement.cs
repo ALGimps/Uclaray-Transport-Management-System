@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Uclaray_Transport_Management_System.Class;
+using Uclaray_Transport_Management_System.Classes;
 
 namespace Uclaray_Transport_Management_System.Employee_management
 {
@@ -17,17 +17,32 @@ namespace Uclaray_Transport_Management_System.Employee_management
         public frmEmployeeManagement()
         {
             InitializeComponent();
-            loadData();
+            LoadData();
         }
 
-        public void loadData()
+        public async void LoadData()
         {
-            populateDataGrid(employee.getAllEmployees());
+            var employeeList = await Task.Run(() => FetchData());
+            PopulateDataGrid(employeeList);
         }
 
-        private void populateDataGrid(List<Employee> employeeList)
+        private List<Employee> FetchData()
+        {
+            var empList = employee.getAllEmployees();
+            return empList;
+        }
+
+        private void PopulateDataGrid(List<Employee> employeeList)
         {
             dgvEmployees.Rows.Clear();
+            if (employeeList.Count == 0)
+            {
+                lblLoading.Text = "Sorry, no records found";
+                lblLoading.Visible = true;
+                return;
+            }
+            lblLoading.Text = "Loading, please wait . . .";
+            lblLoading.Visible = true;
             foreach (var emp in employeeList)
             {
                 var rowIndex = dgvEmployees.Rows.Add(new object[]
@@ -46,12 +61,8 @@ namespace Uclaray_Transport_Management_System.Employee_management
                 var tooltip = emp.active ? "Set employee as inactive" : "Set employee as active";
                 dgvEmployees.Rows[rowIndex].Cells[7].ToolTipText = tooltip;
             }
+            lblLoading.Visible = false;
             lblRecords.Text = "Records: " + dgvEmployees.RowCount.ToString();
-        }
-
-        private void frmEmployeeManagement_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -87,22 +98,43 @@ namespace Uclaray_Transport_Management_System.Employee_management
                     }
                 }
 
-                loadData();
+                LoadData();
             }
 
 
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtSearch.Text))
             {
-                loadData();
+                LoadData();
             }
             else
             {
-                populateDataGrid(employee.searchEmployees(txtSearch.Text.Trim()));
+                dgvEmployees.Rows.Clear();
+                lblLoading.Text = "Searching, please wait . . .";
+                lblLoading.Visible = true;
+                var employeeList = await Task.Run(() => fetchSearchedData(txtSearch.Text.Trim()));
+                PopulateDataGrid(employeeList);
             }
         }
+
+        private List<Employee> fetchSearchedData(string SearchText)
+        {
+            var empList = employee.searchEmployees(SearchText);
+            return empList;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dgvEmployees.Rows.Clear();
+        }
+
     }
 }

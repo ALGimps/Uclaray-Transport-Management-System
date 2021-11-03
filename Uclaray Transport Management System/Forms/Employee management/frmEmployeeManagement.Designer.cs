@@ -52,7 +52,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lblRecords = new System.Windows.Forms.Label();
-            this.cboShowAll = new System.Windows.Forms.CheckBox();
+            this.cboHideInactive = new System.Windows.Forms.CheckBox();
+            this.bgworker = new System.ComponentModel.BackgroundWorker();
+            this.lblLoading = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -286,6 +288,7 @@
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -298,6 +301,7 @@
             this.button3.Text = "Add";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // lblRecords
             // 
@@ -309,16 +313,30 @@
             this.lblRecords.TabIndex = 115;
             this.lblRecords.Text = "Records: 0";
             // 
-            // cboShowAll
+            // cboHideInactive
             // 
-            this.cboShowAll.AutoSize = true;
-            this.cboShowAll.Location = new System.Drawing.Point(257, 77);
-            this.cboShowAll.Name = "cboShowAll";
-            this.cboShowAll.Size = new System.Drawing.Size(105, 21);
-            this.cboShowAll.TabIndex = 116;
-            this.cboShowAll.Text = "Show Inactive";
-            this.cboShowAll.UseVisualStyleBackColor = true;
-            this.cboShowAll.Visible = false;
+            this.cboHideInactive.AutoSize = true;
+            this.cboHideInactive.Checked = true;
+            this.cboHideInactive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cboHideInactive.Location = new System.Drawing.Point(257, 77);
+            this.cboHideInactive.Name = "cboHideInactive";
+            this.cboHideInactive.Size = new System.Drawing.Size(101, 21);
+            this.cboHideInactive.TabIndex = 116;
+            this.cboHideInactive.Text = "Hide Inactive";
+            this.cboHideInactive.UseVisualStyleBackColor = true;
+            this.cboHideInactive.Visible = false;
+            // 
+            // lblLoading
+            // 
+            this.lblLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLoading.AutoSize = true;
+            this.lblLoading.Location = new System.Drawing.Point(329, 293);
+            this.lblLoading.Name = "lblLoading";
+            this.lblLoading.Size = new System.Drawing.Size(148, 17);
+            this.lblLoading.TabIndex = 117;
+            this.lblLoading.Text = "Loading, please wait . . .";
             // 
             // frmEmployeeManagement
             // 
@@ -327,7 +345,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(804, 491);
-            this.Controls.Add(this.cboShowAll);
+            this.Controls.Add(this.lblLoading);
+            this.Controls.Add(this.cboHideInactive);
             this.Controls.Add(this.lblRecords);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -371,6 +390,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnContact;
         private System.Windows.Forms.DataGridViewImageColumn update;
         private System.Windows.Forms.DataGridViewImageColumn setInactive;
-        private System.Windows.Forms.CheckBox cboShowAll;
+        private System.Windows.Forms.CheckBox cboHideInactive;
+        private System.ComponentModel.BackgroundWorker bgworker;
+        private System.Windows.Forms.Label lblLoading;
     }
 }

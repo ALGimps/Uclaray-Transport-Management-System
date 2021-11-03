@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace Uclaray_Transport_Management_System.Class
+namespace Uclaray_Transport_Management_System.Classes
 {
     class Employee
     {
@@ -25,17 +25,17 @@ namespace Uclaray_Transport_Management_System.Class
 
         //Define connection string
 
-        static string SERVER = "localhost";
-        static string USERID = "root";
-        static string PASSWORD = "1234";
-        static string PORT = "3306";
-        static string DATABASE = "uclaray_product_tracking_management_system";
-
-        //static string SERVER = "db4free.net";
-        //static string USERID = "capstone_test";
-        //static string PASSWORD = "capstone_test";
+        //static string SERVER = "localhost";
+        //static string USERID = "root";
+        //static string PASSWORD = "1234";
         //static string PORT = "3306";
-        //static string DATABASE = "capstone_test";
+        //static string DATABASE = "uclaray_product_tracking_management_system";
+
+        static string SERVER = "db4free.net";
+        static string USERID = "capstone_test";
+        static string PASSWORD = "capstone_test";
+        static string PORT = "3306";
+        static string DATABASE = "capstone_test";
 
         static string connstring = $"SERVER= {SERVER}; USER ID= {USERID}; PASSWORD= {PASSWORD}; PORT= {PORT}; DATABASE= {DATABASE};";
 
@@ -130,6 +130,42 @@ namespace Uclaray_Transport_Management_System.Class
 
             //Execute Data reader
             MySqlDataReader dr = comm.ExecuteReader();
+
+            //Populate List with data
+            while (dr.Read())
+            {
+                Employee employee = new Employee();
+                employee.id = (int)dr["emp_id"];
+                employee.firstName = dr["emp_first"].ToString();
+                employee.lastName = dr["emp_last"].ToString();
+                employee.designation = dr["emp_designation"].ToString();
+                employee.contact = dr["emp_contact"].ToString();
+                employee.active = Convert.ToBoolean(dr["active"]);
+                employeeList.Add(employee);
+            }
+            conn.Close();
+            conn.Dispose();
+
+            return employeeList;
+        }
+
+        public async Task<List<Employee>> getAllEmployee()
+        {
+
+            
+            
+            List<Employee> employeeList = new List<Employee>();
+
+            MySqlConnection conn = new MySqlConnection(connstring);
+            conn.Open();
+
+            string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees ORDER by active DESC";
+
+            //Initialize command
+            MySqlCommand comm = new MySqlCommand(query, conn);
+
+            //Execute Data reader
+            var dr = await comm.ExecuteReaderAsync();
 
             //Populate List with data
             while (dr.Read())
@@ -279,7 +315,6 @@ namespace Uclaray_Transport_Management_System.Class
 
             return employeeList;
         }
-
 
     }
 
