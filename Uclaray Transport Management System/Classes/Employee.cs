@@ -25,17 +25,17 @@ namespace Uclaray_Transport_Management_System.Classes
 
         //Define connection string
 
-        //static string SERVER = "localhost";
-        //static string USERID = "root";
-        //static string PASSWORD = "1234";
-        //static string PORT = "3306";
-        //static string DATABASE = "uclaray_product_tracking_management_system";
-
-        static string SERVER = "db4free.net";
-        static string USERID = "capstone_test";
-        static string PASSWORD = "capstone_test";
+        static string SERVER = "localhost";
+        static string USERID = "root";
+        static string PASSWORD = "1234";
         static string PORT = "3306";
-        static string DATABASE = "capstone_test";
+        static string DATABASE = "uclaray_product_tracking_management_system";
+
+        //static string SERVER = "db4free.net";
+        //static string USERID = "capstone_test";
+        //static string PASSWORD = "capstone_test";
+        //static string PORT = "3306";
+        //static string DATABASE = "capstone_test";
 
         static string connstring = $"SERVER= {SERVER}; USER ID= {USERID}; PASSWORD= {PASSWORD}; PORT= {PORT}; DATABASE= {DATABASE};";
 

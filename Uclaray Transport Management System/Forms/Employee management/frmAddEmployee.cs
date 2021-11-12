@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Uclaray_Transport_Management_System.Classes;
 using System.Text.RegularExpressions;
 
-namespace Uclaray_Transport_Management_System.Employee_management
+namespace Uclaray_Transport_Management_System.Forms.Employee_management
 {
     public partial class frmAddEmployee : Form
     {

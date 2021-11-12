@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uclaray_Transport_Management_System.Classes;
 
-namespace Uclaray_Transport_Management_System.Employee_management
+namespace Uclaray_Transport_Management_System.Forms.Employee_management
 {
     public partial class frmEmployeeManagement : Form
     {
@@ -54,8 +54,9 @@ namespace Uclaray_Transport_Management_System.Employee_management
                     emp.active ? imageList1.Images[0] : imageList1.Images[1] ,
                     emp.contact,
                     imageList1.Images[2],
-                    emp.active ? imageList1.Images[3] : imageList1.Images[4]
-                });
+                    emp.active ? imageList1.Images[3] : imageList1.Images[4],
+                    imageList2.Images[0]
+                }) ;
                 dgvEmployees.Rows[rowIndex].Cells[4].Tag = emp.active;
                 dgvEmployees.Rows[rowIndex].Cells[6].ToolTipText = "Update employee details";
                 var tooltip = emp.active ? "Set employee as inactive" : "Set employee as active";
@@ -100,7 +101,12 @@ namespace Uclaray_Transport_Management_System.Employee_management
 
                 LoadData();
             }
-
+            if (dgvEmployees.Columns[e.ColumnIndex].Name == "deliveries")
+            {
+                var name = dgvEmployees.SelectedCells[1].Value + " "+ dgvEmployees.SelectedCells[2].Value;
+                frmEmployeeDeliveries frm = new frmEmployeeDeliveries(name);
+                frm.ShowDialog();
+            }
 
         }
 
@@ -117,6 +123,8 @@ namespace Uclaray_Transport_Management_System.Employee_management
                 lblLoading.Visible = true;
                 var employeeList = await Task.Run(() => fetchSearchedData(txtSearch.Text.Trim()));
                 PopulateDataGrid(employeeList);
+
+                txtSearch.Focus();
             }
         }
 
@@ -136,5 +144,9 @@ namespace Uclaray_Transport_Management_System.Employee_management
             dgvEmployees.Rows.Clear();
         }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "") LoadData();
+        }
     }
 }

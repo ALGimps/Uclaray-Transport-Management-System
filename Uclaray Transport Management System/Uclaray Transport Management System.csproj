@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,9 +38,15 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2">
+      <HintPath>D:\Downloads\_Getintopc.com_Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +60,26 @@
   <ItemGroup>
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\LogisticsCompany.cs" />
+    <Compile Include="Classes\SecurityUtils.cs" />
+    <Compile Include="Classes\UserAccount.cs" />
+    <Compile Include="Forms\Account management\frmAccountManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Account management\frmAccountManagement.Designer.cs">
+      <DependentUpon>frmAccountManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Account management\frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Account management\frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employee management\frmEmployeeDeliveries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employee management\frmEmployeeDeliveries.Designer.cs">
+      <DependentUpon>frmEmployeeDeliveries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Employee management\frmUpdateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,8 +104,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Account management\frmAccountManagement.resx">
+      <DependentUpon>frmAccountManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employee management\frmEmployeeDeliveries.resx">
+      <DependentUpon>frmEmployeeDeliveries.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employee management\frmUpdateEmployee.resx">
       <DependentUpon>frmUpdateEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employee management\frmEmployeeManagement.resx">
       <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,8 +154,52 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Account management\" />
     <Folder Include="Forms\Logistics partner management\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ant-design_file-excel-outlined.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bi_calendar-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bi_people-fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carbon_delivery-truck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carbon_partnership.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clarity_list-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vector %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male_user_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UCLARAY_TRANSPORT-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UCLARAY TRANSPORT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user_male_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user_male_48px1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

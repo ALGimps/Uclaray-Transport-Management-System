@@ -1,4 +1,4 @@
-﻿namespace Uclaray_Transport_Management_System.Employee_management
+﻿namespace Uclaray_Transport_Management_System.Forms.Employee_management
 {
     partial class frmAddEmployee
     {
