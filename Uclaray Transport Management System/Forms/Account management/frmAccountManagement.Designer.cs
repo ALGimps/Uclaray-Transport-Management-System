@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAccountManagement));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,7 +43,6 @@
             this.columnContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.update = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtSalt = new System.Windows.Forms.TextBox();
@@ -52,8 +51,14 @@
             this.txtCompare = new System.Windows.Forms.TextBox();
             this.txtHash = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.panelActions = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.panelActions.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvUsers);
-            this.panel1.Location = new System.Drawing.Point(12, 100);
+            this.panel1.Location = new System.Drawing.Point(12, 111);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(780, 354);
             this.panel1.TabIndex = 111;
@@ -82,21 +87,21 @@
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToDeleteRows = false;
             this.dgvUsers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvUsers.ColumnHeadersHeight = 35;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -107,14 +112,14 @@
             this.columnContact,
             this.Column1,
             this.update});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsers.EnableHeadersVisualStyles = false;
             this.dgvUsers.Location = new System.Drawing.Point(0, 0);
@@ -128,6 +133,7 @@
             this.dgvUsers.Size = new System.Drawing.Size(780, 354);
             this.dgvUsers.StandardTab = true;
             this.dgvUsers.TabIndex = 109;
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
             // columnID
             // 
@@ -185,25 +191,6 @@
             this.update.ToolTipText = "Update employee details";
             this.update.Width = 52;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.CheckedState.Parent = this.btnAdd;
-            this.btnAdd.CustomImages.Parent = this.btnAdd;
-            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.HoverState.Parent = this.btnAdd;
-            this.btnAdd.Image = global::Uclaray_Transport_Management_System.Properties.Resources.add_user_male_48px1;
-            this.btnAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAdd.Location = new System.Drawing.Point(709, 64);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
-            this.btnAdd.Size = new System.Drawing.Size(83, 30);
-            this.btnAdd.TabIndex = 120;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
@@ -216,7 +203,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(329, 5);
+            this.txtPassword.Location = new System.Drawing.Point(172, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 121;
@@ -224,7 +211,7 @@
             // 
             // txtSalt
             // 
-            this.txtSalt.Location = new System.Drawing.Point(329, 52);
+            this.txtSalt.Location = new System.Drawing.Point(172, 51);
             this.txtSalt.Name = "txtSalt";
             this.txtSalt.Size = new System.Drawing.Size(100, 20);
             this.txtSalt.TabIndex = 121;
@@ -232,7 +219,7 @@
             // 
             // btnCompare
             // 
-            this.btnCompare.Location = new System.Drawing.Point(456, 71);
+            this.btnCompare.Location = new System.Drawing.Point(299, 70);
             this.btnCompare.Name = "btnCompare";
             this.btnCompare.Size = new System.Drawing.Size(75, 23);
             this.btnCompare.TabIndex = 122;
@@ -243,7 +230,7 @@
             // 
             // btnHash
             // 
-            this.btnHash.Location = new System.Drawing.Point(456, 5);
+            this.btnHash.Location = new System.Drawing.Point(299, 4);
             this.btnHash.Name = "btnHash";
             this.btnHash.Size = new System.Drawing.Size(75, 23);
             this.btnHash.TabIndex = 122;
@@ -254,7 +241,7 @@
             // 
             // txtCompare
             // 
-            this.txtCompare.Location = new System.Drawing.Point(329, 74);
+            this.txtCompare.Location = new System.Drawing.Point(172, 73);
             this.txtCompare.Name = "txtCompare";
             this.txtCompare.Size = new System.Drawing.Size(100, 20);
             this.txtCompare.TabIndex = 121;
@@ -262,7 +249,7 @@
             // 
             // txtHash
             // 
-            this.txtHash.Location = new System.Drawing.Point(329, 28);
+            this.txtHash.Location = new System.Drawing.Point(172, 27);
             this.txtHash.Name = "txtHash";
             this.txtHash.Size = new System.Drawing.Size(100, 20);
             this.txtHash.TabIndex = 121;
@@ -274,12 +261,74 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "gear.png");
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.CheckedState.Parent = this.btnAdd;
+            this.btnAdd.CustomImages.Parent = this.btnAdd;
+            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(252)))));
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.HoverState.Parent = this.btnAdd;
+            this.btnAdd.Image = global::Uclaray_Transport_Management_System.Properties.Resources.add_user_male_48px1;
+            this.btnAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAdd.Location = new System.Drawing.Point(682, 70);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
+            this.btnAdd.Size = new System.Drawing.Size(110, 35);
+            this.btnAdd.TabIndex = 120;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // panelActions
+            // 
+            this.panelActions.Controls.Add(this.button3);
+            this.panelActions.Controls.Add(this.button2);
+            this.panelActions.Controls.Add(this.button1);
+            this.panelActions.Location = new System.Drawing.Point(576, 12);
+            this.panelActions.Name = "panelActions";
+            this.panelActions.Size = new System.Drawing.Size(100, 107);
+            this.panelActions.TabIndex = 123;
+            this.panelActions.Visible = false;
+            this.panelActions.Leave += new System.EventHandler(this.panelActions_Leave);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 35);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Location = new System.Drawing.Point(0, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 35);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.Location = new System.Drawing.Point(0, 70);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 35);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // frmAccountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(804, 491);
+            this.Controls.Add(this.panelActions);
             this.Controls.Add(this.btnHash);
             this.Controls.Add(this.btnCompare);
             this.Controls.Add(this.txtCompare);
@@ -295,6 +344,7 @@
             this.Load += new System.EventHandler(this.frmAccountManagement_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.panelActions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,5 +371,9 @@
         private System.Windows.Forms.TextBox txtCompare;
         private System.Windows.Forms.TextBox txtHash;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel panelActions;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

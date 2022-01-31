@@ -143,6 +143,46 @@ namespace Uclaray_Transport_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap closed_eye_48px {
+            get {
+                object obj = ResourceManager.GetObject("closed_eye_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_48px {
+            get {
+                object obj = ResourceManager.GetObject("eye_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_48px1 {
+            get {
+                object obj = ResourceManager.GetObject("eye_48px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_3 {
+            get {
+                object obj = ResourceManager.GetObject("image 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap male_user_60px {
             get {
                 object obj = ResourceManager.GetObject("male_user_60px", resourceCulture);

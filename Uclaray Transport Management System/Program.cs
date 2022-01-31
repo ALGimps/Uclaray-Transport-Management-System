@@ -18,6 +18,7 @@ namespace Uclaray_Transport_Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Forms.Account_management.frmAccountManagement());
+            //Application.Run(new Forms.Employee_management.frmEmployeeManagement());
             Application.Run(new Forms.frmMain());
 
         }

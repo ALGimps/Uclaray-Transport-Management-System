@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Uclaray_Transport_Management_System.Classes
 {
@@ -25,11 +26,11 @@ namespace Uclaray_Transport_Management_System.Classes
 
         //Define connection string
 
-        static string SERVER = "localhost";
-        static string USERID = "root";
-        static string PASSWORD = "1234";
-        static string PORT = "3306";
-        static string DATABASE = "uclaray_product_tracking_management_system";
+        static string SERVER;
+        static string USERID;
+        static string PASSWORD;
+        static string PORT;
+        static string DATABASE;
 
         //static string SERVER = "db4free.net";
         //static string USERID = "capstone_test";
@@ -37,28 +38,90 @@ namespace Uclaray_Transport_Management_System.Classes
         //static string PORT = "3306";
         //static string DATABASE = "capstone_test";
 
-        static string connstring = $"SERVER= {SERVER}; USER ID= {USERID}; PASSWORD= {PASSWORD}; PORT= {PORT}; DATABASE= {DATABASE};";
+        static string connstring;
+        private MySqlConnection connection;
+        
+        private void Initialize()
+        {
+            SERVER = "localhost";
+            USERID = "root";
+            PASSWORD = "1234";
+            PORT = "3306";
+            DATABASE = "uclaray_product_tracking_management_system";
+            connstring = $"SERVER= {SERVER}; USER ID= {USERID}; PASSWORD= {PASSWORD}; PORT= {PORT}; DATABASE= {DATABASE};";
+            connection = new MySqlConnection(connstring);
+        }
+
+        public Employee(){
+
+            Initialize();
+
+        }
+
+        private bool OpenConnection()
+        {
+            try
+            {
+                connection.Open();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                //When handling errors, you can your application's response based 
+                //on the error number.
+                //The two most common error numbers when connecting are as follows:
+                //0: Cannot connect to server.
+                //1045: Invalid user name and/or password.
+                switch (ex.Number)
+                {
+                    case 0:
+                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        break;
+
+                    case 1045:
+                        MessageBox.Show("Invalid username/password, please try again");
+                        break;
+                }
+                return false;
+            }
+        }
+
+        private bool CloseConnection()
+        {
+            try
+            {
+                connection.Close();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
 
         //Checks if record already exist in database
         private bool recordExists(string firstName, string lastName, string contact)
         {
-            MySqlConnection conn = new MySqlConnection(connstring);
-            conn.Open();
 
             string query = "SELECT COUNT(emp_id) FROM employees WHERE emp_first=?firstname AND emp_last=?lastname AND emp_contact=?contact";
+            int records = 0 ;
 
-            //Initialize command
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.Parameters.AddWithValue("?firstname", firstName);
-            comm.Parameters.AddWithValue("?lastname", lastName);
-            comm.Parameters.AddWithValue("?contact", contact);
+            if (OpenConnection())
+            {
 
-            //Execute
-            int recordExist = Convert.ToInt32(comm.ExecuteScalar());
-            conn.Close();
-            conn.Dispose();
+                //Initialize command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?firstname", firstName);
+                comm.Parameters.AddWithValue("?lastname", lastName);
+                comm.Parameters.AddWithValue("?contact", contact);
 
-            if (recordExist > 0)
+                //Execute
+                records = Convert.ToInt32(comm.ExecuteScalar());
+                CloseConnection();
+            }
+
+            if (records > 0)
             {
                 return true;
             }
@@ -66,7 +129,7 @@ namespace Uclaray_Transport_Management_System.Classes
             {
                 return false;
             }
-
+            
         }
 
         //Add new record to the employee table in database
@@ -79,40 +142,41 @@ namespace Uclaray_Transport_Management_System.Classes
                 return;
             }
 
-            MySqlConnection conn = new MySqlConnection(connstring);
-            conn.Open();
-
             string query = "INSERT INTO employees(emp_first, emp_last, emp_designation, emp_contact) VALUES(?firstname, ?lastname, ?designation, ?contact)";
 
-            //Initialize Command
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.Parameters.AddWithValue("?firstname", firstName);
-            comm.Parameters.AddWithValue("?lastname", lastName);
-            comm.Parameters.AddWithValue("?designation", designation);
-            comm.Parameters.AddWithValue("?contact", contact);
+            if (OpenConnection())
+            {
 
-            //Execute
-            comm.ExecuteNonQuery();
-            conn.Close();
-            conn.Dispose();
+                //Initialize Command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?firstname", firstName);
+                comm.Parameters.AddWithValue("?lastname", lastName);
+                comm.Parameters.AddWithValue("?designation", designation);
+                comm.Parameters.AddWithValue("?contact", contact);
+
+                //Execute
+                comm.ExecuteNonQuery();
+                MessageBox.Show("Sucessfully added", "Sucess", MessageBoxButtons.OK);
+                CloseConnection();
+            }
         }
 
         //Change employee status to active or inactive
         public void changeStatus(int id, int newStatus)
         {
-            MySqlConnection conn = new MySqlConnection(connstring);
-            conn.Open();
             string query = "UPDATE employees SET active = ?active WHERE emp_id = ?id";
 
-            //Initialize command
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.Parameters.AddWithValue("?active", newStatus);
-            comm.Parameters.AddWithValue("?id", id);
+            if (OpenConnection())
+            {
+                //Initialize command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?active", newStatus);
+                comm.Parameters.AddWithValue("?id", id);
 
-            //Execute
-            comm.ExecuteNonQuery();
-            conn.Close();
-            conn.Dispose();
+                //Execute
+                comm.ExecuteNonQuery();
+                CloseConnection();
+            }
         }
 
         //Fetch all record in employees table
@@ -120,31 +184,31 @@ namespace Uclaray_Transport_Management_System.Classes
         {
             List<Employee> employeeList = new List<Employee>();
 
-            MySqlConnection conn = new MySqlConnection(connstring);
-            conn.Open();
-
             string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees ORDER by active DESC";
 
-            //Initialize command
-            MySqlCommand comm = new MySqlCommand(query, conn);
-
-            //Execute Data reader
-            MySqlDataReader dr = comm.ExecuteReader();
-
-            //Populate List with data
-            while (dr.Read())
+            if (OpenConnection())
             {
-                Employee employee = new Employee();
-                employee.id = (int)dr["emp_id"];
-                employee.firstName = dr["emp_first"].ToString();
-                employee.lastName = dr["emp_last"].ToString();
-                employee.designation = dr["emp_designation"].ToString();
-                employee.contact = dr["emp_contact"].ToString();
-                employee.active = Convert.ToBoolean(dr["active"]);
-                employeeList.Add(employee);
+                //Initialize command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+
+                //Execute Data reader
+                MySqlDataReader dr = comm.ExecuteReader();
+
+                //Populate List with data
+                while (dr.Read())
+                {
+                    Employee employee = new Employee();
+                    employee.id = (int)dr["emp_id"];
+                    employee.firstName = dr["emp_first"].ToString();
+                    employee.lastName = dr["emp_last"].ToString();
+                    employee.designation = dr["emp_designation"].ToString();
+                    employee.contact = dr["emp_contact"].ToString();
+                    employee.active = Convert.ToBoolean(dr["active"]);
+                    employeeList.Add(employee);
+                }
+                CloseConnection();
+
             }
-            conn.Close();
-            conn.Dispose();
 
             return employeeList;
         }
@@ -187,51 +251,53 @@ namespace Uclaray_Transport_Management_System.Classes
 
         public void updateEmployee(int id, string newFirst, string newLast, string newDesignation, string newContact)
         {
-            MySqlConnection conn = new MySqlConnection(connstring);
-            conn.Open();
             string query = "UPDATE employees SET emp_first = ?newFirst, emp_last = ?newLast, emp_designation = ?newDesignation, emp_contact = ?newContact WHERE emp_id = ?id";
 
-            //Initialize command
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.Parameters.AddWithValue("?id", id);
-            comm.Parameters.AddWithValue("?newFirst", newFirst);
-            comm.Parameters.AddWithValue("?newLast", newLast);
-            comm.Parameters.AddWithValue("?newDesignation", newDesignation);
-            comm.Parameters.AddWithValue("?newContact", newContact);
+            if (OpenConnection())
+            {
 
-            //Execute
-            comm.ExecuteNonQuery();
-            conn.Close();
-            conn.Dispose();
+                //Initialize command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?id", id);
+                comm.Parameters.AddWithValue("?newFirst", newFirst);
+                comm.Parameters.AddWithValue("?newLast", newLast);
+                comm.Parameters.AddWithValue("?newDesignation", newDesignation);
+                comm.Parameters.AddWithValue("?newContact", newContact);
+
+                //Execute
+                comm.ExecuteNonQuery();
+                CloseConnection();
+            }
         }
 
-        //FEtch single employee record on database
+        //Fetch single employee record on database
         public Employee getEmployee(int id)
         {
             Employee employee = new Employee();
 
-            MySqlConnection conn = new MySqlConnection(connstring);
-            conn.Open();
-
             string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact FROM employees WHERE emp_id = ?id LIMIT 0,1";
 
-            //Initialize command
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.Parameters.AddWithValue("?id", id);
-
-            //Execute Data reader
-            MySqlDataReader dr = comm.ExecuteReader();
-
-            //Populate List with data
-            while (dr.Read())
+            if (OpenConnection())
             {
-                employee.id = (int)dr["emp_id"];
-                employee.firstName = dr["emp_first"].ToString();
-                employee.lastName = dr["emp_last"].ToString();
-                employee.designation = dr["emp_designation"].ToString();
-                employee.contact = dr["emp_contact"].ToString();
-            }
 
+                //Initialize command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?id", id);
+
+                //Execute Data reader
+                MySqlDataReader dr = comm.ExecuteReader();
+
+                //Populate List with data
+                while (dr.Read())
+                {
+                    employee.id = (int)dr["emp_id"];
+                    employee.firstName = dr["emp_first"].ToString();
+                    employee.lastName = dr["emp_last"].ToString();
+                    employee.designation = dr["emp_designation"].ToString();
+                    employee.contact = dr["emp_contact"].ToString();
+                }
+                CloseConnection();
+            }
             return employee;
         }
 
@@ -240,33 +306,31 @@ namespace Uclaray_Transport_Management_System.Classes
 
             List<Employee> employeeList = new List<Employee>();
 
-            // Initialize and open connection
-            MySqlConnection conn = new MySqlConnection(connstring);
-            conn.Open();
-
             string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees WHERE (emp_first LIKE ?searchText OR emp_last LIKE ?searchText) ORDER by active DESC";
 
-            //Initialize command
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.Parameters.AddWithValue("?searchText", "%"+searchText+"%");
-
-            //Execute Data reader
-            MySqlDataReader dr = comm.ExecuteReader();
-
-            //Populate List with data
-            while (dr.Read())
+            if (OpenConnection())
             {
-                Employee employee = new Employee();
-                employee.id = (int)dr["emp_id"];
-                employee.firstName = dr["emp_first"].ToString();
-                employee.lastName = dr["emp_last"].ToString();
-                employee.designation = dr["emp_designation"].ToString();
-                employee.contact = dr["emp_contact"].ToString();
-                employee.active = Convert.ToBoolean(dr["active"]);
-                employeeList.Add(employee);
+                //Initialize command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?searchText", "%" + searchText + "%");
+
+                //Execute Data reader
+                MySqlDataReader dr = comm.ExecuteReader();
+
+                //Populate List with data
+                while (dr.Read())
+                {
+                    Employee employee = new Employee();
+                    employee.id = (int)dr["emp_id"];
+                    employee.firstName = dr["emp_first"].ToString();
+                    employee.lastName = dr["emp_last"].ToString();
+                    employee.designation = dr["emp_designation"].ToString();
+                    employee.contact = dr["emp_contact"].ToString();
+                    employee.active = Convert.ToBoolean(dr["active"]);
+                    employeeList.Add(employee);
+                }
+                CloseConnection();
             }
-            conn.Close();
-            conn.Dispose();
 
             return employeeList;
         }

@@ -13,6 +13,8 @@ namespace Uclaray_Transport_Management_System.Forms.Account_management
 {
     public partial class frmAccountManagement : Form
     {
+        frmMain MainForm = new frmMain();
+
         public frmAccountManagement()
         {
             InitializeComponent();
@@ -63,6 +65,34 @@ namespace Uclaray_Transport_Management_System.Forms.Account_management
         private void frmAccountManagement_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAddUser frm = new frmAddUser(this);
+            frm.ShowDialog();
+        }
+
+        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvUsers.Columns[e.ColumnIndex].Index == 6)
+            {
+                var location = dgvUsers.PointToScreen(dgvUsers.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location);
+                panelActions.BringToFront();
+                panelActions.Location = new Point(location.X - (224 + panelActions.Width), location.Y  - 225);
+                //MessageBox.Show(panelActions.Location.ToString());
+                panelActions.Visible = true;
+                panelActions.Focus();
+            }
+            else
+            {
+                panelActions.Visible = false;
+            }
+        }
+
+        private void panelActions_Leave(object sender, EventArgs e)
+        {
+            panelActions.Visible = false;
         }
     }
 }

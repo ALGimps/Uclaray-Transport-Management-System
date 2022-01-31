@@ -54,5 +54,11 @@ namespace Uclaray_Transport_Management_System.Forms
             Account_management.frmAccountManagement frm = new Account_management.frmAccountManagement();
             Showform(frm, (Guna2Button)sender);
         }
+
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            Logistics_partner_management.frmPartnerCompanies frm = new Logistics_partner_management.frmPartnerCompanies();
+            Showform(frm, (Guna2Button)sender);
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
         {
             InitializeComponent();
             LoadData();
+            lblDate.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy").ToString();
         }
 
         public async void LoadData()

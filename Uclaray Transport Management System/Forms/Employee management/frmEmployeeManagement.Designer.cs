@@ -36,13 +36,6 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblRecords = new System.Windows.Forms.Label();
-            this.cboHideInactive = new System.Windows.Forms.CheckBox();
-            this.bgworker = new System.ComponentModel.BackgroundWorker();
-            this.lblLoading = new System.Windows.Forms.Label();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,8 +45,16 @@
             this.update = new System.Windows.Forms.DataGridViewImageColumn();
             this.setInactive = new System.Windows.Forms.DataGridViewImageColumn();
             this.deliveries = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblRecords = new System.Windows.Forms.Label();
+            this.cboHideInactive = new System.Windows.Forms.CheckBox();
+            this.bgworker = new System.ComponentModel.BackgroundWorker();
+            this.lblLoading = new System.Windows.Forms.Label();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.lblDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +94,7 @@
             this.dgvEmployees.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -134,6 +135,88 @@
             this.dgvEmployees.TabIndex = 109;
             this.dgvEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellContentClick);
             // 
+            // columnID
+            // 
+            this.columnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.columnID.FillWeight = 152.2843F;
+            this.columnID.HeaderText = "ID";
+            this.columnID.Name = "columnID";
+            this.columnID.ReadOnly = true;
+            this.columnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnID.Visible = false;
+            this.columnID.Width = 60;
+            // 
+            // columnFirst
+            // 
+            this.columnFirst.FillWeight = 62.90896F;
+            this.columnFirst.HeaderText = "First name";
+            this.columnFirst.Name = "columnFirst";
+            this.columnFirst.ReadOnly = true;
+            // 
+            // columnLast
+            // 
+            this.columnLast.FillWeight = 62.90896F;
+            this.columnLast.HeaderText = "Last name";
+            this.columnLast.Name = "columnLast";
+            this.columnLast.ReadOnly = true;
+            // 
+            // columnDesignation
+            // 
+            this.columnDesignation.FillWeight = 62.90896F;
+            this.columnDesignation.HeaderText = "Designation";
+            this.columnDesignation.Name = "columnDesignation";
+            this.columnDesignation.ReadOnly = true;
+            // 
+            // columnActive
+            // 
+            this.columnActive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.columnActive.FillWeight = 196.0799F;
+            this.columnActive.HeaderText = "Active";
+            this.columnActive.MinimumWidth = 30;
+            this.columnActive.Name = "columnActive";
+            this.columnActive.ReadOnly = true;
+            this.columnActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.columnActive.Width = 65;
+            // 
+            // columnContact
+            // 
+            this.columnContact.FillWeight = 62.90896F;
+            this.columnContact.HeaderText = "Contact";
+            this.columnContact.Name = "columnContact";
+            this.columnContact.ReadOnly = true;
+            // 
+            // update
+            // 
+            this.update.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.update.HeaderText = "Action";
+            this.update.MinimumWidth = 30;
+            this.update.Name = "update";
+            this.update.ReadOnly = true;
+            this.update.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.update.ToolTipText = "Update employee details";
+            this.update.Width = 48;
+            // 
+            // setInactive
+            // 
+            this.setInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.setInactive.HeaderText = "";
+            this.setInactive.MinimumWidth = 30;
+            this.setInactive.Name = "setInactive";
+            this.setInactive.ReadOnly = true;
+            this.setInactive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.setInactive.Width = 30;
+            // 
+            // deliveries
+            // 
+            this.deliveries.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.deliveries.HeaderText = "Deliveries";
+            this.deliveries.MinimumWidth = 95;
+            this.deliveries.Name = "deliveries";
+            this.deliveries.ReadOnly = true;
+            this.deliveries.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deliveries.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.deliveries.Width = 95;
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -162,9 +245,9 @@
             this.cboHideInactive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cboHideInactive.Location = new System.Drawing.Point(332, 77);
             this.cboHideInactive.Name = "cboHideInactive";
-            this.cboHideInactive.Size = new System.Drawing.Size(101, 21);
+            this.cboHideInactive.Size = new System.Drawing.Size(105, 21);
             this.cboHideInactive.TabIndex = 116;
-            this.cboHideInactive.Text = "Hide Inactive";
+            this.cboHideInactive.Text = "Show Inactive";
             this.cboHideInactive.UseVisualStyleBackColor = true;
             this.cboHideInactive.Visible = false;
             // 
@@ -218,88 +301,6 @@
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList2.Images.SetKeyName(0, "Frame 152 (1).png");
             // 
-            // columnID
-            // 
-            this.columnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.columnID.FillWeight = 152.2843F;
-            this.columnID.HeaderText = "ID";
-            this.columnID.Name = "columnID";
-            this.columnID.ReadOnly = true;
-            this.columnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.columnID.Visible = false;
-            this.columnID.Width = 60;
-            // 
-            // columnFirst
-            // 
-            this.columnFirst.FillWeight = 62.90896F;
-            this.columnFirst.HeaderText = "First name";
-            this.columnFirst.Name = "columnFirst";
-            this.columnFirst.ReadOnly = true;
-            // 
-            // columnLast
-            // 
-            this.columnLast.FillWeight = 62.90896F;
-            this.columnLast.HeaderText = "Last name";
-            this.columnLast.Name = "columnLast";
-            this.columnLast.ReadOnly = true;
-            // 
-            // columnDesignation
-            // 
-            this.columnDesignation.FillWeight = 62.90896F;
-            this.columnDesignation.HeaderText = "Designation";
-            this.columnDesignation.Name = "columnDesignation";
-            this.columnDesignation.ReadOnly = true;
-            // 
-            // columnActive
-            // 
-            this.columnActive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.columnActive.FillWeight = 196.0799F;
-            this.columnActive.HeaderText = "Active";
-            this.columnActive.MinimumWidth = 30;
-            this.columnActive.Name = "columnActive";
-            this.columnActive.ReadOnly = true;
-            this.columnActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.columnActive.Width = 69;
-            // 
-            // columnContact
-            // 
-            this.columnContact.FillWeight = 62.90896F;
-            this.columnContact.HeaderText = "Contact";
-            this.columnContact.Name = "columnContact";
-            this.columnContact.ReadOnly = true;
-            // 
-            // update
-            // 
-            this.update.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.update.HeaderText = "";
-            this.update.MinimumWidth = 30;
-            this.update.Name = "update";
-            this.update.ReadOnly = true;
-            this.update.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.update.ToolTipText = "Update employee details";
-            this.update.Width = 30;
-            // 
-            // setInactive
-            // 
-            this.setInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.setInactive.HeaderText = "";
-            this.setInactive.MinimumWidth = 30;
-            this.setInactive.Name = "setInactive";
-            this.setInactive.ReadOnly = true;
-            this.setInactive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.setInactive.Width = 30;
-            // 
-            // deliveries
-            // 
-            this.deliveries.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.deliveries.HeaderText = "Deliveries";
-            this.deliveries.MinimumWidth = 95;
-            this.deliveries.Name = "deliveries";
-            this.deliveries.ReadOnly = true;
-            this.deliveries.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deliveries.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.deliveries.Width = 95;
-            // 
             // btnSearch
             // 
             this.btnSearch.BorderColor = System.Drawing.Color.DarkGray;
@@ -307,13 +308,13 @@
             this.btnSearch.CheckedState.Parent = this.btnSearch;
             this.btnSearch.CustomImages.Parent = this.btnSearch;
             this.btnSearch.FillColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
             this.btnSearch.HoverState.Parent = this.btnSearch;
             this.btnSearch.Image = global::Uclaray_Transport_Management_System.Properties.Resources.search_100px;
             this.btnSearch.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSearch.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.btnSearch.Location = new System.Drawing.Point(213, 74);
+            this.btnSearch.Location = new System.Drawing.Point(219, 75);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.ShadowDecoration.BorderRadius = 0;
             this.btnSearch.ShadowDecoration.Depth = 20;
@@ -332,20 +333,29 @@
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.CheckedState.Parent = this.btnAdd;
             this.btnAdd.CustomImages.Parent = this.btnAdd;
-            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(252)))));
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.Parent = this.btnAdd;
             this.btnAdd.Image = global::Uclaray_Transport_Management_System.Properties.Resources.add_user_male_48px1;
             this.btnAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAdd.Location = new System.Drawing.Point(709, 74);
+            this.btnAdd.Location = new System.Drawing.Point(682, 69);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
-            this.btnAdd.Size = new System.Drawing.Size(83, 30);
+            this.btnAdd.Size = new System.Drawing.Size(110, 35);
             this.btnAdd.TabIndex = 119;
             this.btnAdd.Text = "Add";
-            this.btnAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(-1, 42);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(38, 17);
+            this.lblDate.TabIndex = 120;
+            this.lblDate.Text = "DATE";
             // 
             // frmEmployeeManagement
             // 
@@ -354,6 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(804, 491);
+            this.Controls.Add(this.lblDate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
@@ -389,6 +400,7 @@
         private Guna.UI2.WinForms.Guna2Button btnSearch;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.ImageList imageList2;
+        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnFirst;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnLast;

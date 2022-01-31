@@ -17,6 +17,8 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
         private readonly frmEmployeeManagement frm1;
         readonly Employee employee = new Employee();
         Employee myEmployee;
+        readonly RegexValidation Regex = new RegexValidation();
+
         public frmUpdateEmployee(frmEmployeeManagement frm, int id)
         {
             InitializeComponent();
@@ -25,29 +27,22 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
             myEmployee = employee.getEmployee(id);
         }
 
-        private bool isRegexValidated(Control ctrl, String regex, String msg)
-        {
-            if (!Regex.Match(ctrl.Text, regex).Success)
-            {
-                MessageBox.Show(msg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ctrl.Focus();
-                return false;
-            }
-            return true;
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-            if (!isRegexValidated(txtfirst, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid first name")) return;
-            if (!isRegexValidated(txtlast, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid last name")) return;
-            if (!isRegexValidated(cbdesignation, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please select a designation")) return;
-            if (!isRegexValidated(txtcontact, @"^(09|\+639|639)\d{9}$", "Please enter a valid contact number")) return;
+            if (!Regex.IsValid(txtfirst, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid first name")) return;
+            if (!Regex.IsValid(txtlast, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid last name")) return;
+            if (cbdesignation.SelectedIndex < -1)
+            {
+                MessageBox.Show("Please select a designation", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (!Regex.IsValid(txtcontact, @"^(09|\+639|639)\d{9}$", "Please enter a valid contact number")) return;
             
             if (MessageBox.Show("Save changes?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 employee.updateEmployee(myEmployee.id, txtfirst.Text, txtlast.Text, cbdesignation.Text, txtcontact.Text);
-                MessageBox.Show("Sucessfully updated", "Sucess", MessageBoxButtons.OK);
                 frm1.LoadData();
                 this.Close();
             }
@@ -68,7 +63,7 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
             loadData();
         }
 
-        private void frmReset_Click(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
             loadData();
         }

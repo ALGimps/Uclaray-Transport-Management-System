@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.panelHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.panelSide = new Guna.UI2.WinForms.Guna2Panel();
             this.panelSidebar = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
@@ -47,15 +48,14 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnUserAccounts = new Guna.UI2.WinForms.Guna2Button();
             this.btnEmployees = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ShadowPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelHeader.SuspendLayout();
             this.panelSide.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2DragControl1
@@ -76,6 +76,26 @@
             this.guna2ShadowPanel2.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1264, 75);
             this.guna2ShadowPanel2.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Uclaray_Transport_Management_System.Properties.Resources.UCLARAY_TRANSPORT;
+            this.pictureBox2.Location = new System.Drawing.Point(110, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(160, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Uclaray_Transport_Management_System.Properties.Resources.UCLARAY_TRANSPORT_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panelHeader
             // 
@@ -131,6 +151,18 @@
             this.panelSidebar.Size = new System.Drawing.Size(224, 606);
             this.panelSidebar.TabIndex = 0;
             // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = global::Uclaray_Transport_Management_System.Properties.Resources.male_user_60px;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(77, 18);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(70, 70);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox1.TabIndex = 0;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -150,29 +182,6 @@
             this.label1.Size = new System.Drawing.Size(111, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Juan Dela Cruz";
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.BackColor = System.Drawing.Color.White;
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(224, 75);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Padding = new System.Windows.Forms.Padding(25, 0, 25, 0);
-            this.panelContainer.ShadowDecoration.Parent = this.panelContainer;
-            this.panelContainer.Size = new System.Drawing.Size(1040, 606);
-            this.panelContainer.TabIndex = 8;
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = global::Uclaray_Transport_Management_System.Properties.Resources.male_user_60px;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(77, 18);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 0;
-            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // guna2Button6
             // 
@@ -293,6 +302,7 @@
             this.guna2Button8.TabIndex = 3;
             this.guna2Button8.Text = "Partner Companies";
             this.guna2Button8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button8.Click += new System.EventHandler(this.guna2Button8_Click);
             // 
             // guna2Button1
             // 
@@ -367,25 +377,16 @@
             this.btnEmployees.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
-            // pictureBox2
+            // panelContainer
             // 
-            this.pictureBox2.Image = global::Uclaray_Transport_Management_System.Properties.Resources.UCLARAY_TRANSPORT;
-            this.pictureBox2.Location = new System.Drawing.Point(110, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(160, 63);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Uclaray_Transport_Management_System.Properties.Resources.UCLARAY_TRANSPORT_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.panelContainer.BackColor = System.Drawing.Color.White;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(224, 75);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Padding = new System.Windows.Forms.Padding(25, 0, 25, 0);
+            this.panelContainer.ShadowDecoration.Parent = this.panelContainer;
+            this.panelContainer.Size = new System.Drawing.Size(1040, 606);
+            this.panelContainer.TabIndex = 8;
             // 
             // frmMain
             // 
@@ -399,13 +400,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
             this.guna2ShadowPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelHeader.ResumeLayout(false);
             this.panelSide.ResumeLayout(false);
             this.panelSidebar.ResumeLayout(false);
             this.panelSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
