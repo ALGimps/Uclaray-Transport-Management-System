@@ -59,7 +59,7 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
                     imageList2.Images[0]
                 }) ;
                 dgvEmployees.Rows[rowIndex].Cells[4].Tag = emp.active;
-                dgvEmployees.Rows[rowIndex].Cells[6].ToolTipText = "Update employee details";
+                dgvEmployees.Rows[rowIndex].Cells[6].ToolTipText = "Update employee information";
                 var tooltip = emp.active ? "Set employee as inactive" : "Set employee as active";
                 dgvEmployees.Rows[rowIndex].Cells[7].ToolTipText = tooltip;
             }
@@ -73,40 +73,56 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
             frm.ShowDialog();
         }
 
+        private void ShowUpdateForm()
+        {
+            var columnID = dgvEmployees.SelectedCells[0].Value;
+            frmUpdateEmployee frm = new frmUpdateEmployee(this, (int)columnID);
+            frm.ShowDialog();
+        }
+
+        private void ChangeStatus()
+        {
+            var name = dgvEmployees.SelectedCells[1].Value.ToString() + " " + dgvEmployees.SelectedCells[2].Value.ToString();
+            var columnID = dgvEmployees.SelectedCells[0].Value;
+            if (Convert.ToBoolean(dgvEmployees.SelectedCells[4].Tag))
+            {
+                if (MessageBox.Show("Do you want to set the status of " + name + " to inactive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    employee.changeStatus(Convert.ToInt32(columnID), 0);
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Do you want to set the status of " + name + " to active?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    employee.changeStatus(Convert.ToInt32(columnID), 1);
+                }
+            }
+
+            LoadData();
+        }
+
+        private void ShowDeliveries()
+        {
+            var name = dgvEmployees.SelectedCells[1].Value + " " + dgvEmployees.SelectedCells[2].Value;
+            frmEmployeeDeliveries frm = new frmEmployeeDeliveries(name);
+            frm.ShowDialog();
+        }
+
         private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
-            if (dgvEmployees.Columns[e.ColumnIndex].Name == "update")
+            if (dgvEmployees.Columns[e.ColumnIndex].Index == 6)
             {
-                var columnID = dgvEmployees.SelectedCells[0].Value;
-                frmUpdateEmployee frm = new frmUpdateEmployee(this, (int)columnID);
-                frm.ShowDialog();
+                ShowUpdateForm();
             }
-            if (dgvEmployees.Columns[e.ColumnIndex].Name == "setInactive")
+            if (dgvEmployees.Columns[e.ColumnIndex].Index == 7)
             {
-                var name = dgvEmployees.SelectedCells[1].Value.ToString() + " " + dgvEmployees.SelectedCells[2].Value.ToString();
-                var columnID = dgvEmployees.SelectedCells[0].Value;
-                 if (Convert.ToBoolean(dgvEmployees.SelectedCells[4].Tag)){
-                    if (MessageBox.Show("Do you want to set the status of " + name + " to inactive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        employee.changeStatus(Convert.ToInt32(columnID),0);
-                    }
-                }
-                else
-                {
-                    if (MessageBox.Show("Do you want to set the status of " + name + " to active?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        employee.changeStatus(Convert.ToInt32(columnID),1);
-                    }
-                }
-
-                LoadData();
+                ChangeStatus();
             }
-            if (dgvEmployees.Columns[e.ColumnIndex].Name == "deliveries")
+            if (dgvEmployees.Columns[e.ColumnIndex].Index == 8)
             {
-                var name = dgvEmployees.SelectedCells[1].Value + " "+ dgvEmployees.SelectedCells[2].Value;
-                frmEmployeeDeliveries frm = new frmEmployeeDeliveries(name);
-                frm.ShowDialog();
+                ShowDeliveries();
             }
 
         }

@@ -11,33 +11,40 @@ using Uclaray_Transport_Management_System.Classes;
 
 namespace Uclaray_Transport_Management_System.Forms.Account_management
 {
-    public partial class frmAddUser : Form
+    public partial class frmUpdateUser : Form
     {
         private readonly frmAccountManagement parentForm;
-        readonly RegexValidation Regex = new RegexValidation();
-        public frmAddUser(frmAccountManagement frm)
+        private readonly RegexValidation Regex = new RegexValidation();
+        private readonly UserAccount userAccount = new UserAccount();
+        private UserAccount myUserAccount;
+        private int id;
+
+        public frmUpdateUser(frmAccountManagement frm, int userID)
         {
             InitializeComponent();
             parentForm = frm;
-            ResetFields();
+            id = userID;
+            //fetch user details from database
+            myUserAccount = userAccount.GetUser(userID);
         }
 
-        private void cboShowPass_CheckedChanged(object sender, EventArgs e)
+        private void loadData()
         {
-            txtPassword.PasswordChar = cboShowPass.Checked ? '\0':'•';
+            txtFirst.Text = myUserAccount.firstName;
+            txtLast.Text = myUserAccount.lastName;
+            txtEmail.Text = myUserAccount.email;
+            txtContact.Text = myUserAccount.contact;
+            txtUsername.Text = myUserAccount.userName;
+            cboRole.SelectedIndex = cboRole.FindStringExact(myUserAccount.userRole);
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void frmUpdateUser_Load(object sender, EventArgs e)
         {
+            loadData();
+        }
 
-            //txtFirst.Text = "testFirstname";
-            //txtLast.Text = "testLastname";
-            //txtUsername.Text = "testUsername";
-            //txtPassword.Text = "testPassword";
-            //cboRole.SelectedIndex = 0;
-            //txtContact.Text = "09123456789";
-            //txtEmail.Text = "tesEmail@email.com";
-
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
             if (!Regex.IsValid(txtFirst, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid first name")) return;
             if (!Regex.IsValid(txtLast, @"^\S(?![\s.]+$)[a-zA-Z\s]*$", "Please enter a valid last name")) return;
             if (!Regex.IsValid(txtContact, @"^(09|\+639|639)\d{9}$", "Please enter a valid contact number")) return;
@@ -53,49 +60,27 @@ namespace Uclaray_Transport_Management_System.Forms.Account_management
                 txtUsername.Focus();
                 return;
             }
-            if (txtPassword.TextLength < 4)
-            {
-                MessageBox.Show("Password must contain 4 characters or more", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtPassword.Focus();
-                return;
-            }
-            if (txtConfirmPass.Text != txtPassword.Text)
-            {
-                MessageBox.Show("Password doesn't match", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtConfirmPass.Clear();
-                txtConfirmPass.Focus();
-                return;
-            }
 
-            UserAccount User = new UserAccount();
             string firstname = txtFirst.Text.Trim();
             string lastname = txtLast.Text.Trim();
             string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
             string role = cboRole.Text.Trim();
             string contact = txtContact.Text.Trim();
             string email = txtEmail.Text.Trim();
 
-            User.AddUser(username, password, email, role, firstname, lastname, contact);
+            userAccount.UpdateUser(id, firstname, lastname, email, contact, role, username);
+            parentForm.LoadData();
             Close();
-           parentForm.LoadData();
         }
 
-        private void ResetFields()
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            txtFirst.Text = "";
-            txtLast.Text = "";
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            cboRole.SelectedIndex = -1;
-            txtContact.Text = "";
-            txtEmail.Text = "";
+            loadData();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
-
     }
 }

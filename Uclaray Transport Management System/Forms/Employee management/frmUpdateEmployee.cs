@@ -15,9 +15,9 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
     public partial class frmUpdateEmployee : Form
     {
         private readonly frmEmployeeManagement frm1;
-        readonly Employee employee = new Employee();
-        Employee myEmployee;
-        readonly RegexValidation Regex = new RegexValidation();
+        private readonly Employee employee = new Employee();
+        private Employee myEmployee;
+        private readonly RegexValidation Regex = new RegexValidation();
 
         public frmUpdateEmployee(frmEmployeeManagement frm, int id)
         {
@@ -66,6 +66,11 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
         private void btnReset_Click(object sender, EventArgs e)
         {
             loadData();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
