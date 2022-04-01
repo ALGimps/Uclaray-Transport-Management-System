@@ -134,9 +134,82 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
         }
 
+        private string MessageBuilder(string DriverName, string HelperName, DateTime DeliveryDate)
+        {
+            StringBuilder message = new StringBuilder();
+            message.Append("Good Day! @Driver and @Helper");
+            message.AppendLine();
+            message.AppendLine("Ito and schedule niyo para sa @Date");
+
+            message.Replace("@Driver", DriverName);
+            message.Replace("@Helper", HelperName);
+            message.Replace("@Date", DeliveryDate.ToString("MMMM dd, yyyy - dddd"));
+
+            foreach (DataGridViewRow row in dgvDeliveries.Rows)
+            {
+                int _deliveryNum = 0;
+                _deliveryNum++;
+
+                string storeName = row.Cells[1].Value.ToString();
+                string location = row.Cells[2].Value.ToString();
+                string area = row.Cells[3].Value.ToString();
+                string quantity = row.Cells[4].Value.ToString();
+
+                message.Append(_deliveryNum.ToString());
+                message.Append("\nStore Name: " + storeName);
+                message.Append("\nLocation: " + location);
+                message.Append("\nArea: " + area);
+                message.Append("\nQuantity: " + quantity);
+                message.AppendLine();
+
+
+            }
+            message.AppendLine("END");
+
+            return message.ToString();
+
+        }
+
         private void dgvAdvancedTracking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvAdvancedTracking.Columns[e.ColumnIndex].Index == 9)
+            {
 
+                if (dgvAdvancedTracking.SelectedCells[7].Value == null)
+                {
+                    MessageBox.Show("Please select a Driver");
+                    return;
+                }
+
+                if (dgvAdvancedTracking.SelectedCells[8].Value == null)
+                {
+                    MessageBox.Show("Please select a Helper");
+                    return;
+                }
+
+                string tripNo = dgvAdvancedTracking.SelectedCells[0].Value.ToString();
+                int driverID = (int)dgvAdvancedTracking.SelectedCells[7].Value;
+                int helperId = (int)dgvAdvancedTracking.SelectedCells[8].Value;
+
+                trips.AssignDriverHelper(tripNo, driverID, helperId);
+                LoadData();
+
+                //Build Message to send via SMS
+                Employee emp = new Employee();
+                string driverName = emp.getEmployee(driverID).fullName;
+                string helperName = emp.getEmployee(helperId).fullName;
+                DateTime DeliveryDate = Convert.ToDateTime(dgvAdvancedTracking.SelectedCells[1].Value.ToString());
+                string message = MessageBuilder(driverName, helperName, DeliveryDate);
+
+                //Get contact and send sms
+                string helperNumber = emp.getEmployee(helperId).contact;
+                string driverNumber = emp.getEmployee(driverID).contact;
+
+                //SMS.Send(driverNumber,message);
+                //SMS.Send(helperNumber, message);
+
+
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

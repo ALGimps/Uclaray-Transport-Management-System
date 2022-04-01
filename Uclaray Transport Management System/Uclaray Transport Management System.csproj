@@ -163,6 +163,12 @@
     <Compile Include="Forms\Record Management\frmAdvancedTrackingNew.Designer.cs">
       <DependentUpon>frmAdvancedTrackingNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Record Management\frmBadOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmBadOrders.Designer.cs">
+      <DependentUpon>frmBadOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Record Management\frmCurrentDeliveries.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,12 @@
     <Compile Include="Forms\Record Management\frmDeliveryDetails.Designer.cs">
       <DependentUpon>frmDeliveryDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Record Management\frmHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmHistory.Designer.cs">
+      <DependentUpon>frmHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Record Management\frmImportFromExcel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +198,12 @@
     </Compile>
     <Compile Include="Forms\Record Management\frmManualAdd.Designer.cs">
       <DependentUpon>frmManualAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmSuccessfulDeliveries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmSuccessfulDeliveries.Designer.cs">
+      <DependentUpon>frmSuccessfulDeliveries.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,17 +258,26 @@
     <EmbeddedResource Include="Forms\Record Management\frmAdvancedTrackingNew.resx">
       <DependentUpon>frmAdvancedTrackingNew.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmBadOrders.resx">
+      <DependentUpon>frmBadOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Record Management\frmCurrentDeliveries.resx">
       <DependentUpon>frmCurrentDeliveries.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Record Management\frmDeliveryDetails.resx">
       <DependentUpon>frmDeliveryDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmHistory.resx">
+      <DependentUpon>frmHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Record Management\frmImportFromExcel.resx">
       <DependentUpon>frmImportFromExcel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Record Management\frmManualAdd.resx">
       <DependentUpon>frmManualAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmSuccessfulDeliveries.resx">
+      <DependentUpon>frmSuccessfulDeliveries.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

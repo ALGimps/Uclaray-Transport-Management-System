@@ -115,7 +115,7 @@ namespace Uclaray_Transport_Management_System.Classes
     }
 
     public static class SMS{
-        public static void Send(string number, string message)
+        public static object Send(string number, string message)
         {
             using (WebClient client = new WebClient())
             {
@@ -127,7 +127,8 @@ namespace Uclaray_Transport_Management_System.Classes
                     { "message", message },
                     { "sendername", "" },
                 });
-                string result = System.Text.Encoding.UTF8.GetString(response);
+                object result = Encoding.UTF8.GetString(response);
+                return result;
             }
         }
     }

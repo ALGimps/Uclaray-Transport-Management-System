@@ -11,10 +11,10 @@ using Uclaray_Transport_Management_System.Classes;
 
 namespace Uclaray_Transport_Management_System.Forms.Record_Management
 {
-    public partial class frmCurrentDeliveries : Form
+    public partial class frmSuccessfulDeliveries : Form
     {
         DeliveryRecord record = new DeliveryRecord();
-        public frmCurrentDeliveries()
+        public frmSuccessfulDeliveries()
         {
             InitializeComponent();
             LoadData();
@@ -29,14 +29,14 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
         private List<DeliveryRecord> FetchData()
         {
-            var List = record.GetAllRecords(2);
+            var List = record.GetAllRecords(3);
             return List;
         }
 
         private void PopulateDataGrid(List<DeliveryRecord> List)
         {
 
-            dgvCurrentDeliveries.Rows.Clear();
+            dgvSuccessfulDeliveries.Rows.Clear();
             if (List.Count == 0)
             {
                 lblLoading.Text = "Sorry, no records found";
@@ -51,7 +51,7 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
             foreach (var record in List)
             {
 
-                var rowIndex = dgvCurrentDeliveries.Rows.Add(new object[]
+                var rowIndex = dgvSuccessfulDeliveries.Rows.Add(new object[]
                 {
                     record.id,
                     record.Delivery_date.ToString("dd-MMM-yy"),
@@ -61,41 +61,23 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                     record.Trip_number,
                     emp.getEmployee(record.Driver_id).fullName,
                     emp.getEmployee(record.Helper_id).fullName,
-                    "Pending",
+                    "Successful",
                     imageList1.Images[0]
 
                 });
-                dgvCurrentDeliveries.Rows[rowIndex].Cells[9].ToolTipText = "View Delivery Details";
+                dgvSuccessfulDeliveries.Rows[rowIndex].Cells[9].ToolTipText = "View Delivery Details";
 
             }
             lblLoading.Visible = false;
-            lblRecords.Text = "Records: " + dgvCurrentDeliveries.RowCount.ToString();
+            lblRecords.Text = "Records: " + dgvSuccessfulDeliveries.RowCount.ToString();
         }
 
-        private void dgvCurrentDeliveries_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSuccessfulDeliveries_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvCurrentDeliveries.Columns[e.ColumnIndex].Index == dgvCurrentDeliveries.Columns.Count-1)
+            if (e.ColumnIndex == 8)
             {
-                int id = (int)dgvCurrentDeliveries.SelectedCells[0].Value;
-                frmDeliveryDetails frm = new frmDeliveryDetails(this,id);
-                frm.ShowDialog();
+                e.CellStyle.BackColor = Color.FromArgb(125, 207, 123);
             }
-        }
-
-        private void dgvCurrentDeliveries_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            DateTime _deliveryDate = Convert.ToDateTime(dgvCurrentDeliveries.Rows[e.RowIndex].Cells[1].Value.ToString());
-            int res = DateTime.Compare(_deliveryDate,DateTime.Today);
-            if (res < 0 && e.ColumnIndex==1){
-                
-                e.CellStyle.ForeColor = Color.DarkRed;
-                e.CellStyle.SelectionForeColor = Color.DarkRed;
-            }
-            if (e.ColumnIndex==8)
-            {
-                e.CellStyle.BackColor = Color.FromArgb(250, 184, 17);
-            }
-                
         }
     }
 }

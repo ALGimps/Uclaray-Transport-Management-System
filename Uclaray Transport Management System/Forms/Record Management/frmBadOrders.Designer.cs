@@ -1,6 +1,6 @@
 ﻿namespace Uclaray_Transport_Management_System.Forms.Record_Management
 {
-    partial class frmCurrentDeliveries
+    partial class frmBadOrders
     {
         /// <summary>
         /// Required designer variable.
@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCurrentDeliveries));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBadOrders));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblLoading = new System.Windows.Forms.Label();
-            this.dgvCurrentDeliveries = new System.Windows.Forms.DataGridView();
-            this.lblRecords = new System.Windows.Forms.Label();
+            this.dgvBadOrders = new System.Windows.Forms.DataGridView();
             this.lblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblRecords = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnDesignation = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentDeliveries)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBadOrders)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,11 +65,11 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.lblLoading);
-            this.panel1.Controls.Add(this.dgvCurrentDeliveries);
+            this.panel1.Controls.Add(this.dgvBadOrders);
             this.panel1.Location = new System.Drawing.Point(12, 111);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 430);
-            this.panel1.TabIndex = 122;
+            this.panel1.TabIndex = 131;
             // 
             // lblLoading
             // 
@@ -78,35 +78,35 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLoading.AutoSize = true;
             this.lblLoading.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoading.Location = new System.Drawing.Point(439, 209);
+            this.lblLoading.Location = new System.Drawing.Point(432, 217);
             this.lblLoading.Name = "lblLoading";
             this.lblLoading.Size = new System.Drawing.Size(148, 17);
             this.lblLoading.TabIndex = 118;
             this.lblLoading.Text = "Loading, please wait . . .";
             // 
-            // dgvCurrentDeliveries
+            // dgvBadOrders
             // 
-            this.dgvCurrentDeliveries.AllowUserToAddRows = false;
-            this.dgvCurrentDeliveries.AllowUserToDeleteRows = false;
-            this.dgvCurrentDeliveries.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvCurrentDeliveries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvCurrentDeliveries.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCurrentDeliveries.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCurrentDeliveries.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCurrentDeliveries.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvCurrentDeliveries.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCurrentDeliveries.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvCurrentDeliveries.ColumnHeadersHeight = 45;
-            this.dgvCurrentDeliveries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCurrentDeliveries.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvBadOrders.AllowUserToAddRows = false;
+            this.dgvBadOrders.AllowUserToDeleteRows = false;
+            this.dgvBadOrders.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvBadOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvBadOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBadOrders.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBadOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBadOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvBadOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBadOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBadOrders.ColumnHeadersHeight = 45;
+            this.dgvBadOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvBadOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnID,
             this.columnFirst,
             this.columnDesignation,
@@ -117,27 +117,46 @@
             this.Column5,
             this.Column2,
             this.Column6});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCurrentDeliveries.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvCurrentDeliveries.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCurrentDeliveries.EnableHeadersVisualStyles = false;
-            this.dgvCurrentDeliveries.Location = new System.Drawing.Point(0, 0);
-            this.dgvCurrentDeliveries.Name = "dgvCurrentDeliveries";
-            this.dgvCurrentDeliveries.RowHeadersVisible = false;
-            this.dgvCurrentDeliveries.RowTemplate.Height = 35;
-            this.dgvCurrentDeliveries.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCurrentDeliveries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCurrentDeliveries.Size = new System.Drawing.Size(1000, 430);
-            this.dgvCurrentDeliveries.StandardTab = true;
-            this.dgvCurrentDeliveries.TabIndex = 109;
-            this.dgvCurrentDeliveries.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCurrentDeliveries_CellContentClick);
-            this.dgvCurrentDeliveries.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCurrentDeliveries_CellFormatting);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBadOrders.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvBadOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBadOrders.EnableHeadersVisualStyles = false;
+            this.dgvBadOrders.Location = new System.Drawing.Point(0, 0);
+            this.dgvBadOrders.Name = "dgvBadOrders";
+            this.dgvBadOrders.RowHeadersVisible = false;
+            this.dgvBadOrders.RowTemplate.Height = 35;
+            this.dgvBadOrders.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBadOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBadOrders.Size = new System.Drawing.Size(1000, 430);
+            this.dgvBadOrders.StandardTab = true;
+            this.dgvBadOrders.TabIndex = 109;
+            this.dgvBadOrders.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvBadOrders_CellFormatting);
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(-1, 42);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(38, 17);
+            this.lblDate.TabIndex = 133;
+            this.lblDate.Text = "DATE";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-2, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 21);
+            this.label1.TabIndex = 134;
+            this.label1.Text = "Bad Orders";
             // 
             // lblRecords
             // 
@@ -147,28 +166,14 @@
             this.lblRecords.Location = new System.Drawing.Point(9, 544);
             this.lblRecords.Name = "lblRecords";
             this.lblRecords.Size = new System.Drawing.Size(70, 17);
-            this.lblRecords.TabIndex = 123;
+            this.lblRecords.TabIndex = 132;
             this.lblRecords.Text = "Records: 0";
             // 
-            // lblDate
+            // imageList1
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(-1, 42);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(38, 17);
-            this.lblDate.TabIndex = 125;
-            this.lblDate.Text = "DATE";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-2, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 21);
-            this.label1.TabIndex = 126;
-            this.label1.Text = "Current Deliveries";
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Component 2.png");
             // 
             // dataGridViewImageColumn1
             // 
@@ -179,12 +184,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Component 2.png");
             // 
             // columnID
             // 
@@ -247,23 +246,22 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(184)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(184)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(78)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(78)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column2.HeaderText = "Status";
             this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle9.NullValue")));
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column6.HeaderText = "Action";
             this.Column6.MinimumWidth = 95;
             this.Column6.Name = "Column6";
@@ -271,35 +269,34 @@
             this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column6.Width = 95;
             // 
-            // frmCurrentDeliveries
+            // frmBadOrders
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 567);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblRecords);
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "frmCurrentDeliveries";
-            this.Text = "frmCurrentDeliveries";
+            this.Name = "frmBadOrders";
+            this.Text = "frmBadOrders";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentDeliveries)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBadOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblLoading;
-        internal System.Windows.Forms.DataGridView dgvCurrentDeliveries;
-        private System.Windows.Forms.Label lblRecords;
+        internal System.Windows.Forms.DataGridView dgvBadOrders;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Label lblRecords;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnFirst;

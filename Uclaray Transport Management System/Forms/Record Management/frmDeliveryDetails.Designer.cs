@@ -44,8 +44,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtNote = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPONumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblDeliveryDate = new System.Windows.Forms.Label();
             this.lbltracking_id = new System.Windows.Forms.Label();
@@ -61,8 +61,8 @@
             this.lblPlateNo = new System.Windows.Forms.Label();
             this.lblTrips = new System.Windows.Forms.Label();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblAssign = new System.Windows.Forms.Label();
+            this.lblLastUpdate = new System.Windows.Forms.Label();
             this.cbstatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -109,9 +109,9 @@
             this.label17.Location = new System.Drawing.Point(372, 180);
             this.label17.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(82, 17);
+            this.label17.Size = new System.Drawing.Size(80, 17);
             this.label17.TabIndex = 150;
-            this.label17.Text = "No. Of Trips:";
+            this.label17.Text = "No. of Trips:";
             // 
             // label18
             // 
@@ -120,9 +120,9 @@
             this.label18.Location = new System.Drawing.Point(364, 153);
             this.label18.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(90, 17);
+            this.label18.Size = new System.Drawing.Size(88, 17);
             this.label18.TabIndex = 151;
-            this.label18.Text = "No. Of Drops:";
+            this.label18.Text = "No. of Drops:";
             // 
             // label19
             // 
@@ -216,7 +216,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(49, 315);
+            this.label5.Location = new System.Drawing.Point(44, 318);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 17);
@@ -239,6 +239,7 @@
             this.btnAdd.Size = new System.Drawing.Size(110, 35);
             this.btnAdd.TabIndex = 156;
             this.btnAdd.Text = "Save Changes";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label6
             // 
@@ -252,54 +253,56 @@
             this.label6.TabIndex = 150;
             this.label6.Text = "Notes:";
             // 
-            // guna2TextBox1
+            // txtNote
             // 
-            this.guna2TextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(16, 366);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(574, 60);
-            this.guna2TextBox1.TabIndex = 158;
+            this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtNote.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNote.DefaultText = "";
+            this.txtNote.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNote.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNote.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNote.DisabledState.Parent = this.txtNote;
+            this.txtNote.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNote.FocusedState.Parent = this.txtNote;
+            this.txtNote.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.ForeColor = System.Drawing.Color.Black;
+            this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNote.HoverState.Parent = this.txtNote;
+            this.txtNote.Location = new System.Drawing.Point(16, 366);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.PasswordChar = '\0';
+            this.txtNote.PlaceholderText = "";
+            this.txtNote.SelectedText = "";
+            this.txtNote.ShadowDecoration.Parent = this.txtNote;
+            this.txtNote.Size = new System.Drawing.Size(574, 60);
+            this.txtNote.TabIndex = 158;
             // 
-            // guna2TextBox2
+            // txtPONumber
             // 
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(132, 309);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(173, 30);
-            this.guna2TextBox2.TabIndex = 158;
+            this.txtPONumber.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPONumber.DefaultText = "";
+            this.txtPONumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPONumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPONumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPONumber.DisabledState.Parent = this.txtPONumber;
+            this.txtPONumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPONumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPONumber.FocusedState.Parent = this.txtPONumber;
+            this.txtPONumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPONumber.ForeColor = System.Drawing.Color.Black;
+            this.txtPONumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPONumber.HoverState.Parent = this.txtPONumber;
+            this.txtPONumber.Location = new System.Drawing.Point(133, 309);
+            this.txtPONumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPONumber.Name = "txtPONumber";
+            this.txtPONumber.PasswordChar = '\0';
+            this.txtPONumber.PlaceholderText = "";
+            this.txtPONumber.SelectedText = "";
+            this.txtPONumber.ShadowDecoration.Parent = this.txtPONumber;
+            this.txtPONumber.Size = new System.Drawing.Size(173, 30);
+            this.txtPONumber.TabIndex = 158;
             // 
             // label7
             // 
@@ -474,33 +477,33 @@
             this.btnHistory.TabIndex = 156;
             this.btnHistory.Text = "History";
             // 
-            // label8
+            // lblAssign
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(14, 440);
-            this.label8.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(151, 13);
-            this.label8.TabIndex = 150;
-            this.label8.Text = "Assigned by: Juan Dela Cruz";
+            this.lblAssign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAssign.AutoSize = true;
+            this.lblAssign.BackColor = System.Drawing.Color.White;
+            this.lblAssign.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAssign.ForeColor = System.Drawing.Color.Gray;
+            this.lblAssign.Location = new System.Drawing.Point(14, 440);
+            this.lblAssign.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblAssign.Name = "lblAssign";
+            this.lblAssign.Size = new System.Drawing.Size(151, 13);
+            this.lblAssign.TabIndex = 150;
+            this.lblAssign.Text = "Assigned by: Juan Dela Cruz";
             // 
-            // label9
+            // lblLastUpdate
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gray;
-            this.label9.Location = new System.Drawing.Point(14, 459);
-            this.label9.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(185, 13);
-            this.label9.TabIndex = 150;
-            this.label9.Text = "Last Updated: 2021-08-03  08:41:47";
+            this.lblLastUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblLastUpdate.AutoSize = true;
+            this.lblLastUpdate.BackColor = System.Drawing.Color.White;
+            this.lblLastUpdate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastUpdate.ForeColor = System.Drawing.Color.Gray;
+            this.lblLastUpdate.Location = new System.Drawing.Point(14, 459);
+            this.lblLastUpdate.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblLastUpdate.Name = "lblLastUpdate";
+            this.lblLastUpdate.Size = new System.Drawing.Size(185, 13);
+            this.lblLastUpdate.TabIndex = 150;
+            this.lblLastUpdate.Text = "Last Updated: 2021-08-03  08:41:47";
             // 
             // cbstatus
             // 
@@ -515,17 +518,17 @@
             this.cbstatus.HoverState.Parent = this.cbstatus;
             this.cbstatus.ItemHeight = 24;
             this.cbstatus.ItemsAppearance.Parent = this.cbstatus;
-            this.cbstatus.Location = new System.Drawing.Point(460, 312);
+            this.cbstatus.Location = new System.Drawing.Point(385, 309);
             this.cbstatus.Name = "cbstatus";
             this.cbstatus.ShadowDecoration.Parent = this.cbstatus;
-            this.cbstatus.Size = new System.Drawing.Size(130, 30);
+            this.cbstatus.Size = new System.Drawing.Size(205, 30);
             this.cbstatus.TabIndex = 159;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(411, 318);
+            this.label10.Location = new System.Drawing.Point(336, 315);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 17);
@@ -536,7 +539,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(40, 288);
+            this.label11.Location = new System.Drawing.Point(65, 288);
             this.label11.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 17);
@@ -560,8 +563,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(604, 485);
             this.Controls.Add(this.cbstatus);
-            this.Controls.Add(this.guna2TextBox2);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.txtPONumber);
+            this.Controls.Add(this.txtNote);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label14);
@@ -579,8 +582,8 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblLastUpdate);
+            this.Controls.Add(this.lblAssign);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblDriver);
@@ -628,8 +631,8 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtNote;
+        private Guna.UI2.WinForms.Guna2TextBox txtPONumber;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblDeliveryDate;
         private System.Windows.Forms.Label lbltracking_id;
@@ -645,8 +648,8 @@
         private System.Windows.Forms.Label lblPlateNo;
         private System.Windows.Forms.Label lblTrips;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblAssign;
+        private System.Windows.Forms.Label lblLastUpdate;
         private Guna.UI2.WinForms.Guna2ComboBox cbstatus;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;

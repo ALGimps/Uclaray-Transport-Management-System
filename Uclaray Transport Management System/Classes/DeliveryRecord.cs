@@ -135,7 +135,7 @@ namespace Uclaray_Transport_Management_System.Classes
         public int Quantity { get; set; }
         public string Status { get; set; }
         public string Note { get; set; }
-        public string User_id { get; set; }
+        public int User_id { get; set; }
 
         static string connstring = DBUtils.connstring;
         private MySqlConnection connection = new MySqlConnection(connstring);
@@ -197,7 +197,109 @@ namespace Uclaray_Transport_Management_System.Classes
                         Helper_id = (int)dr["helper_id"],
                         Status = dr["status"].ToString(),
                         Note = dr["note"].ToString(),
-                        User_id = dr["user_id"].ToString()
+                        User_id = (int)dr["user_id"]
+                    };
+                    recordList.Add(record);
+                }
+
+            }
+
+            return recordList;
+        }
+
+        public List<DeliveryRecord> GetBadOrders()
+        {
+            List<DeliveryRecord> recordList = new List<DeliveryRecord>();
+            string query = "SELECT delivery_records.tracking_id, delivery_records.logistics_id, delivery_records.delivery_date , delivery_records.store_name, delivery_records.location, delivery_records.area, delivery_records.status, delivery_records.po_number ,  delivery_records.quantity, delivery_records.note, delivery_records.user_id, " +
+                "trips.trip_no, trips.truck_type, trips.plate_no, trips.no_of_drop, trips.no_of_trip, trips.driver_id, trips.helper_id " +
+                "FROM delivery_records " +
+                "INNER JOIN trips ON trips.trip_no = delivery_records.trip_id " +
+                "WHERE status = 4 OR status = 5 "+
+                "ORDER by delivery_date";
+
+            using (connection)
+            {
+                connection.Open();
+
+                MySqlCommand comm = new MySqlCommand(query, connection);
+
+                //Execute Data reader
+                MySqlDataReader dr = comm.ExecuteReader();
+
+                //Populate List with data
+                while (dr.Read())
+                {
+                    DeliveryRecord record = new DeliveryRecord
+                    {
+                        id = (int)dr["tracking_id"],
+                        Delivery_date = (DateTime)(dr["delivery_date"]),
+                        Logistics_id = (int)dr["logistics_id"],
+                        Store_name = dr["store_name"].ToString(),
+                        Location = dr["location"].ToString(),
+                        Area = dr["area"].ToString(),
+                        PO_number = dr["po_number"].ToString(),
+                        Quantity = (int)dr["quantity"],
+                        Trip_number = dr["trip_no"].ToString(),
+                        Truck_type = dr["truck_type"].ToString(),
+                        Plate_no = dr["plate_no"].ToString(),
+                        Number_of_drop = dr["no_of_drop"].ToString(),
+                        Number_of_trips = dr["no_of_trip"].ToString(),
+                        Driver_id = (int)dr["driver_id"],
+                        Helper_id = (int)dr["helper_id"],
+                        Status = dr["status"].ToString(),
+                        Note = dr["note"].ToString(),
+                        User_id = (int)dr["user_id"]
+                    };
+                    recordList.Add(record);
+                }
+
+            }
+
+            return recordList;
+        }
+
+        public List<DeliveryRecord> GetCompletedRecords()
+        {
+            List<DeliveryRecord> recordList = new List<DeliveryRecord>();
+            string query = "SELECT delivery_records.tracking_id, delivery_records.logistics_id, delivery_records.delivery_date , delivery_records.store_name, delivery_records.location, delivery_records.area, delivery_records.status, delivery_records.po_number ,  delivery_records.quantity, delivery_records.note, delivery_records.user_id, " +
+                "trips.trip_no, trips.truck_type, trips.plate_no, trips.no_of_drop, trips.no_of_trip, trips.driver_id, trips.helper_id " +
+                "FROM delivery_records " +
+                "INNER JOIN trips ON trips.trip_no = delivery_records.trip_id " +
+                "WHERE status > 2 " +
+                "ORDER by delivery_date";
+
+            using (connection)
+            {
+                connection.Open();
+
+                MySqlCommand comm = new MySqlCommand(query, connection);
+
+                //Execute Data reader
+                MySqlDataReader dr = comm.ExecuteReader();
+
+                //Populate List with data
+                while (dr.Read())
+                {
+                    DeliveryRecord record = new DeliveryRecord
+                    {
+                        id = (int)dr["tracking_id"],
+                        Delivery_date = (DateTime)(dr["delivery_date"]),
+                        Logistics_id = (int)dr["logistics_id"],
+                        Store_name = dr["store_name"].ToString(),
+                        Location = dr["location"].ToString(),
+                        Area = dr["area"].ToString(),
+                        PO_number = dr["po_number"].ToString(),
+                        Quantity = (int)dr["quantity"],
+                        Trip_number = dr["trip_no"].ToString(),
+                        Truck_type = dr["truck_type"].ToString(),
+                        Plate_no = dr["plate_no"].ToString(),
+                        Number_of_drop = dr["no_of_drop"].ToString(),
+                        Number_of_trips = dr["no_of_trip"].ToString(),
+                        Driver_id = (int)dr["driver_id"],
+                        Helper_id = (int)dr["helper_id"],
+                        Status = dr["status"].ToString(),
+                        Note = dr["note"].ToString(),
+                        User_id = (int)dr["user_id"]
                     };
                     recordList.Add(record);
                 }
@@ -249,7 +351,7 @@ namespace Uclaray_Transport_Management_System.Classes
                     recordResult.Helper_id = (int)dr["helper_id"];
                     recordResult.Status = dr["status"].ToString();
                     recordResult.Note = dr["note"].ToString();
-                    recordResult.User_id = dr["user_id"].ToString();
+                    recordResult.User_id = (int)dr["user_id"];
 
                 }
 
@@ -327,6 +429,69 @@ namespace Uclaray_Transport_Management_System.Classes
             }
         }
 
+
+        public void UpdatePONumber(int RecordID, string PONumber)
+        {
+            using (connection)
+            {
+                connection.Open();
+
+                string query = "UPDATE delivery_records SET po_number = ?PONumber" +
+                    "           WHERE tracking_id = ?RecordID ";
+
+                //Initialize Command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?RecordID", RecordID);
+                comm.Parameters.AddWithValue("?PONumber", PONumber.Trim());
+
+
+                //Execute
+                comm.ExecuteNonQuery();
+
+            }
+        }
+
+        public void UpdateRecordStatus(int RecordID, int Status, string Note)
+        {
+            using (connection)
+            {
+                connection.Open();
+
+                string query = "UPDATE delivery_records SET Status = ?Status, note = ?Note" +
+                    "           WHERE tracking_id = ?RecordID ";
+
+                //Initialize Command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?RecordID", RecordID);
+                comm.Parameters.AddWithValue("?Status", Status);
+                comm.Parameters.AddWithValue("?Note", Note.Trim());
+
+
+                //Execute
+                comm.ExecuteNonQuery();
+
+            }
+        }
+
+    }
+
+    class Status
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public List<Status> GetStatuses()
+        {
+            List<Status> _statusList = new List<Status>() {
+                new Status(){Id=2,Name="Pending"},
+                new Status(){Id=3,Name="Successful"},
+                new Status(){Id=4,Name="Bad Order (Logistics)"},
+                new Status(){Id=5,Name="Bad Order (Uclaray)"},
+                new Status(){Id=6,Name="Cancelled"},
+            };
+
+            return _statusList;
+        }
     }
 
 }

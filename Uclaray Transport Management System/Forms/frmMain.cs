@@ -109,7 +109,19 @@ namespace Uclaray_Transport_Management_System.Forms
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            Record_Management.frmAdvancedTrackingv2 frm = new Record_Management.frmAdvancedTrackingv2();
+            Record_Management.frmSuccessfulDeliveries frm = new Record_Management.frmSuccessfulDeliveries();
+            Showform(frm, (Guna2Button)sender);
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            Record_Management.frmBadOrders frm = new Record_Management.frmBadOrders();
+            Showform(frm, (Guna2Button)sender);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Record_Management.frmHistory frm = new Record_Management.frmHistory();
             Showform(frm, (Guna2Button)sender);
         }
     }

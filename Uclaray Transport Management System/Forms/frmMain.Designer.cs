@@ -296,6 +296,7 @@
             this.guna2Button3.TabIndex = 1;
             this.guna2Button3.Text = "Bad Orders";
             this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2Button1
             // 
@@ -319,6 +320,7 @@
             this.guna2Button1.TabIndex = 3;
             this.guna2Button1.Text = "History";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnEmployees
             // 

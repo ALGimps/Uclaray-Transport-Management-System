@@ -14,6 +14,8 @@ namespace Uclaray_Transport_Management_System.Classes
         [System.ComponentModel.DisplayName("Last name")]
         public string lastName { get; set; }
         [System.ComponentModel.DisplayName("User name")]
+
+        public string fullName { get { return firstName + " " + lastName; } set { } }
         public string userName { get; set; }
         [System.ComponentModel.DisplayName("Email")]
         public string email { get; set; }
