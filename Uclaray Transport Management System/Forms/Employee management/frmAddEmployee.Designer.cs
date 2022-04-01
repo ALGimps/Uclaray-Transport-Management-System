@@ -104,6 +104,7 @@
             this.txtContact.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtContact.FocusedState.Parent = this.txtContact;
             this.txtContact.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContact.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtContact.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtContact.HoverState.Parent = this.txtContact;
             this.txtContact.Location = new System.Drawing.Point(129, 187);
@@ -143,6 +144,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.CheckedState.Parent = this.btnCancel;
             this.btnCancel.CustomImages.Parent = this.btnCancel;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
@@ -163,7 +165,7 @@
             this.cbDesignation.FocusedColor = System.Drawing.Color.Empty;
             this.cbDesignation.FocusedState.Parent = this.cbDesignation;
             this.cbDesignation.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbDesignation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbDesignation.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cbDesignation.FormattingEnabled = true;
             this.cbDesignation.HoverState.Parent = this.cbDesignation;
             this.cbDesignation.ItemHeight = 24;
@@ -191,6 +193,7 @@
             this.txtLast.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLast.FocusedState.Parent = this.txtLast;
             this.txtLast.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLast.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtLast.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLast.HoverState.Parent = this.txtLast;
             this.txtLast.Location = new System.Drawing.Point(129, 115);
@@ -221,6 +224,7 @@
             this.txtFirst.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFirst.FocusedState.Parent = this.txtFirst;
             this.txtFirst.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirst.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtFirst.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFirst.HoverState.Parent = this.txtFirst;
             this.txtFirst.Location = new System.Drawing.Point(129, 79);

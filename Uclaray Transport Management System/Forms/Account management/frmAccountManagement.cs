@@ -22,26 +22,6 @@ namespace Uclaray_Transport_Management_System.Forms.Account_management
             LoadData();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string password = txtPassword.Text;
-            string salt = SecurityUtils.GenerateSalt(64);
-            string pwdHashed = SecurityUtils.HashPassword(password, salt, 1024, 64);
-
-            txtHash.Text = pwdHashed;
-            txtSalt.Text = salt;
-        }
-
-        private void btnCompare_Click(object sender, EventArgs e)
-        {
-            string currentPass = txtHash.Text;
-            string password = txtCompare.Text;
-            string salt = txtSalt.Text;
-            string pwdHashed = SecurityUtils.HashPassword(password, salt, 1024, 64);
-
-            if (currentPass == pwdHashed) MessageBox.Show("Correct");
-        }
-
         public void LoadData()
         {
             var userList = userAccount.GetUserAccounts();
@@ -133,11 +113,5 @@ namespace Uclaray_Transport_Management_System.Forms.Account_management
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string hash = txthash1.Text;
-            string salt = txtsalt1.Text;
-            txtresult.Text = SecurityUtils.HashPassword(hash, salt, 1024, 64);
-        }
     }
 }

@@ -17,6 +17,7 @@ namespace Uclaray_Transport_Management_System.Classes
         [System.ComponentModel.DisplayName("Last name")]
         public string lastName { get; set; }
         [System.ComponentModel.DisplayName("Designation")]
+        public string fullName { get { return firstName + " " + lastName; } set { } }
         public string designation { get; set; }
         [System.ComponentModel.DisplayName("Contact")]
         public string contact { get; set; }
@@ -24,31 +25,12 @@ namespace Uclaray_Transport_Management_System.Classes
         public bool active { get; set; }
 
 
-        //Define connection string
-
-        static string SERVER;
-        static string USERID;
-        static string PASSWORD;
-        static string PORT;
-        static string DATABASE;
-
-        //static string SERVER = "db4free.net";
-        //static string USERID = "capstone_test";
-        //static string PASSWORD = "capstone_test";
-        //static string PORT = "3306";
-        //static string DATABASE = "capstone_test";
-
         static string connstring;
         private MySqlConnection connection;
         
         private void Initialize()
         {
-            SERVER = "localhost";
-            USERID = "root";
-            PASSWORD = "1234";
-            PORT = "3306";
-            DATABASE = "uclaray_product_tracking_management_system";
-            connstring = $"SERVER= {SERVER}; USER ID= {USERID}; PASSWORD= {PASSWORD}; PORT= {PORT}; DATABASE= {DATABASE};";
+            connstring = DBUtils.connstring;
             connection = new MySqlConnection(connstring);
         }
 
@@ -180,11 +162,15 @@ namespace Uclaray_Transport_Management_System.Classes
         }
 
         //Fetch all record in employees table
-        public List<Employee> getAllEmployees()
+        public List<Employee> getAllEmployees(string AddQuery = "")
         {
             List<Employee> employeeList = new List<Employee>();
 
             string query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees ORDER by active DESC";
+            if (AddQuery != "")
+            {
+                query = "SELECT emp_id, emp_first, emp_last, emp_designation, emp_contact, active FROM employees " + AddQuery + " ORDER by active DESC"; ;
+            }
 
             if (OpenConnection())
             {

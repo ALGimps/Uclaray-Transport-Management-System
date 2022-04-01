@@ -36,19 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtSalt = new System.Windows.Forms.TextBox();
-            this.btnCompare = new System.Windows.Forms.Button();
-            this.btnHash = new System.Windows.Forms.Button();
-            this.txtCompare = new System.Windows.Forms.TextBox();
-            this.txtHash = new System.Windows.Forms.TextBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtsalt1 = new System.Windows.Forms.TextBox();
-            this.txthash1 = new System.Windows.Forms.TextBox();
-            this.txtresult = new System.Windows.Forms.TextBox();
             this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +47,9 @@
             this.reset = new System.Windows.Forms.DataGridViewImageColumn();
             this.deac = new System.Windows.Forms.DataGridViewImageColumn();
             this.active = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +95,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUsers.ColumnHeadersHeight = 35;
+            this.dgvUsers.ColumnHeadersHeight = 45;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnID,
@@ -141,136 +131,6 @@
             this.dgvUsers.StandardTab = true;
             this.dgvUsers.TabIndex = 109;
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(-1, 42);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(38, 17);
-            this.lblDate.TabIndex = 6;
-            this.lblDate.Text = "DATE";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(172, 4);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword.TabIndex = 121;
-            this.txtPassword.Visible = false;
-            // 
-            // txtSalt
-            // 
-            this.txtSalt.Location = new System.Drawing.Point(172, 51);
-            this.txtSalt.Name = "txtSalt";
-            this.txtSalt.Size = new System.Drawing.Size(100, 20);
-            this.txtSalt.TabIndex = 121;
-            this.txtSalt.Visible = false;
-            // 
-            // btnCompare
-            // 
-            this.btnCompare.Location = new System.Drawing.Point(299, 70);
-            this.btnCompare.Name = "btnCompare";
-            this.btnCompare.Size = new System.Drawing.Size(75, 23);
-            this.btnCompare.TabIndex = 122;
-            this.btnCompare.Text = "Compare";
-            this.btnCompare.UseVisualStyleBackColor = true;
-            this.btnCompare.Visible = false;
-            this.btnCompare.Click += new System.EventHandler(this.btnCompare_Click);
-            // 
-            // btnHash
-            // 
-            this.btnHash.Location = new System.Drawing.Point(299, 4);
-            this.btnHash.Name = "btnHash";
-            this.btnHash.Size = new System.Drawing.Size(75, 23);
-            this.btnHash.TabIndex = 122;
-            this.btnHash.Text = "Hash";
-            this.btnHash.UseVisualStyleBackColor = true;
-            this.btnHash.Visible = false;
-            this.btnHash.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtCompare
-            // 
-            this.txtCompare.Location = new System.Drawing.Point(172, 73);
-            this.txtCompare.Name = "txtCompare";
-            this.txtCompare.Size = new System.Drawing.Size(100, 20);
-            this.txtCompare.TabIndex = 121;
-            this.txtCompare.Visible = false;
-            // 
-            // txtHash
-            // 
-            this.txtHash.Location = new System.Drawing.Point(172, 27);
-            this.txtHash.Name = "txtHash";
-            this.txtHash.Size = new System.Drawing.Size(100, 20);
-            this.txtHash.TabIndex = 121;
-            this.txtHash.Visible = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "edit_user_48px.png");
-            this.imageList1.Images.SetKeyName(1, "important_user_48pxlight.png");
-            this.imageList1.Images.SetKeyName(2, "user_secured_48px green.png");
-            this.imageList1.Images.SetKeyName(3, "user_secured_48px red.png");
-            this.imageList1.Images.SetKeyName(4, "gear.png");
-            this.imageList1.Images.SetKeyName(5, "important_user_48px.png");
-            this.imageList1.Images.SetKeyName(6, "important_user_48pxdark.png");
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.CheckedState.Parent = this.btnAdd;
-            this.btnAdd.CustomImages.Parent = this.btnAdd;
-            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(252)))));
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.HoverState.Parent = this.btnAdd;
-            this.btnAdd.Image = global::Uclaray_Transport_Management_System.Properties.Resources.add_user_male_48px1;
-            this.btnAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAdd.Location = new System.Drawing.Point(682, 70);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
-            this.btnAdd.Size = new System.Drawing.Size(110, 35);
-            this.btnAdd.TabIndex = 120;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(528, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 125;
-            this.button1.Text = "login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtsalt1
-            // 
-            this.txtsalt1.Location = new System.Drawing.Point(401, 27);
-            this.txtsalt1.Name = "txtsalt1";
-            this.txtsalt1.Size = new System.Drawing.Size(100, 20);
-            this.txtsalt1.TabIndex = 123;
-            this.txtsalt1.Visible = false;
-            // 
-            // txthash1
-            // 
-            this.txthash1.Location = new System.Drawing.Point(401, 4);
-            this.txthash1.Name = "txthash1";
-            this.txthash1.Size = new System.Drawing.Size(100, 20);
-            this.txthash1.TabIndex = 124;
-            this.txthash1.Visible = false;
-            // 
-            // txtresult
-            // 
-            this.txtresult.Location = new System.Drawing.Point(401, 51);
-            this.txtresult.Name = "txtresult";
-            this.txtresult.Size = new System.Drawing.Size(100, 20);
-            this.txtresult.TabIndex = 126;
-            this.txtresult.Visible = false;
             // 
             // columnID
             // 
@@ -367,22 +227,53 @@
             this.active.ReadOnly = true;
             this.active.Visible = false;
             // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(-1, 42);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(38, 17);
+            this.lblDate.TabIndex = 6;
+            this.lblDate.Text = "DATE";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "edit_user_48px.png");
+            this.imageList1.Images.SetKeyName(1, "important_user_48pxlight.png");
+            this.imageList1.Images.SetKeyName(2, "user_secured_48px green.png");
+            this.imageList1.Images.SetKeyName(3, "user_secured_48px red.png");
+            this.imageList1.Images.SetKeyName(4, "gear.png");
+            this.imageList1.Images.SetKeyName(5, "important_user_48px.png");
+            this.imageList1.Images.SetKeyName(6, "important_user_48pxdark.png");
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.CheckedState.Parent = this.btnAdd;
+            this.btnAdd.CustomImages.Parent = this.btnAdd;
+            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(252)))));
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.HoverState.Parent = this.btnAdd;
+            this.btnAdd.Image = global::Uclaray_Transport_Management_System.Properties.Resources.add_user_male_48px1;
+            this.btnAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAdd.Location = new System.Drawing.Point(682, 70);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
+            this.btnAdd.Size = new System.Drawing.Size(110, 35);
+            this.btnAdd.TabIndex = 120;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // frmAccountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(804, 491);
-            this.Controls.Add(this.txtresult);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtsalt1);
-            this.Controls.Add(this.txthash1);
-            this.Controls.Add(this.btnHash);
-            this.Controls.Add(this.btnCompare);
-            this.Controls.Add(this.txtCompare);
-            this.Controls.Add(this.txtHash);
-            this.Controls.Add(this.txtSalt);
-            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDate);
@@ -404,17 +295,7 @@
         internal System.Windows.Forms.DataGridView dgvUsers;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtSalt;
-        private System.Windows.Forms.Button btnCompare;
-        private System.Windows.Forms.Button btnHash;
-        private System.Windows.Forms.TextBox txtCompare;
-        private System.Windows.Forms.TextBox txtHash;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtsalt1;
-        private System.Windows.Forms.TextBox txthash1;
-        private System.Windows.Forms.TextBox txtresult;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnFirst;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnLast;

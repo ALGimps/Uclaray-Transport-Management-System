@@ -113,6 +113,16 @@ namespace Uclaray_Transport_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap carbon_delivery_add {
+            get {
+                object obj = ResourceManager.GetObject("carbon_delivery-add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap carbon_delivery_truck {
             get {
                 object obj = ResourceManager.GetObject("carbon_delivery-truck", resourceCulture);
@@ -146,6 +156,16 @@ namespace Uclaray_Transport_Management_System.Properties {
         internal static System.Drawing.Bitmap closed_eye_48px {
             get {
                 object obj = ResourceManager.GetObject("closed_eye_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Component_2 {
+            get {
+                object obj = ResourceManager.GetObject("Component 2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +213,16 @@ namespace Uclaray_Transport_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ok_48px {
+            get {
+                object obj = ResourceManager.GetObject("ok_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search_100px {
             get {
                 object obj = ResourceManager.GetObject("search_100px", resourceCulture);
@@ -206,6 +236,26 @@ namespace Uclaray_Transport_Management_System.Properties {
         internal static System.Drawing.Bitmap search_48px {
             get {
                 object obj = ResourceManager.GetObject("search_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trolley_48px {
+            get {
+                object obj = ResourceManager.GetObject("trolley_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap truck_48px {
+            get {
+                object obj = ResourceManager.GetObject("truck_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

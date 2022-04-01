@@ -100,7 +100,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEmployees.ColumnHeadersHeight = 35;
+            this.dgvEmployees.ColumnHeadersHeight = 45;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnID,

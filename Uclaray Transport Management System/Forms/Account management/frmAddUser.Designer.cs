@@ -86,7 +86,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(338, 72);
+            this.label4.Location = new System.Drawing.Point(319, 69);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 17);
@@ -97,7 +97,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(338, 138);
+            this.label5.Location = new System.Drawing.Point(319, 135);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 17);
@@ -108,7 +108,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(338, 204);
+            this.label6.Location = new System.Drawing.Point(319, 201);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 17);
@@ -123,7 +123,7 @@
             this.cboRole.FocusedColor = System.Drawing.Color.Empty;
             this.cboRole.FocusedState.Parent = this.cboRole;
             this.cboRole.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboRole.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cboRole.FormattingEnabled = true;
             this.cboRole.HoverState.Parent = this.cboRole;
             this.cboRole.ItemHeight = 24;
@@ -131,7 +131,7 @@
             "Admin",
             "Super Admin"});
             this.cboRole.ItemsAppearance.Parent = this.cboRole;
-            this.cboRole.Location = new System.Drawing.Point(341, 224);
+            this.cboRole.Location = new System.Drawing.Point(322, 221);
             this.cboRole.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
             this.cboRole.Name = "cboRole";
             this.cboRole.ShadowDecoration.BorderRadius = 0;
@@ -139,7 +139,7 @@
             this.cboRole.ShadowDecoration.Enabled = true;
             this.cboRole.ShadowDecoration.Parent = this.cboRole;
             this.cboRole.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 1, 2, 3);
-            this.cboRole.Size = new System.Drawing.Size(250, 30);
+            this.cboRole.Size = new System.Drawing.Size(220, 30);
             this.cboRole.TabIndex = 3;
             // 
             // label7
@@ -168,7 +168,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(338, 273);
+            this.label9.Location = new System.Drawing.Point(319, 270);
             this.label9.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(114, 17);
@@ -184,7 +184,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.Parent = this.btnAdd;
-            this.btnAdd.Location = new System.Drawing.Point(500, 359);
+            this.btnAdd.Location = new System.Drawing.Point(432, 359);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
             this.btnAdd.Size = new System.Drawing.Size(110, 35);
@@ -201,7 +201,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.HoverState.Parent = this.btnCancel;
-            this.btnCancel.Location = new System.Drawing.Point(384, 359);
+            this.btnCancel.Location = new System.Drawing.Point(316, 359);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
             this.btnCancel.Size = new System.Drawing.Size(110, 35);
@@ -222,9 +222,10 @@
             this.txtContact.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtContact.FocusedState.Parent = this.txtContact;
             this.txtContact.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContact.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtContact.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtContact.HoverState.Parent = this.txtContact;
-            this.txtContact.Location = new System.Drawing.Point(341, 160);
+            this.txtContact.Location = new System.Drawing.Point(322, 157);
             this.txtContact.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtContact.Name = "txtContact";
             this.txtContact.PasswordChar = '\0';
@@ -236,7 +237,7 @@
             this.txtContact.ShadowDecoration.Enabled = true;
             this.txtContact.ShadowDecoration.Parent = this.txtContact;
             this.txtContact.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 1, 2, 3);
-            this.txtContact.Size = new System.Drawing.Size(250, 30);
+            this.txtContact.Size = new System.Drawing.Size(220, 30);
             this.txtContact.TabIndex = 119;
             // 
             // txtLast
@@ -252,9 +253,10 @@
             this.txtLast.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLast.FocusedState.Parent = this.txtLast;
             this.txtLast.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLast.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtLast.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLast.HoverState.Parent = this.txtLast;
-            this.txtLast.Location = new System.Drawing.Point(341, 94);
+            this.txtLast.Location = new System.Drawing.Point(322, 91);
             this.txtLast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLast.Name = "txtLast";
             this.txtLast.PasswordChar = '\0';
@@ -266,7 +268,7 @@
             this.txtLast.ShadowDecoration.Enabled = true;
             this.txtLast.ShadowDecoration.Parent = this.txtLast;
             this.txtLast.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 1, 2, 3);
-            this.txtLast.Size = new System.Drawing.Size(250, 30);
+            this.txtLast.Size = new System.Drawing.Size(220, 30);
             this.txtLast.TabIndex = 119;
             // 
             // txtFirst
@@ -282,6 +284,7 @@
             this.txtFirst.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFirst.FocusedState.Parent = this.txtFirst;
             this.txtFirst.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirst.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtFirst.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFirst.HoverState.Parent = this.txtFirst;
             this.txtFirst.Location = new System.Drawing.Point(41, 91);
@@ -296,7 +299,7 @@
             this.txtFirst.ShadowDecoration.Enabled = true;
             this.txtFirst.ShadowDecoration.Parent = this.txtFirst;
             this.txtFirst.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 1, 2, 3);
-            this.txtFirst.Size = new System.Drawing.Size(250, 30);
+            this.txtFirst.Size = new System.Drawing.Size(220, 30);
             this.txtFirst.TabIndex = 119;
             // 
             // txtEmail
@@ -312,6 +315,7 @@
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.FocusedState.Parent = this.txtEmail;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.HoverState.Parent = this.txtEmail;
             this.txtEmail.Location = new System.Drawing.Point(41, 160);
@@ -326,7 +330,7 @@
             this.txtEmail.ShadowDecoration.Enabled = true;
             this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
             this.txtEmail.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 1, 2, 3);
-            this.txtEmail.Size = new System.Drawing.Size(250, 30);
+            this.txtEmail.Size = new System.Drawing.Size(220, 30);
             this.txtEmail.TabIndex = 119;
             // 
             // txtUsername
@@ -342,6 +346,7 @@
             this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.FocusedState.Parent = this.txtUsername;
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.HoverState.Parent = this.txtUsername;
             this.txtUsername.Location = new System.Drawing.Point(41, 229);
@@ -356,7 +361,7 @@
             this.txtUsername.ShadowDecoration.Enabled = true;
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
             this.txtUsername.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 1, 2, 3);
-            this.txtUsername.Size = new System.Drawing.Size(250, 30);
+            this.txtUsername.Size = new System.Drawing.Size(220, 30);
             this.txtUsername.TabIndex = 119;
             // 
             // txtPassword
@@ -372,6 +377,7 @@
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.FocusedState.Parent = this.txtPassword;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.HoverState.Parent = this.txtPassword;
             this.txtPassword.Location = new System.Drawing.Point(41, 295);
@@ -386,7 +392,7 @@
             this.txtPassword.ShadowDecoration.Enabled = true;
             this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
             this.txtPassword.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 1, 2, 3);
-            this.txtPassword.Size = new System.Drawing.Size(250, 30);
+            this.txtPassword.Size = new System.Drawing.Size(220, 30);
             this.txtPassword.TabIndex = 119;
             // 
             // txtConfirmPass
@@ -402,9 +408,10 @@
             this.txtConfirmPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtConfirmPass.FocusedState.Parent = this.txtConfirmPass;
             this.txtConfirmPass.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPass.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtConfirmPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtConfirmPass.HoverState.Parent = this.txtConfirmPass;
-            this.txtConfirmPass.Location = new System.Drawing.Point(341, 295);
+            this.txtConfirmPass.Location = new System.Drawing.Point(322, 292);
             this.txtConfirmPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.PasswordChar = '•';
@@ -416,7 +423,7 @@
             this.txtConfirmPass.ShadowDecoration.Enabled = true;
             this.txtConfirmPass.ShadowDecoration.Parent = this.txtConfirmPass;
             this.txtConfirmPass.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 1, 2, 3);
-            this.txtConfirmPass.Size = new System.Drawing.Size(250, 30);
+            this.txtConfirmPass.Size = new System.Drawing.Size(220, 30);
             this.txtConfirmPass.TabIndex = 119;
             // 
             // cboShowPass
@@ -425,7 +432,7 @@
             this.cboShowPass.CheckedState.Parent = this.cboShowPass;
             this.cboShowPass.HoverState.Parent = this.cboShowPass;
             this.cboShowPass.Image = global::Uclaray_Transport_Management_System.Properties.Resources.closed_eye_48px;
-            this.cboShowPass.Location = new System.Drawing.Point(257, 303);
+            this.cboShowPass.Location = new System.Drawing.Point(225, 303);
             this.cboShowPass.Name = "cboShowPass";
             this.cboShowPass.PressedState.Parent = this.cboShowPass;
             this.cboShowPass.Size = new System.Drawing.Size(33, 15);
@@ -437,7 +444,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(634, 406);
+            this.ClientSize = new System.Drawing.Size(584, 406);
             this.Controls.Add(this.cboShowPass);
             this.Controls.Add(this.txtConfirmPass);
             this.Controls.Add(this.txtPassword);

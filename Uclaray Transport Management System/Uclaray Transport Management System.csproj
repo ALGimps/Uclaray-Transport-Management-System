@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,9 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\LoginAuth.cs" />
+    <Compile Include="Classes\Logistics.cs" />
     <Compile Include="Classes\LogisticsCompany.cs" />
+    <Compile Include="Classes\DeliveryRecord.cs" />
     <Compile Include="Classes\RegexValidation.cs" />
-    <Compile Include="Classes\SecurityUtils.cs" />
+    <Compile Include="Classes\Utilities.cs" />
     <Compile Include="Classes\UserAccount.cs" />
     <Compile Include="Forms\Account management\frmAccountManagement.cs">
       <SubType>Form</SubType>
@@ -117,6 +121,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,8 +139,62 @@
     <Compile Include="Forms\Logistics partner management\frmPartnerCompanies.Designer.cs">
       <DependentUpon>frmPartnerCompanies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Record Management\frmAdvancedTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmAdvancedTracking.Designer.cs">
+      <DependentUpon>frmAdvancedTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmAdvancedTracking2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmAdvancedTracking2.Designer.cs">
+      <DependentUpon>frmAdvancedTracking2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmAdvancedTrackingv2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmAdvancedTrackingv2.Designer.cs">
+      <DependentUpon>frmAdvancedTrackingv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmAdvancedTrackingNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmAdvancedTrackingNew.Designer.cs">
+      <DependentUpon>frmAdvancedTrackingNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmCurrentDeliveries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmCurrentDeliveries.Designer.cs">
+      <DependentUpon>frmCurrentDeliveries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmDeliveryDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmDeliveryDetails.Designer.cs">
+      <DependentUpon>frmDeliveryDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmImportFromExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmImportFromExcel.Designer.cs">
+      <DependentUpon>frmImportFromExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmManualAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmManualAdd.Designer.cs">
+      <DependentUpon>frmManualAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\Record Management\test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Account management\frmAccountManagement.resx">
       <DependentUpon>frmAccountManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,11 +219,38 @@
     <EmbeddedResource Include="Forms\Employee management\frmEmployeeManagement.resx">
       <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Logistics partner management\frmPartnerCompanies.resx">
       <DependentUpon>frmPartnerCompanies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmAdvancedTracking.resx">
+      <DependentUpon>frmAdvancedTracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmAdvancedTracking2.resx">
+      <DependentUpon>frmAdvancedTracking2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmAdvancedTrackingv2.resx">
+      <DependentUpon>frmAdvancedTrackingv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmAdvancedTrackingNew.resx">
+      <DependentUpon>frmAdvancedTrackingNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmCurrentDeliveries.resx">
+      <DependentUpon>frmCurrentDeliveries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmDeliveryDetails.resx">
+      <DependentUpon>frmDeliveryDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmImportFromExcel.resx">
+      <DependentUpon>frmImportFromExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmManualAdd.resx">
+      <DependentUpon>frmManualAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -171,6 +262,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Forms\Record Management\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -184,7 +278,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\trolley_48px.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ant-design_file-excel-outlined.png" />
   </ItemGroup>
@@ -238,6 +334,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\image 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carbon_delivery-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Component 2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
