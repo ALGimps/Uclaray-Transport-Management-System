@@ -130,10 +130,23 @@ namespace Uclaray_Transport_Management_System.Classes
         public string Number_of_drop { get; set; }
         public string Number_of_trips { get; set; }
         public int Driver_id { get; set; }
+        public string Driver_name { get {Employee emp = new Employee(); 
+                                         return emp.getEmployee(Driver_id).fullName;} 
+                                    set { } 
+        }
         public int Helper_id { get; set; }
+        public string Helper_name { get {
+                                        Employee emp = new Employee();
+                                        return emp.getEmployee(Helper_id).fullName;}                           
+                                    set { } 
+        }
         public string PO_number { get; set; }
         public int Quantity { get; set; }
         public string Status { get; set; }
+        public string StatusName { get {
+                                        Status status = new Status();
+                                        return status.GetStatusName(Status);} 
+                                  set { } }
         public string Note { get; set; }
         public int User_id { get; set; }
 
@@ -472,6 +485,32 @@ namespace Uclaray_Transport_Management_System.Classes
             };
 
             return _statusList;
+        }
+        public string GetStatusName(string status)
+        {
+            string statusName;
+            switch (status)
+            {
+                case "2":
+                    statusName = "Pending";
+                    break;
+                case "3":
+                    statusName = "Sucessful";
+                    break;
+                case "4":
+                    statusName = "Bad Order (Logistics)";
+                    break;
+                case "5":
+                    statusName = "Bad Order (Uclaray)";
+                    break;
+                case "6":
+                    statusName = "Cancelled";
+                    break;
+                default:
+                    statusName = "";
+                    break;
+            }
+            return statusName;
         }
     }
 

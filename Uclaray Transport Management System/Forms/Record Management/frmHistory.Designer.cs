@@ -41,15 +41,6 @@
             this.lblRecords = new System.Windows.Forms.Label();
             this.lblLoading = new System.Windows.Forms.Label();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnApplyFilter = new Guna.UI2.WinForms.Guna2Button();
-            this.dtpEnd = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dtpStart = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.cbstatus = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnDesignation = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +52,16 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnApplyFilter = new Guna.UI2.WinForms.Guna2Button();
+            this.dtpEnd = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpStart = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cbstatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -171,6 +172,93 @@
             this.dgvHistory.StandardTab = true;
             this.dgvHistory.TabIndex = 109;
             this.dgvHistory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHistory_CellFormatting);
+            // 
+            // columnID
+            // 
+            this.columnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.columnID.FillWeight = 152.2843F;
+            this.columnID.HeaderText = "ID";
+            this.columnID.Name = "columnID";
+            this.columnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnID.Visible = false;
+            this.columnID.Width = 60;
+            // 
+            // columnFirst
+            // 
+            this.columnFirst.FillWeight = 64F;
+            this.columnFirst.HeaderText = "Delivery Date";
+            this.columnFirst.MinimumWidth = 100;
+            this.columnFirst.Name = "columnFirst";
+            this.columnFirst.ReadOnly = true;
+            // 
+            // columnDesignation
+            // 
+            this.columnDesignation.FillWeight = 64F;
+            this.columnDesignation.HeaderText = "Store Name";
+            this.columnDesignation.MinimumWidth = 100;
+            this.columnDesignation.Name = "columnDesignation";
+            this.columnDesignation.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Location";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Quantity";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Trip Assignment";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Driver";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Helper";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "PO Number";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(78)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(78)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column2.HeaderText = "Status";
+            this.Column2.Name = "Column2";
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column6.HeaderText = "Action";
+            this.Column6.MinimumWidth = 95;
+            this.Column6.Name = "Column6";
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column6.Width = 95;
             // 
             // panel1
             // 
@@ -355,92 +443,22 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // columnID
+            // guna2Button1
             // 
-            this.columnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.columnID.FillWeight = 152.2843F;
-            this.columnID.HeaderText = "ID";
-            this.columnID.Name = "columnID";
-            this.columnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.columnID.Visible = false;
-            this.columnID.Width = 60;
-            // 
-            // columnFirst
-            // 
-            this.columnFirst.FillWeight = 64F;
-            this.columnFirst.HeaderText = "Delivery Date";
-            this.columnFirst.MinimumWidth = 100;
-            this.columnFirst.Name = "columnFirst";
-            this.columnFirst.ReadOnly = true;
-            // 
-            // columnDesignation
-            // 
-            this.columnDesignation.FillWeight = 64F;
-            this.columnDesignation.HeaderText = "Store Name";
-            this.columnDesignation.MinimumWidth = 100;
-            this.columnDesignation.Name = "columnDesignation";
-            this.columnDesignation.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Location";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Quantity";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Trip Assignment";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Driver";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Helper";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "PO Number";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(78)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(78)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column2.HeaderText = "Status";
-            this.Column2.Name = "Column2";
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column6.HeaderText = "Action";
-            this.Column6.MinimumWidth = 95;
-            this.Column6.Name = "Column6";
-            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column6.Width = 95;
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.DimGray;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Location = new System.Drawing.Point(924, 21);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(88, 30);
+            this.guna2Button1.TabIndex = 142;
+            this.guna2Button1.Text = "Print";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // frmHistory
             // 
@@ -451,6 +469,7 @@
             this.Controls.Add(this.cbstatus);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnApplyFilter);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtpEnd);
@@ -497,5 +516,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewImageColumn Column6;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

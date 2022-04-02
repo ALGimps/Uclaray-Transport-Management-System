@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 using Uclaray_Transport_Management_System.Classes;
 
 namespace Uclaray_Transport_Management_System.Forms.Record_Management
@@ -15,6 +16,8 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
     {
         DeliveryRecord record = new DeliveryRecord();
         int status = 0;
+        DateTime start, end;
+
         public frmHistory()
         {
             InitializeComponent();
@@ -30,6 +33,8 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
         public async void LoadData()
         {
+            start = dtpStart.Value;
+            end = dtpEnd.Value;
             var recordList = await Task.Run(() => FetchData());
             PopulateDataGrid(recordList);
         }
@@ -168,6 +173,33 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                     break;
             }
             LoadData();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            //List<DeliveryRecord> newList = new List<DeliveryRecord>();
+
+            //var recordList = FetchData();
+
+            //foreach (var record in recordList)
+            //{
+            //    newList.Add(new DeliveryRecord{id= });
+            //}
+
+            BindingSource bs = new BindingSource()
+            {
+                DataSource = FetchData()
+            };
+
+
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt.Load(@"C:\Users\Home\source\repos\Uclaray Transport Management System\Uclaray Transport Management System\Reports\RecordList.rpt");
+            cryRpt.SetDataSource(bs.DataSource);
+
+            TextObject text = (TextObject)cryRpt.ReportDefinition.Sections["Section2"].ReportObjects["Text14"];
+            text.Text = cbstatus.Text +" Records from: "+start.ToString("MMMM dd, yyyy") + " to " + end.ToString("MMMM dd, yyyy");
+            cryRpt.PrintToPrinter(1, false, 0, 0);
+
         }
     }
 }

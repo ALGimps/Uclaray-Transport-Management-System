@@ -124,5 +124,11 @@ namespace Uclaray_Transport_Management_System.Forms
             Record_Management.frmHistory frm = new Record_Management.frmHistory();
             Showform(frm, (Guna2Button)sender);
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            frmDashboard frm = new frmDashboard();
+            Showform(frm, (Guna2Button)sender);
+        }
     }
 }
