@@ -96,6 +96,7 @@
             this.dgvDeliveries.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDeliveries.EnableHeadersVisualStyles = false;
             this.dgvDeliveries.Location = new System.Drawing.Point(12, 60);
+            this.dgvDeliveries.MultiSelect = false;
             this.dgvDeliveries.Name = "dgvDeliveries";
             this.dgvDeliveries.RowHeadersVisible = false;
             this.dgvDeliveries.RowTemplate.Height = 35;

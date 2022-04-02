@@ -17,8 +17,13 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
         public frmSuccessfulDeliveries()
         {
             InitializeComponent();
-            LoadData();
             lblDate.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy").ToString();
+            dtpEnd.Value = DateTime.Today;
+            DateTime endDate = dtpEnd.Value;
+            DateTime startDate = endDate.AddDays(-6);
+            dtpStart.Value = startDate;
+
+            LoadData();
         }
 
         public async void LoadData()
@@ -29,7 +34,7 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
         private List<DeliveryRecord> FetchData()
         {
-            var List = record.GetAllRecords(3);
+            var List = record.GetSuccessfulRecords(dtpStart.Value,dtpEnd.Value,txtSearch.Text);
             return List;
         }
 
@@ -57,10 +62,11 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                     record.Delivery_date.ToString("dd-MMM-yy"),
                     record.Store_name,
                     record.Location,
-                    record.Area,
+                    record.Quantity,
                     record.Trip_number,
                     emp.getEmployee(record.Driver_id).fullName,
                     emp.getEmployee(record.Helper_id).fullName,
+                    record.PO_number,
                     "Successful",
                     imageList1.Images[0]
 
@@ -74,9 +80,27 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
         private void dgvSuccessfulDeliveries_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 9)
             {
                 e.CellStyle.BackColor = Color.FromArgb(125, 207, 123);
+            }
+        }
+
+        private void btnApplyFilter_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text=="")
+            {
+                LoadData();
             }
         }
     }

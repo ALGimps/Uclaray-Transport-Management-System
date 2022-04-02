@@ -142,7 +142,6 @@ namespace Uclaray_Transport_Management_System.Classes
         
         public List<DeliveryRecord> GetAllRecords(int status = 0)
         {
-            List<DeliveryRecord> recordList = new List<DeliveryRecord>();
             string query;
 
 
@@ -164,149 +163,87 @@ namespace Uclaray_Transport_Management_System.Classes
                 " ORDER by delivery_date";
             }
 
+            MySqlCommand comm = new MySqlCommand(query, connection);
 
+            return RunQuery(comm);
 
-            using (connection)
-            {
-                connection.Open();
-
-                MySqlCommand comm = new MySqlCommand(query, connection);
-
-                //Execute Data reader
-                MySqlDataReader dr = comm.ExecuteReader();
-
-                //Populate List with data
-                while (dr.Read())
-                {
-                    DeliveryRecord record = new DeliveryRecord
-                    {
-                        id = (int)dr["tracking_id"],
-                        Delivery_date = (DateTime)(dr["delivery_date"]),
-                        Logistics_id = (int)dr["logistics_id"],
-                        Store_name = dr["store_name"].ToString(),
-                        Location = dr["location"].ToString(),
-                        Area = dr["area"].ToString(),
-                        PO_number = dr["po_number"].ToString(),
-                        Quantity = (int)dr["quantity"],
-                        Trip_number = dr["trip_no"].ToString(),
-                        Truck_type = dr["truck_type"].ToString(),
-                        Plate_no = dr["plate_no"].ToString(),
-                        Number_of_drop = dr["no_of_drop"].ToString(),
-                        Number_of_trips = dr["no_of_trip"].ToString(),
-                        Driver_id = (int)dr["driver_id"],
-                        Helper_id = (int)dr["helper_id"],
-                        Status = dr["status"].ToString(),
-                        Note = dr["note"].ToString(),
-                        User_id = (int)dr["user_id"]
-                    };
-                    recordList.Add(record);
-                }
-
-            }
-
-            return recordList;
         }
 
-        public List<DeliveryRecord> GetBadOrders()
+        public List<DeliveryRecord> GetBadOrders(DateTime StartDate, DateTime EndDate, string Search = "")
         {
-            List<DeliveryRecord> recordList = new List<DeliveryRecord>();
-            string query = "SELECT delivery_records.tracking_id, delivery_records.logistics_id, delivery_records.delivery_date , delivery_records.store_name, delivery_records.location, delivery_records.area, delivery_records.status, delivery_records.po_number ,  delivery_records.quantity, delivery_records.note, delivery_records.user_id, " +
+
+            StringBuilder querysb = new StringBuilder("SELECT delivery_records.tracking_id, delivery_records.logistics_id, delivery_records.delivery_date , delivery_records.store_name, delivery_records.location, delivery_records.area, delivery_records.status, delivery_records.po_number ,  delivery_records.quantity, delivery_records.note, delivery_records.user_id, " +
+               "trips.trip_no, trips.truck_type, trips.plate_no, trips.no_of_drop, trips.no_of_trip, trips.driver_id, trips.helper_id " +
+               "FROM delivery_records " +
+               "INNER JOIN trips ON trips.trip_no = delivery_records.trip_id " +
+               "WHERE (status = 4 OR status = 5) AND (delivery_date >= ?StartDate AND delivery_date <= ?EndDate) ");
+
+            if (Search != "")
+            {
+                querysb.Append("AND (trip_id LIKE ?Search OR store_name LIKE ?Search) ");
+            }
+            querysb.Append("ORDER by delivery_date DESC");
+
+            MySqlCommand comm = new MySqlCommand(querysb.ToString(), connection);
+            comm.Parameters.AddWithValue("?StartDate", StartDate.ToString("yyyy-MM-dd"));
+            comm.Parameters.AddWithValue("?EndDate", EndDate.ToString("yyyy-MM-dd"));
+            comm.Parameters.AddWithValue("?Search", "%" + Search.Trim() + "%");
+
+
+            return RunQuery(comm);
+        }
+
+        public List<DeliveryRecord> GetSuccessfulRecords(DateTime StartDate, DateTime EndDate, string Search = "")
+        {
+            
+            StringBuilder querysb = new StringBuilder("SELECT delivery_records.tracking_id, delivery_records.logistics_id, delivery_records.delivery_date , delivery_records.store_name, delivery_records.location, delivery_records.area, delivery_records.status, delivery_records.po_number ,  delivery_records.quantity, delivery_records.note, delivery_records.user_id, " +
                 "trips.trip_no, trips.truck_type, trips.plate_no, trips.no_of_drop, trips.no_of_trip, trips.driver_id, trips.helper_id " +
                 "FROM delivery_records " +
                 "INNER JOIN trips ON trips.trip_no = delivery_records.trip_id " +
-                "WHERE status = 4 OR status = 5 "+
-                "ORDER by delivery_date";
+                "WHERE status = 3 AND (delivery_date >= ?StartDate AND delivery_date <= ?EndDate) ");
 
-            using (connection)
+            if (Search != "")
             {
-                connection.Open();
-
-                MySqlCommand comm = new MySqlCommand(query, connection);
-
-                //Execute Data reader
-                MySqlDataReader dr = comm.ExecuteReader();
-
-                //Populate List with data
-                while (dr.Read())
-                {
-                    DeliveryRecord record = new DeliveryRecord
-                    {
-                        id = (int)dr["tracking_id"],
-                        Delivery_date = (DateTime)(dr["delivery_date"]),
-                        Logistics_id = (int)dr["logistics_id"],
-                        Store_name = dr["store_name"].ToString(),
-                        Location = dr["location"].ToString(),
-                        Area = dr["area"].ToString(),
-                        PO_number = dr["po_number"].ToString(),
-                        Quantity = (int)dr["quantity"],
-                        Trip_number = dr["trip_no"].ToString(),
-                        Truck_type = dr["truck_type"].ToString(),
-                        Plate_no = dr["plate_no"].ToString(),
-                        Number_of_drop = dr["no_of_drop"].ToString(),
-                        Number_of_trips = dr["no_of_trip"].ToString(),
-                        Driver_id = (int)dr["driver_id"],
-                        Helper_id = (int)dr["helper_id"],
-                        Status = dr["status"].ToString(),
-                        Note = dr["note"].ToString(),
-                        User_id = (int)dr["user_id"]
-                    };
-                    recordList.Add(record);
-                }
-
+                querysb.Append("AND (trip_id LIKE ?Search OR store_name LIKE ?Search) ");
             }
+            querysb.Append("ORDER by delivery_date DESC");
 
-            return recordList;
+            MySqlCommand comm = new MySqlCommand(querysb.ToString(), connection);
+            comm.Parameters.AddWithValue("?StartDate", StartDate.ToString("yyyy-MM-dd"));
+            comm.Parameters.AddWithValue("?EndDate", EndDate.ToString("yyyy-MM-dd"));
+            comm.Parameters.AddWithValue("?Search", "%"+Search.Trim()+"%");
+
+            return RunQuery(comm);
         }
 
-        public List<DeliveryRecord> GetCompletedRecords()
+        public List<DeliveryRecord> GetCompletedRecords(DateTime StartDate, DateTime EndDate, int Status = 0, string Search = "")
         {
-            List<DeliveryRecord> recordList = new List<DeliveryRecord>();
-            string query = "SELECT delivery_records.tracking_id, delivery_records.logistics_id, delivery_records.delivery_date , delivery_records.store_name, delivery_records.location, delivery_records.area, delivery_records.status, delivery_records.po_number ,  delivery_records.quantity, delivery_records.note, delivery_records.user_id, " +
+
+            StringBuilder querysb = new StringBuilder("SELECT delivery_records.tracking_id, delivery_records.logistics_id, delivery_records.delivery_date , delivery_records.store_name, delivery_records.location, delivery_records.area, delivery_records.status, delivery_records.po_number ,  delivery_records.quantity, delivery_records.note, delivery_records.user_id, " +
                 "trips.trip_no, trips.truck_type, trips.plate_no, trips.no_of_drop, trips.no_of_trip, trips.driver_id, trips.helper_id " +
                 "FROM delivery_records " +
-                "INNER JOIN trips ON trips.trip_no = delivery_records.trip_id " +
-                "WHERE status > 2 " +
-                "ORDER by delivery_date";
-
-            using (connection)
+                "INNER JOIN trips ON trips.trip_no = delivery_records.trip_id " );
+            if (Status==0)
             {
-                connection.Open();
-
-                MySqlCommand comm = new MySqlCommand(query, connection);
-
-                //Execute Data reader
-                MySqlDataReader dr = comm.ExecuteReader();
-
-                //Populate List with data
-                while (dr.Read())
-                {
-                    DeliveryRecord record = new DeliveryRecord
-                    {
-                        id = (int)dr["tracking_id"],
-                        Delivery_date = (DateTime)(dr["delivery_date"]),
-                        Logistics_id = (int)dr["logistics_id"],
-                        Store_name = dr["store_name"].ToString(),
-                        Location = dr["location"].ToString(),
-                        Area = dr["area"].ToString(),
-                        PO_number = dr["po_number"].ToString(),
-                        Quantity = (int)dr["quantity"],
-                        Trip_number = dr["trip_no"].ToString(),
-                        Truck_type = dr["truck_type"].ToString(),
-                        Plate_no = dr["plate_no"].ToString(),
-                        Number_of_drop = dr["no_of_drop"].ToString(),
-                        Number_of_trips = dr["no_of_trip"].ToString(),
-                        Driver_id = (int)dr["driver_id"],
-                        Helper_id = (int)dr["helper_id"],
-                        Status = dr["status"].ToString(),
-                        Note = dr["note"].ToString(),
-                        User_id = (int)dr["user_id"]
-                    };
-                    recordList.Add(record);
-                }
-
+                querysb.Append("WHERE status > 2 AND (delivery_date >= ?StartDate AND delivery_date <= ?EndDate) ");
             }
+            else
+            {
+                querysb.Append("WHERE status = ?Status AND (delivery_date >= ?StartDate AND delivery_date <= ?EndDate) ");
+            }
+            if (Search != "")
+            {
+                querysb.Append("AND (trip_id LIKE ?Search OR store_name LIKE ?Search) ");
+            }
+            querysb.Append("ORDER by delivery_date DESC");
 
-            return recordList;
+            MySqlCommand comm = new MySqlCommand(querysb.ToString(), connection);
+            comm.Parameters.AddWithValue("?StartDate", StartDate.ToString("yyyy-MM-dd"));
+            comm.Parameters.AddWithValue("?EndDate", EndDate.ToString("yyyy-MM-dd"));
+            comm.Parameters.AddWithValue("?Status", Status);
+            comm.Parameters.AddWithValue("?Search", "%" + Search.Trim() + "%");
+
+            return RunQuery(comm);
         }
 
         public DeliveryRecord GetRecord(int RecordID, int status = 0)
@@ -352,13 +289,57 @@ namespace Uclaray_Transport_Management_System.Classes
                     recordResult.Status = dr["status"].ToString();
                     recordResult.Note = dr["note"].ToString();
                     recordResult.User_id = (int)dr["user_id"];
-
                 }
 
             }
 
             return recordResult;
         }
+
+        private List<DeliveryRecord> RunQuery(MySqlCommand command)
+        {
+            List<DeliveryRecord> _List = new List<DeliveryRecord>();
+
+
+            using (connection)
+            {
+                connection.Open();
+
+                //Execute Data reader
+                MySqlDataReader dr = command.ExecuteReader();
+
+                //Populate List with data
+                while (dr.Read())
+                {
+                    DeliveryRecord record = new DeliveryRecord
+                    {
+                        id = (int)dr["tracking_id"],
+                        Delivery_date = (DateTime)(dr["delivery_date"]),
+                        Logistics_id = (int)dr["logistics_id"],
+                        Store_name = dr["store_name"].ToString(),
+                        Location = dr["location"].ToString(),
+                        Area = dr["area"].ToString(),
+                        PO_number = dr["po_number"].ToString(),
+                        Quantity = (int)dr["quantity"],
+                        Trip_number = dr["trip_no"].ToString(),
+                        Truck_type = dr["truck_type"].ToString(),
+                        Plate_no = dr["plate_no"].ToString(),
+                        Number_of_drop = dr["no_of_drop"].ToString(),
+                        Number_of_trips = dr["no_of_trip"].ToString(),
+                        Driver_id = (int)dr["driver_id"],
+                        Helper_id = (int)dr["helper_id"],
+                        Status = dr["status"].ToString(),
+                        Note = dr["note"].ToString(),
+                        User_id = (int)dr["user_id"]
+                    };
+                    _List.Add(record);
+                }
+
+            }
+
+            return _List;
+        }
+
 
         public List<DeliveryRecord> GetRecordsOfTrip(string TripID)
         {

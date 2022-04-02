@@ -143,6 +143,7 @@
             this.dgvAdvancedTracking.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAdvancedTracking.EnableHeadersVisualStyles = false;
             this.dgvAdvancedTracking.Location = new System.Drawing.Point(0, 0);
+            this.dgvAdvancedTracking.MultiSelect = false;
             this.dgvAdvancedTracking.Name = "dgvAdvancedTracking";
             this.dgvAdvancedTracking.RowHeadersVisible = false;
             this.dgvAdvancedTracking.RowTemplate.Height = 35;

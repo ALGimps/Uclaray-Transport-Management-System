@@ -14,11 +14,18 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
     public partial class frmHistory : Form
     {
         DeliveryRecord record = new DeliveryRecord();
+        int status = 0;
         public frmHistory()
         {
             InitializeComponent();
-            LoadData();
             lblDate.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy").ToString();
+
+            dtpEnd.Value = DateTime.Today;
+            DateTime endDate = dtpEnd.Value;
+            DateTime startDate = endDate.AddDays(-6);
+            dtpStart.Value = startDate;
+
+            LoadData();
         }
 
         public async void LoadData()
@@ -29,7 +36,7 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
         private List<DeliveryRecord> FetchData()
         {
-            var List = record.GetCompletedRecords();
+            var List = record.GetCompletedRecords(dtpStart.Value, dtpEnd.Value, status, txtSearch.Text);
             return List;
         }
 
@@ -56,7 +63,7 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                 switch (statusValue)
                 {
                     case 3: statusName = "Successful";
-                            break;
+                        break;
                     case 4:
                         statusName = "Bad Order (Logistics)";
                         break;
@@ -76,10 +83,11 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                     record.Delivery_date.ToString("dd-MMM-yy"),
                     record.Store_name,
                     record.Location,
-                    record.Area,
+                    record.Quantity,
                     record.Trip_number,
                     emp.getEmployee(record.Driver_id).fullName,
                     emp.getEmployee(record.Helper_id).fullName,
+                    record.PO_number,
                     statusName,
                     imageList1.Images[0]
 
@@ -94,27 +102,72 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
         private void dgvHistory_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
            
-            if (dgvHistory.Rows[e.RowIndex].Cells[8].Value.ToString() == "Successful" && e.ColumnIndex == 8)
+            if (dgvHistory.Rows[e.RowIndex].Cells[9].Value.ToString() == "Successful" && e.ColumnIndex == 9)
             {
                 e.CellStyle.BackColor = Color.FromArgb(125, 207, 123);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(125, 207, 123);
 
             }
-            if (dgvHistory.Rows[e.RowIndex].Cells[8].Value.ToString() == "Bad Order (Logistics)" && e.ColumnIndex == 8)
+            if (dgvHistory.Rows[e.RowIndex].Cells[9].Value.ToString() == "Bad Order (Logistics)" && e.ColumnIndex == 9)
             {
                 e.CellStyle.BackColor = Color.FromArgb(242, 78, 30);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(242, 78, 30);
 
             }
-            if (dgvHistory.Rows[e.RowIndex].Cells[8].Value.ToString() == "Bad Order (Uclaray)" && e.ColumnIndex == 8)
+            if (dgvHistory.Rows[e.RowIndex].Cells[9].Value.ToString() == "Bad Order (Uclaray)" && e.ColumnIndex == 9)
             {
                 e.CellStyle.BackColor = Color.FromArgb(242, 78, 30);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(242, 78, 30);
 
             }
-            if (dgvHistory.Rows[e.RowIndex].Cells[8].Value.ToString() == "Cancelled" && e.ColumnIndex == 8)
+            if (dgvHistory.Rows[e.RowIndex].Cells[9].Value.ToString() == "Cancelled" && e.ColumnIndex == 9)
             {
                 e.CellStyle.BackColor = Color.DimGray;
-
+                e.CellStyle.SelectionBackColor = Color.DimGray;
             }
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void btnApplyFilter_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text=="")
+            {
+                LoadData();
+            }
+        }
+
+        private void cbstatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            switch (cbstatus.SelectedIndex)
+            { 
+                case 1:
+                    status = 3;
+                    break;
+                case 2:
+                    status = 4;
+                    break;
+                case 3:
+                    status = 5;
+                    break;
+                case 4:
+                    status = 6;
+                    break;
+                default:
+                    status = 0;
+                    break;
+            }
+            LoadData();
         }
     }
 }

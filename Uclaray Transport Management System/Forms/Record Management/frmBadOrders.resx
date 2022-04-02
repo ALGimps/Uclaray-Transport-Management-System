@@ -129,7 +129,7 @@
   <metadata name="columnContact.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -139,6 +139,9 @@
     <value>True</value>
   </metadata>
   <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -173,7 +176,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB+
-        KAAAAk1TRnQBSQFMAwEBAAEoAQABKAEAAW4BAAEXAQAE/wERAQAI/wFCAU0BNgcAATYDAAEoAwABuAEB
+        KAAAAk1TRnQBSQFMAwEBAAE4AQABOAEAAW4BAAEXAQAE/wERAQAI/wFCAU0BNgcAATYDAAEoAwABuAEB
         AgABFwMAAQEBAAEQBQABEAFPEgABPwEiAT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEi
         AT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEi
         AT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEiAT8BIgE/ASIBPwEi

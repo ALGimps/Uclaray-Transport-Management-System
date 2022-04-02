@@ -57,7 +57,7 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                     record.Delivery_date.ToString("dd-MMM-yy"),
                     record.Store_name,
                     record.Location,
-                    record.Area,
+                    record.Quantity,
                     record.Trip_number,
                     emp.getEmployee(record.Driver_id).fullName,
                     emp.getEmployee(record.Helper_id).fullName,

@@ -314,7 +314,7 @@
             this.btnSearch.Image = global::Uclaray_Transport_Management_System.Properties.Resources.search_100px;
             this.btnSearch.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSearch.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.btnSearch.Location = new System.Drawing.Point(219, 75);
+            this.btnSearch.Location = new System.Drawing.Point(212, 74);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.ShadowDecoration.BorderRadius = 0;
             this.btnSearch.ShadowDecoration.Depth = 20;
