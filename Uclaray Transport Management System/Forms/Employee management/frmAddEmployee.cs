@@ -38,7 +38,7 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
             }
             if (!Regex.IsValid(txtContact, @"^(09|\+639|639)\d{9}$", "Please enter a valid contact number")) return;
 
-            employee.addEmployee(txtFirst.Text, txtLast.Text, cbDesignation.Text, txtContact.Text);
+            employee.addEmployee(txtFirst.Text, txtLast.Text, cbDesignation.Text, txtContact.Text, User.UserId);
             parentForm.LoadData();
             Close();
         }

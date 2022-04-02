@@ -40,7 +40,7 @@ namespace Uclaray_Transport_Management_System.Classes
         }
     }
 
-    public static class UtilityClass
+    public static class User
     {
         public static int UserId { get; set; }
 
@@ -90,7 +90,7 @@ namespace Uclaray_Transport_Management_System.Classes
     {
         public static void DeliveryLog(int TrackingID, int userID, string LogDetails)
         {
-            DateTime LogDate = UtilityClass.GetDateTime();
+            DateTime LogDate = User.GetDateTime();
             string connstring = connstring = DBUtils.connstring;
             MySqlConnection connection = new MySqlConnection(connstring);
 

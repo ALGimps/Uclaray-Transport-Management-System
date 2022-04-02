@@ -145,9 +145,10 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
             message.Replace("@Helper", HelperName);
             message.Replace("@Date", DeliveryDate.ToString("MMMM dd, yyyy - dddd"));
 
+            int _deliveryNum = 0;
             foreach (DataGridViewRow row in dgvDeliveries.Rows)
             {
-                int _deliveryNum = 0;
+               
                 _deliveryNum++;
 
                 string storeName = row.Cells[1].Value.ToString();
@@ -205,8 +206,8 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                 string helperNumber = emp.getEmployee(helperId).contact;
                 string driverNumber = emp.getEmployee(driverID).contact;
 
-                //SMS.Send(driverNumber,message);
-                //SMS.Send(helperNumber, message);
+                SMS.Send(driverNumber,message);
+                SMS.Send(helperNumber, message);
 
 
             }

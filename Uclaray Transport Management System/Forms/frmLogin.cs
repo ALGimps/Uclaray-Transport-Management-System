@@ -93,7 +93,7 @@ namespace Uclaray_Transport_Management_System.Forms
                 if (hash == enteredHash)
                 {
                     userMatch=true;
-                    UtilityClass.UserId = userId;
+                    User.UserId = userId;
                 }
 
             }

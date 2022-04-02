@@ -104,8 +104,9 @@ namespace Uclaray_Transport_Management_System.Forms.Employee_management
 
         private void ShowDeliveries()
         {
+            int id = (int)dgvEmployees.SelectedCells[0].Value;
             var name = dgvEmployees.SelectedCells[1].Value + " " + dgvEmployees.SelectedCells[2].Value;
-            frmEmployeeDeliveries frm = new frmEmployeeDeliveries(name);
+            frmEmployeeDeliveries frm = new frmEmployeeDeliveries(name,id);
             frm.ShowDialog();
         }
 

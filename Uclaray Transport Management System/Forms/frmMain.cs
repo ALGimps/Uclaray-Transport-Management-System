@@ -38,7 +38,7 @@ namespace Uclaray_Transport_Management_System.Forms
 
                 //Initialize command
                 MySqlCommand comm = new MySqlCommand(query, connection);
-                comm.Parameters.AddWithValue("?UserId", UtilityClass.UserId);
+                comm.Parameters.AddWithValue("?UserId", User.UserId);
                 //Execute Data reader
                 MySqlDataReader dr = comm.ExecuteReader();
 

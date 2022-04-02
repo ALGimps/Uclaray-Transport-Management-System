@@ -28,32 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmployeeDeliveries));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.setInactive = new System.Windows.Forms.DataGridViewImageColumn();
-            this.update = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnDesignation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.dgvEmployeeDeliveries = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.lblLoading = new System.Windows.Forms.Label();
+            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDesignation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeDeliveries)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmployeeName
@@ -109,100 +115,18 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "0";
             // 
-            // Column1
+            // dgvEmployeeDeliveries
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "deliveries";
-            this.Column1.MinimumWidth = 95;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column1.Width = 95;
-            // 
-            // setInactive
-            // 
-            this.setInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.setInactive.HeaderText = "";
-            this.setInactive.MinimumWidth = 30;
-            this.setInactive.Name = "setInactive";
-            this.setInactive.ReadOnly = true;
-            this.setInactive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.setInactive.Width = 30;
-            // 
-            // update
-            // 
-            this.update.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.update.HeaderText = "";
-            this.update.MinimumWidth = 30;
-            this.update.Name = "update";
-            this.update.ReadOnly = true;
-            this.update.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.update.ToolTipText = "Update employee details";
-            this.update.Width = 30;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "PO number";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // columnContact
-            // 
-            this.columnContact.FillWeight = 62.90896F;
-            this.columnContact.HeaderText = "Driver";
-            this.columnContact.Name = "columnContact";
-            this.columnContact.ReadOnly = true;
-            // 
-            // columnDesignation
-            // 
-            this.columnDesignation.FillWeight = 62.90896F;
-            this.columnDesignation.HeaderText = "Helper";
-            this.columnDesignation.Name = "columnDesignation";
-            this.columnDesignation.ReadOnly = true;
-            // 
-            // columnLast
-            // 
-            this.columnLast.FillWeight = 62.90896F;
-            this.columnLast.HeaderText = "Cutomer name";
-            this.columnLast.Name = "columnLast";
-            this.columnLast.ReadOnly = true;
-            // 
-            // columnFirst
-            // 
-            this.columnFirst.FillWeight = 62.90896F;
-            this.columnFirst.HeaderText = "Delivery date";
-            this.columnFirst.Name = "columnFirst";
-            this.columnFirst.ReadOnly = true;
-            // 
-            // columnID
-            // 
-            this.columnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.columnID.FillWeight = 152.2843F;
-            this.columnID.HeaderText = "Tracking ID";
-            this.columnID.Name = "columnID";
-            this.columnID.ReadOnly = true;
-            this.columnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.columnID.Width = 60;
-            // 
-            // dgvEmployees
-            // 
-            this.dgvEmployees.AllowUserToAddRows = false;
-            this.dgvEmployees.AllowUserToDeleteRows = false;
-            this.dgvEmployees.AllowUserToResizeRows = false;
+            this.dgvEmployeeDeliveries.AllowUserToAddRows = false;
+            this.dgvEmployeeDeliveries.AllowUserToDeleteRows = false;
+            this.dgvEmployeeDeliveries.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvEmployees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEmployees.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEmployees.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvEmployees.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvEmployees.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvEmployeeDeliveries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEmployeeDeliveries.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEmployeeDeliveries.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEmployeeDeliveries.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvEmployeeDeliveries.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvEmployeeDeliveries.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,41 +134,41 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(131)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEmployees.ColumnHeadersHeight = 35;
-            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEmployeeDeliveries.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEmployeeDeliveries.ColumnHeadersHeight = 35;
+            this.dgvEmployeeDeliveries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvEmployeeDeliveries.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnID,
             this.columnFirst,
             this.columnLast,
+            this.Column3,
             this.columnDesignation,
             this.columnContact,
             this.Column2,
             this.Status,
-            this.update,
-            this.setInactive,
             this.Column1});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployees.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvEmployees.EnableHeadersVisualStyles = false;
-            this.dgvEmployees.Location = new System.Drawing.Point(15, 141);
-            this.dgvEmployees.MultiSelect = false;
-            this.dgvEmployees.Name = "dgvEmployees";
-            this.dgvEmployees.ReadOnly = true;
-            this.dgvEmployees.RowHeadersVisible = false;
-            this.dgvEmployees.RowTemplate.Height = 35;
-            this.dgvEmployees.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmployees.Size = new System.Drawing.Size(780, 508);
-            this.dgvEmployees.StandardTab = true;
-            this.dgvEmployees.TabIndex = 110;
-            this.dgvEmployees.TabStop = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployeeDeliveries.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvEmployeeDeliveries.EnableHeadersVisualStyles = false;
+            this.dgvEmployeeDeliveries.Location = new System.Drawing.Point(15, 141);
+            this.dgvEmployeeDeliveries.MultiSelect = false;
+            this.dgvEmployeeDeliveries.Name = "dgvEmployeeDeliveries";
+            this.dgvEmployeeDeliveries.ReadOnly = true;
+            this.dgvEmployeeDeliveries.RowHeadersVisible = false;
+            this.dgvEmployeeDeliveries.RowTemplate.Height = 35;
+            this.dgvEmployeeDeliveries.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmployeeDeliveries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmployeeDeliveries.Size = new System.Drawing.Size(780, 508);
+            this.dgvEmployeeDeliveries.StandardTab = true;
+            this.dgvEmployeeDeliveries.TabIndex = 110;
+            this.dgvEmployeeDeliveries.TabStop = false;
+            this.dgvEmployeeDeliveries.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEmployeeDeliveries_CellFormatting);
             // 
             // label7
             // 
@@ -312,6 +236,103 @@
             this.label10.TabIndex = 111;
             this.label10.Text = "0";
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Component 2.png");
+            // 
+            // lblLoading
+            // 
+            this.lblLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLoading.AutoSize = true;
+            this.lblLoading.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoading.Location = new System.Drawing.Point(335, 325);
+            this.lblLoading.Name = "lblLoading";
+            this.lblLoading.Size = new System.Drawing.Size(148, 17);
+            this.lblLoading.TabIndex = 124;
+            this.lblLoading.Text = "Loading, please wait . . .";
+            // 
+            // columnID
+            // 
+            this.columnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columnID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.columnID.FillWeight = 152.2843F;
+            this.columnID.HeaderText = "Tracking ID";
+            this.columnID.Name = "columnID";
+            this.columnID.ReadOnly = true;
+            this.columnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnID.Width = 60;
+            // 
+            // columnFirst
+            // 
+            this.columnFirst.FillWeight = 62.90896F;
+            this.columnFirst.HeaderText = "Delivery date";
+            this.columnFirst.Name = "columnFirst";
+            this.columnFirst.ReadOnly = true;
+            // 
+            // columnLast
+            // 
+            this.columnLast.FillWeight = 62.90896F;
+            this.columnLast.HeaderText = "Store name";
+            this.columnLast.Name = "columnLast";
+            this.columnLast.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column3.HeaderText = "Quantity";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // columnDesignation
+            // 
+            this.columnDesignation.FillWeight = 62.90896F;
+            this.columnDesignation.HeaderText = "Helper";
+            this.columnDesignation.Name = "columnDesignation";
+            this.columnDesignation.ReadOnly = true;
+            // 
+            // columnContact
+            // 
+            this.columnContact.FillWeight = 62.90896F;
+            this.columnContact.HeaderText = "Driver";
+            this.columnContact.Name = "columnContact";
+            this.columnContact.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "PO number";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Status
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(184)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(184)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.Status.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "deliveries";
+            this.Column1.MinimumWidth = 95;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column1.Width = 95;
+            // 
             // frmEmployeeDeliveries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,23 +340,25 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(804, 661);
+            this.Controls.Add(this.lblLoading);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dgvEmployees);
+            this.Controls.Add(this.dgvEmployeeDeliveries);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblEmployeeName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmEmployeeDeliveries";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEmployeeDeliveries";
             this.Load += new System.EventHandler(this.frmEmployeeDeliveries_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeDeliveries)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,22 +371,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewImageColumn Column1;
-        private System.Windows.Forms.DataGridViewImageColumn setInactive;
-        private System.Windows.Forms.DataGridViewImageColumn update;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnContact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnDesignation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnLast;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnFirst;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
-        internal System.Windows.Forms.DataGridView dgvEmployees;
+        internal System.Windows.Forms.DataGridView dgvEmployeeDeliveries;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label lblLoading;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnFirst;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnLast;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnDesignation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnContact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewImageColumn Column1;
     }
 }

@@ -467,6 +467,25 @@ namespace Uclaray_Transport_Management_System.Classes
             }
         }
 
+        public List<DeliveryRecord> LoadEmployeeDeliveries(int EmpID)
+        {
+            List<DeliveryRecord> recordList = new List<DeliveryRecord>();
+
+            string query = "SELECT delivery_records.tracking_id, delivery_records.logistics_id, delivery_records.delivery_date , delivery_records.store_name, delivery_records.location, delivery_records.area, delivery_records.status, delivery_records.quantity,delivery_records.po_number, delivery_records.note, delivery_records.user_id, trips.trip_no, trips.truck_type, trips.plate_no, trips.no_of_drop, trips.no_of_trip, trips.driver_id, trips.helper_id " +
+                            "FROM delivery_records " +
+                            "INNER JOIN trips ON trips.trip_no = delivery_records.trip_id " +
+                            "WHERE trips.driver_id = ?EmpID OR trips.helper_id = ?EmpID " +
+                            "ORDER BY delivery_records.delivery_date DESC";
+
+                //Initialize command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?EmpID", EmpID);
+                
+
+            return RunQuery(comm);
+        }
+
+
     }
 
     class Status
@@ -495,7 +514,7 @@ namespace Uclaray_Transport_Management_System.Classes
                     statusName = "Pending";
                     break;
                 case "3":
-                    statusName = "Sucessful";
+                    statusName = "Successful";
                     break;
                 case "4":
                     statusName = "Bad Order (Logistics)";

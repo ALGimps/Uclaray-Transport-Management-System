@@ -22,6 +22,8 @@ namespace Uclaray_Transport_Management_System.Classes
         [System.ComponentModel.DisplayName("Contact")]
         public string contact { get; set; }
         [System.ComponentModel.DisplayName("Active")]
+        public int userID { get; set; }
+
         public bool active { get; set; }
 
 
@@ -115,7 +117,7 @@ namespace Uclaray_Transport_Management_System.Classes
         }
 
         //Add new record to the employee table in database
-        public void addEmployee(string firstName, string lastName, string designation, string contact)
+        public void addEmployee(string firstName, string lastName, string designation, string contact, int userID)
         {
             //Check if record exist
             if (recordExists(firstName, lastName, contact))
@@ -124,7 +126,7 @@ namespace Uclaray_Transport_Management_System.Classes
                 return;
             }
 
-            string query = "INSERT INTO employees(emp_first, emp_last, emp_designation, emp_contact) VALUES(?firstname, ?lastname, ?designation, ?contact)";
+            string query = "INSERT INTO employees(emp_first, emp_last, emp_designation, emp_contact, user_id) VALUES(?firstname, ?lastname, ?designation, ?contact, ?userID)";
 
             if (OpenConnection())
             {
@@ -135,7 +137,7 @@ namespace Uclaray_Transport_Management_System.Classes
                 comm.Parameters.AddWithValue("?lastname", lastName);
                 comm.Parameters.AddWithValue("?designation", designation);
                 comm.Parameters.AddWithValue("?contact", contact);
-
+                comm.Parameters.AddWithValue("?userID", userID);
                 //Execute
                 comm.ExecuteNonQuery();
                 MessageBox.Show("Sucessfully added", "Sucess", MessageBoxButtons.OK);
@@ -286,6 +288,7 @@ namespace Uclaray_Transport_Management_System.Classes
             }
             return employee;
         }
+
 
         public List<Employee> searchEmployees(string searchText)
         {
