@@ -105,8 +105,6 @@ namespace Uclaray_Transport_Management_System.Classes
                 //Execute Query
                 comm.ExecuteNonQuery();
 
-                //LoggingUtils.DeliveryLog(RecordID, UtilityClass.UserId, "Assigned Employees");
-
             }
 
         }
@@ -149,6 +147,7 @@ namespace Uclaray_Transport_Management_System.Classes
                                   set { } }
         public string Note { get; set; }
         public int User_id { get; set; }
+        public DateTime dateCreated { get; set; }
 
         static string connstring = DBUtils.connstring;
         private MySqlConnection connection = new MySqlConnection(connstring);
@@ -441,7 +440,7 @@ namespace Uclaray_Transport_Management_System.Classes
 
                 //Execute
                 comm.ExecuteNonQuery();
-
+                LoggingUtils.DeliveryLog(RecordID, User.UserId, "Entered the PO number");
             }
         }
 
@@ -460,10 +459,11 @@ namespace Uclaray_Transport_Management_System.Classes
                 comm.Parameters.AddWithValue("?Status", Status);
                 comm.Parameters.AddWithValue("?Note", Note.Trim());
 
-
+                Status _status = new Status();
+                string newStatus = _status.GetStatusName(Status.ToString());
                 //Execute
                 comm.ExecuteNonQuery();
-
+                LoggingUtils.DeliveryLog(RecordID, User.UserId, "Changed the Delivery status to "+newStatus);
             }
         }
 

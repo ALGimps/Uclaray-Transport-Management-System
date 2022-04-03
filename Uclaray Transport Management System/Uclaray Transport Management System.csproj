@@ -195,6 +195,12 @@
     <Compile Include="Forms\Record Management\frmDeliveryDetails.Designer.cs">
       <DependentUpon>frmDeliveryDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Record Management\frmDeliveryDetailsSuccessful.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Record Management\frmDeliveryDetailsSuccessful.Designer.cs">
+      <DependentUpon>frmDeliveryDetailsSuccessful.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Record Management\frmHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Record Management\frmDeliveryDetails.resx">
       <DependentUpon>frmDeliveryDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Record Management\frmDeliveryDetailsSuccessful.resx">
+      <DependentUpon>frmDeliveryDetailsSuccessful.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Record Management\frmHistory.resx">
       <DependentUpon>frmHistory.cs</DependentUpon>

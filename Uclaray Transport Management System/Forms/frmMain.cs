@@ -21,14 +21,13 @@ namespace Uclaray_Transport_Management_System.Forms
         {
             InitializeComponent();
             InitializeUser();
-            
         }
 
         void InitializeUser()
         {
             connstring = DBUtils.connstring;
             connection = new MySqlConnection(connstring);
-            string userRole;
+            string userRole="";
 
             using (connection)
             {
@@ -48,6 +47,17 @@ namespace Uclaray_Transport_Management_System.Forms
                     userRole = dr[2].ToString();
 
                     }
+            }
+
+            if (userRole=="Admin")
+            {
+                btnPartners.Visible = false;
+                btnUserAccounts.Visible = false;
+            }
+            else
+            {
+                btnPartners.Visible = true;
+                btnUserAccounts.Visible = true;
             }
         }
 
@@ -129,6 +139,23 @@ namespace Uclaray_Transport_Management_System.Forms
         {
             frmDashboard frm = new frmDashboard();
             Showform(frm, (Guna2Button)sender);
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            frmDashboard frm = new frmDashboard();
+            Showform(frm, (Guna2Button)sender);
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            //btnHome_Click(btnHome, e);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+                
         }
     }
 }

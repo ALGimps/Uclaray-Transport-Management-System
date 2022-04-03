@@ -38,7 +38,7 @@
             this.panelSide = new Guna.UI2.WinForms.Guna2Panel();
             this.panelSidebar = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.flpNav = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdvancedTracking = new Guna.UI2.WinForms.Guna2Button();
             this.btnCurrentDelivery = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -46,11 +46,12 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnEmployees = new Guna.UI2.WinForms.Guna2Button();
             this.btnUserAccounts = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPartners = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -149,7 +150,7 @@
             // 
             // flpNav
             // 
-            this.flpNav.Controls.Add(this.guna2Button2);
+            this.flpNav.Controls.Add(this.btnHome);
             this.flpNav.Controls.Add(this.btnAdvancedTracking);
             this.flpNav.Controls.Add(this.btnCurrentDelivery);
             this.flpNav.Controls.Add(this.guna2Button4);
@@ -157,36 +158,37 @@
             this.flpNav.Controls.Add(this.guna2Button1);
             this.flpNav.Controls.Add(this.btnEmployees);
             this.flpNav.Controls.Add(this.btnUserAccounts);
-            this.flpNav.Controls.Add(this.guna2Button8);
+            this.flpNav.Controls.Add(this.btnPartners);
+            this.flpNav.Controls.Add(this.btnLogout);
             this.flpNav.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpNav.Location = new System.Drawing.Point(11, 127);
             this.flpNav.Name = "flpNav";
             this.flpNav.Size = new System.Drawing.Size(200, 476);
             this.flpNav.TabIndex = 0;
             // 
-            // guna2Button2
+            // btnHome
             // 
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::Uclaray_Transport_Management_System.Properties.Resources.Vector;
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Location = new System.Drawing.Point(5, 5);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.BorderRadius = 0;
-            this.guna2Button2.ShadowDecoration.Depth = 15;
-            this.guna2Button2.ShadowDecoration.Enabled = true;
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 1, 3, 6);
-            this.guna2Button2.Size = new System.Drawing.Size(183, 34);
-            this.guna2Button2.TabIndex = 4;
-            this.guna2Button2.Text = "Home";
-            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.btnHome.CheckedState.Parent = this.btnHome;
+            this.btnHome.CustomImages.Parent = this.btnHome;
+            this.btnHome.FillColor = System.Drawing.Color.White;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.ForeColor = System.Drawing.Color.Black;
+            this.btnHome.HoverState.Parent = this.btnHome;
+            this.btnHome.Image = global::Uclaray_Transport_Management_System.Properties.Resources.Vector;
+            this.btnHome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnHome.Location = new System.Drawing.Point(5, 5);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(5);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.ShadowDecoration.BorderRadius = 0;
+            this.btnHome.ShadowDecoration.Depth = 15;
+            this.btnHome.ShadowDecoration.Enabled = true;
+            this.btnHome.ShadowDecoration.Parent = this.btnHome;
+            this.btnHome.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 1, 3, 6);
+            this.btnHome.Size = new System.Drawing.Size(183, 34);
+            this.btnHome.TabIndex = 4;
+            this.btnHome.Text = "Home";
+            this.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnAdvancedTracking
             // 
@@ -362,30 +364,30 @@
             this.btnUserAccounts.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUserAccounts.Click += new System.EventHandler(this.btnUserAccounts_Click);
             // 
-            // guna2Button8
+            // btnPartners
             // 
-            this.guna2Button8.CheckedState.Parent = this.guna2Button8;
-            this.guna2Button8.CustomImages.Parent = this.guna2Button8;
-            this.guna2Button8.FillColor = System.Drawing.Color.White;
-            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button8.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button8.HoverState.Parent = this.guna2Button8;
-            this.guna2Button8.Image = global::Uclaray_Transport_Management_System.Properties.Resources.carbon_partnership;
-            this.guna2Button8.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button8.ImageSize = new System.Drawing.Size(18, 18);
-            this.guna2Button8.Location = new System.Drawing.Point(5, 357);
-            this.guna2Button8.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.ShadowDecoration.BorderRadius = 0;
-            this.guna2Button8.ShadowDecoration.Depth = 15;
-            this.guna2Button8.ShadowDecoration.Enabled = true;
-            this.guna2Button8.ShadowDecoration.Parent = this.guna2Button8;
-            this.guna2Button8.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 1, 3, 6);
-            this.guna2Button8.Size = new System.Drawing.Size(183, 34);
-            this.guna2Button8.TabIndex = 3;
-            this.guna2Button8.Text = "Partner Companies";
-            this.guna2Button8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button8.Click += new System.EventHandler(this.guna2Button8_Click);
+            this.btnPartners.CheckedState.Parent = this.btnPartners;
+            this.btnPartners.CustomImages.Parent = this.btnPartners;
+            this.btnPartners.FillColor = System.Drawing.Color.White;
+            this.btnPartners.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPartners.ForeColor = System.Drawing.Color.Black;
+            this.btnPartners.HoverState.Parent = this.btnPartners;
+            this.btnPartners.Image = global::Uclaray_Transport_Management_System.Properties.Resources.carbon_partnership;
+            this.btnPartners.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPartners.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnPartners.Location = new System.Drawing.Point(5, 357);
+            this.btnPartners.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPartners.Name = "btnPartners";
+            this.btnPartners.ShadowDecoration.BorderRadius = 0;
+            this.btnPartners.ShadowDecoration.Depth = 15;
+            this.btnPartners.ShadowDecoration.Enabled = true;
+            this.btnPartners.ShadowDecoration.Parent = this.btnPartners;
+            this.btnPartners.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 1, 3, 6);
+            this.btnPartners.Size = new System.Drawing.Size(183, 34);
+            this.btnPartners.TabIndex = 3;
+            this.btnPartners.Text = "Partner Companies";
+            this.btnPartners.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPartners.Click += new System.EventHandler(this.guna2Button8_Click);
             // 
             // guna2CirclePictureBox1
             // 
@@ -430,6 +432,29 @@
             this.panelContainer.Size = new System.Drawing.Size(1040, 606);
             this.panelContainer.TabIndex = 8;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.CheckedState.Parent = this.btnLogout;
+            this.btnLogout.CustomImages.Parent = this.btnLogout;
+            this.btnLogout.FillColor = System.Drawing.Color.White;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.Black;
+            this.btnLogout.HoverState.Parent = this.btnLogout;
+            this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLogout.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnLogout.Location = new System.Drawing.Point(5, 401);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(5);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ShadowDecoration.BorderRadius = 0;
+            this.btnLogout.ShadowDecoration.Depth = 15;
+            this.btnLogout.ShadowDecoration.Enabled = true;
+            this.btnLogout.ShadowDecoration.Parent = this.btnLogout;
+            this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 1, 3, 6);
+            this.btnLogout.Size = new System.Drawing.Size(183, 34);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,6 +466,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.guna2ShadowPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -468,7 +494,7 @@
         private Guna.UI2.WinForms.Guna2Button btnAdvancedTracking;
         private Guna.UI2.WinForms.Guna2Button btnCurrentDelivery;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
+        private Guna.UI2.WinForms.Guna2Button btnPartners;
         private Guna.UI2.WinForms.Guna2Button btnUserAccounts;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblName;
@@ -476,6 +502,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.FlowLayoutPanel flpNav;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnHome;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

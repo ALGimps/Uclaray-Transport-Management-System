@@ -16,14 +16,14 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
         DeliveryRecord record = new DeliveryRecord();
         Trip trips = new Trip();
         static Employee emp = new Employee();
-        BindingSource BindingSourceDriver = new BindingSource
-        {
-            DataSource = emp.getAllEmployees("WHERE emp_designation = 'Driver' AND active = 1")
-        };
-        BindingSource BindingSourceHelper = new BindingSource
-        {
-            DataSource = emp.getAllEmployees("WHERE emp_designation = 'Helper' AND active = 1")
-        };
+        BindingSource BindingSourceDriver = new BindingSource();
+        
+            //DataSource = emp.getAllEmployees("WHERE emp_designation = 'Driver' AND active = 1");
+        
+    BindingSource BindingSourceHelper = new BindingSource();
+        
+            //DataSource = emp.getAllEmployees("WHERE emp_designation = 'Helper' AND active = 1");
+        
 
 
         public frmAdvancedTrackingv2()
@@ -35,6 +35,8 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
         public async void LoadData()
         {
+            await Task.Run(() => BindingSourceDriver.DataSource = emp.getAllEmployees("WHERE emp_designation = 'Driver' AND active = 1"));
+            await Task.Run(() => BindingSourceHelper.DataSource = emp.getAllEmployees("WHERE emp_designation = 'Helper' AND active = 1"));
             var recordList = await Task.Run(() => FetchData());
             PopulateDataGrid(recordList, dgvAdvancedTracking);
             dgvAdvancedTracking.CellContentClick += dgvAdvancedTracking_CellContentClick;
@@ -119,7 +121,8 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
         }
         public async void LoadDeliveries(string tripID)
         {
-            var recordList = await Task.Run(() => record.GetRecordsOfTrip(tripID));
+            DeliveryRecord _dr = new DeliveryRecord();
+            var recordList = await Task.Run(() => _dr.GetRecordsOfTrip(tripID));
             PopulateDeliveryTable(recordList, dgvDeliveries);
         }
 
@@ -128,7 +131,7 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
             if (dgvAdvancedTracking.SelectedRows.Count > 0)
             {
                 string selectedTripID = dgvAdvancedTracking.SelectedCells[2].Value.ToString();
-               
+
                 LoadDeliveries(selectedTripID);
             }
 

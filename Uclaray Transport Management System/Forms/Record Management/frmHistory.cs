@@ -41,7 +41,8 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
         private List<DeliveryRecord> FetchData()
         {
-            var List = record.GetCompletedRecords(dtpStart.Value, dtpEnd.Value, status, txtSearch.Text);
+            DeliveryRecord _dr = new DeliveryRecord();
+            var List = _dr.GetCompletedRecords(dtpStart.Value, dtpEnd.Value, status, txtSearch.Text);
             return List;
         }
 
@@ -173,6 +174,16 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                     break;
             }
             LoadData();
+        }
+
+        private void dgvHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHistory.Columns[e.ColumnIndex].Index == dgvHistory.Columns.Count - 1)
+            {
+                int id = (int)dgvHistory.SelectedCells[0].Value;
+                frmDeliveryDetailsSuccessful frm = new frmDeliveryDetailsSuccessful(id);
+                frm.ShowDialog();
+            }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

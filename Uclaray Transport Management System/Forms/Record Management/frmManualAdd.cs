@@ -71,7 +71,7 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
             foreach (DataGridViewRow row in dgvDeliveries.Rows)
             {
                
-                records.AddRecord(date, txtTripAssignmentNo.Text, int.Parse(cbologistics.SelectedValue.ToString()), row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), (int)row.Cells[3].Value, 5);
+                records.AddRecord(date, txtTripAssignmentNo.Text, int.Parse(cbologistics.SelectedValue.ToString()), row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), (int)row.Cells[3].Value, User.UserId);
             }
             trips.AddTrip(txtTripAssignmentNo.Text, date, txtTruckType.Text, txtPlateNo.Text, (int)nudNumberOfTrips.Value, (int)nudNumberOfDrops.Value);
 

@@ -152,6 +152,14 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                 return;
             }
 
+            SaveData();
+
+
+
+        }
+
+        private async void SaveData()
+        {
             DataTable _dtTrips = new DataTable();
             DataTable _dtDeliveriess = new DataTable();
 
@@ -163,20 +171,24 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
 
             foreach (DataRow row in _dtTrips.Rows)
             {
+                Trip _trip = new Trip();
                 DateTime date = Convert.ToDateTime(row[1].ToString());
-                trip.AddTrip(row[0].ToString(), date.ToString("yyyy-MM-dd"), row[2].ToString(), row[3].ToString(), int.Parse(row[4].ToString()), int.Parse(row[5].ToString()));
+                await Task.Run(() => _trip.AddTrip(row[0].ToString(), date.ToString("yyyy-MM-dd"), row[2].ToString(), row[3].ToString(), int.Parse(row[4].ToString()), int.Parse(row[5].ToString())));
             }
 
             foreach (DataRow row in _dtDeliveriess.Rows)
             {
+                DeliveryRecord _record = new DeliveryRecord();
                 DateTime date = Convert.ToDateTime(row[0].ToString());
-                record.AddRecord(date.ToString("yyyy-MM-dd"), row[1].ToString(), int.Parse(cbologistics.SelectedValue.ToString()), row[2].ToString(), row[3].ToString(), row[4].ToString(), int.Parse(row[5].ToString()), 5);
+                int logisticsId = int.Parse(cbologistics.SelectedValue.ToString());
+                await Task.Run(() => _record.AddRecord(date.ToString("yyyy-MM-dd"), row[1].ToString(), logisticsId, row[2].ToString(), row[3].ToString(), row[4].ToString(), int.Parse(row[5].ToString()), User.UserId));
             }
 
             MessageBox.Show("Successfully Added");
             parentForm.LoadData();
 
         }
+
 
     }
 }

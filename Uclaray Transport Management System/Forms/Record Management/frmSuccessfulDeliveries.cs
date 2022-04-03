@@ -103,5 +103,15 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
                 LoadData();
             }
         }
+
+        private void dgvSuccessfulDeliveries_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSuccessfulDeliveries.Columns[e.ColumnIndex].Index == dgvSuccessfulDeliveries.Columns.Count - 1)
+            {
+                int id = (int)dgvSuccessfulDeliveries.SelectedCells[0].Value;
+                frmDeliveryDetailsSuccessful frm = new frmDeliveryDetailsSuccessful(id);
+                frm.ShowDialog();
+            }
+        }
     }
 }

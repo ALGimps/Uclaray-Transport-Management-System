@@ -82,6 +82,7 @@ namespace Uclaray_Transport_Management_System.Classes
         static string PASSWORD = "1234";
         static string PORT = "3306";
         static string DATABASE = "uclaray_product_tracking_management_system";
+
         public static string connstring = $"SERVER= {SERVER}; USER ID= {USERID}; PASSWORD= {PASSWORD}; PORT= {PORT}; DATABASE= {DATABASE};";
 
     }

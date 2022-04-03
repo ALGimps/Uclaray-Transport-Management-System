@@ -60,9 +60,7 @@
             this.lblDrops = new System.Windows.Forms.Label();
             this.lblPlateNo = new System.Windows.Forms.Label();
             this.lblTrips = new System.Windows.Forms.Label();
-            this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.lblAssign = new System.Windows.Forms.Label();
-            this.lblLastUpdate = new System.Windows.Forms.Label();
             this.cbstatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -460,23 +458,6 @@
             this.lblTrips.TabIndex = 153;
             this.lblTrips.Text = "Location:";
             // 
-            // btnHistory
-            // 
-            this.btnHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHistory.CheckedState.Parent = this.btnHistory;
-            this.btnHistory.CustomImages.Parent = this.btnHistory;
-            this.btnHistory.FillColor = System.Drawing.Color.Gainsboro;
-            this.btnHistory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistory.ForeColor = System.Drawing.Color.Black;
-            this.btnHistory.HoverState.Parent = this.btnHistory;
-            this.btnHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHistory.Location = new System.Drawing.Point(480, 12);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.ShadowDecoration.Parent = this.btnHistory;
-            this.btnHistory.Size = new System.Drawing.Size(110, 30);
-            this.btnHistory.TabIndex = 156;
-            this.btnHistory.Text = "History";
-            // 
             // lblAssign
             // 
             this.lblAssign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -484,26 +465,12 @@
             this.lblAssign.BackColor = System.Drawing.Color.White;
             this.lblAssign.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAssign.ForeColor = System.Drawing.Color.Gray;
-            this.lblAssign.Location = new System.Drawing.Point(14, 440);
+            this.lblAssign.Location = new System.Drawing.Point(14, 460);
             this.lblAssign.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.lblAssign.Name = "lblAssign";
             this.lblAssign.Size = new System.Drawing.Size(151, 13);
             this.lblAssign.TabIndex = 150;
             this.lblAssign.Text = "Assigned by: Juan Dela Cruz";
-            // 
-            // lblLastUpdate
-            // 
-            this.lblLastUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblLastUpdate.AutoSize = true;
-            this.lblLastUpdate.BackColor = System.Drawing.Color.White;
-            this.lblLastUpdate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastUpdate.ForeColor = System.Drawing.Color.Gray;
-            this.lblLastUpdate.Location = new System.Drawing.Point(14, 459);
-            this.lblLastUpdate.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.lblLastUpdate.Name = "lblLastUpdate";
-            this.lblLastUpdate.Size = new System.Drawing.Size(185, 13);
-            this.lblLastUpdate.TabIndex = 150;
-            this.lblLastUpdate.Text = "Last Updated: 2021-08-03  08:41:47";
             // 
             // cbstatus
             // 
@@ -565,7 +532,6 @@
             this.Controls.Add(this.cbstatus);
             this.Controls.Add(this.txtPONumber);
             this.Controls.Add(this.txtNote);
-            this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblTrips);
@@ -582,7 +548,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblLastUpdate);
             this.Controls.Add(this.lblAssign);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
@@ -647,9 +612,7 @@
         private System.Windows.Forms.Label lblDrops;
         private System.Windows.Forms.Label lblPlateNo;
         private System.Windows.Forms.Label lblTrips;
-        private Guna.UI2.WinForms.Guna2Button btnHistory;
         private System.Windows.Forms.Label lblAssign;
-        private System.Windows.Forms.Label lblLastUpdate;
         private Guna.UI2.WinForms.Guna2ComboBox cbstatus;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;

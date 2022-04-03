@@ -59,11 +59,11 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
         {
             if ((int)cbstatus.SelectedValue == 2)
             {
-                return;
+                Close();
             }
             if (txtPONumber.Text==string.Empty)
             {
-                MessageBox.Show("Please enter the PO number with stamp");
+                MessageBox.Show("Please enter the PO number");
                 txtPONumber.Focus();
                 return;
             }
@@ -72,7 +72,7 @@ namespace Uclaray_Transport_Management_System.Forms.Record_Management
             {
                 record.UpdateRecordStatus(ID,(int)cbstatus.SelectedValue,txtNote.Text);
                 record.UpdatePONumber(ID, txtPONumber.Text);
-                MessageBox.Show("Delivery record: " + ID.ToString());
+                MessageBox.Show("Delivery record: " + ID.ToString("d5") + " is marked as " + cbstatus.SelectedText);
                 parentForm.LoadData();
                 Close();
             }

@@ -25,9 +25,9 @@ namespace Uclaray_Transport_Management_System.Forms
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            txtUsername.Text = "admintest";
-            txtPassword.Text = "admintest";
-            btnLogin_Click(sender,e);
+            //txtUsername.Text = "admintest";
+            //txtPassword.Text = "admintest";
+            //btnLogin_Click(sender, e);
         }
 
         private void cboShowPass_CheckedChanged(object sender, EventArgs e)
@@ -35,7 +35,16 @@ namespace Uclaray_Transport_Management_System.Forms
                 txtPassword.PasswordChar = cboShowPass.Checked ? '\0' : '•';
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+
+        string userName;
+        string password;
+        int userId = 0;
+        string salt = "", hash = "";
+        bool userNameFound = false;
+        bool userMatch = false;
+
+
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
 
             if (txtUsername.Text.Trim() == "")
@@ -52,40 +61,42 @@ namespace Uclaray_Transport_Management_System.Forms
                 return;
             }
 
-            string userName = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
-            int userId=0;
-            string salt="",hash="";
-            bool userNameFound = false;
-            bool userMatch = false;
+            btnLogin.Enabled = false;
+            userName = txtUsername.Text.Trim();
+            password = txtPassword.Text.Trim();
 
-            connstring = DBUtils.connstring;
-            connection = new MySqlConnection(connstring);
-            using (connection)
-            {
-                connection.Open();
 
-                string query = "SELECT user_id, salt, hash FROM user_accounts WHERE username=?username";
+            //connstring = DBUtils.connstring;
+            //connection = new MySqlConnection(connstring);
+            //using (connection)
+            //{
+            //    connection.Open();
 
-                //Initialize command
-                MySqlCommand comm = new MySqlCommand(query, connection);
-                comm.Parameters.AddWithValue("?username", userName);
-                //Execute Data reader
-                MySqlDataReader dr = comm.ExecuteReader();
+            //    string query = "SELECT user_id, salt, hash FROM user_accounts WHERE username=?username";
 
-                if (dr.HasRows)
-                {
-                    userNameFound = true;
-                    while (dr.Read())
-                    {
+            //    //Initialize command
+            //    MySqlCommand comm = new MySqlCommand(query, connection);
+            //    comm.Parameters.AddWithValue("?username", userName);
+            //    //Execute Data reader
+            //    MySqlDataReader dr = comm.ExecuteReader();
 
-                        userId = (int)dr[0];
-                        salt = dr[1].ToString();
-                        hash = dr[2].ToString();
-                    }
-                }
+            //    if (dr.HasRows)
+            //    {
+            //        userNameFound = true;
+            //        while (dr.Read())
+            //        {
 
-            }
+            //            userId = (int)dr[0];
+            //            salt = dr[1].ToString();
+            //            hash = dr[2].ToString();
+            //        }
+            //    }
+
+            //}
+
+            await Task.Run(() => (userNameFound = VerifyLogin(userName,password)));
+
+            btnLogin.Enabled = true;
 
             if (userNameFound)
             {
@@ -130,5 +141,38 @@ namespace Uclaray_Transport_Management_System.Forms
         {
             txtPassword.BorderColor = Color.FromArgb(213, 218, 223);
         }
+
+        private bool VerifyLogin(string userName, string Password)
+        {
+            connstring = DBUtils.connstring;
+            connection = new MySqlConnection(connstring);
+            using (connection)
+            {
+                connection.Open();
+
+                string query = "SELECT user_id, salt, hash FROM user_accounts WHERE username=?username";
+
+                //Initialize command
+                MySqlCommand comm = new MySqlCommand(query, connection);
+                comm.Parameters.AddWithValue("?username", userName);
+                //Execute Data reader
+                MySqlDataReader dr = comm.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+
+                        userId = (int)dr[0];
+                        salt = dr[1].ToString();
+                        hash = dr[2].ToString();
+                    }
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
     }
 }

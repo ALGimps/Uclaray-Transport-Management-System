@@ -169,6 +169,7 @@
             this.dgvSuccessfulDeliveries.Size = new System.Drawing.Size(1000, 430);
             this.dgvSuccessfulDeliveries.StandardTab = true;
             this.dgvSuccessfulDeliveries.TabIndex = 109;
+            this.dgvSuccessfulDeliveries.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSuccessfulDeliveries_CellContentClick);
             this.dgvSuccessfulDeliveries.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSuccessfulDeliveries_CellFormatting);
             // 
             // panel1
@@ -409,11 +410,11 @@
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column6.HeaderText = "Action";
-            this.Column6.MinimumWidth = 95;
+            this.Column6.MinimumWidth = 80;
             this.Column6.Name = "Column6";
             this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column6.Width = 95;
+            this.Column6.Width = 80;
             // 
             // frmSuccessfulDeliveries
             // 

@@ -264,11 +264,11 @@
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column6.HeaderText = "Action";
-            this.Column6.MinimumWidth = 95;
+            this.Column6.MinimumWidth = 80;
             this.Column6.Name = "Column6";
             this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column6.Width = 95;
+            this.Column6.Width = 80;
             // 
             // frmCurrentDeliveries
             // 
